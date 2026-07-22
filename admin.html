@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>제품 이미지 관리 · 나이스엔지니어링</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--abyss:#04121F;--ink:#0A2540;--aqua:#12A8C4;--aqua-d:#0B7F97;--aqua-l:#7FD8E8;
+  --ice:#F2F8FB;--line:#D9E6EE;--muted:#68808F;--sand:#D9822B;--save:#B02E23}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard Variable',Pretendard,system-ui,sans-serif;background:var(--ice);
+  color:var(--ink);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select{font:inherit}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--aqua);outline-offset:2px}
+header{background:var(--abyss);color:#fff;padding:12px 20px;display:flex;gap:14px;
+  align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header b{font-size:16px;font-weight:800;letter-spacing:-.035em}
+header i{font-style:normal;font-size:10px;letter-spacing:.13em;color:var(--aqua-l)}
+.hact{margin-left:auto;display:flex;gap:8px;align-items:center}
+.btn{padding:9px 15px;border-radius:9px;font-weight:800;font-size:13px}
+.btn-p{background:var(--aqua);color:#04121F}
+.btn-g{background:rgba(255,255,255,.12);color:#fff}
+.btn-g:hover{background:rgba(255,255,255,.22)}
+.cnt{font-size:12px;color:#8FB6D6;font-weight:600}
+main{max-width:1200px;margin:0 auto;padding:18px 18px 80px}
+.guide{background:#fff;border:1px solid var(--line);border-left:4px solid var(--aqua);
+  border-radius:12px;padding:16px 18px;margin-bottom:16px}
+.guide h2{font-size:15px;font-weight:800;letter-spacing:-.03em;margin-bottom:7px}
+.guide ol{margin:0 0 0 18px;font-size:13px;color:#40566A;line-height:1.85}
+.guide code{background:var(--ice);padding:1px 6px;border-radius:5px;font-size:12px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.bar input,.bar select{padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:#fff}
+.bar input{flex:1;min-width:180px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;
+  font-size:12.5px;font-weight:700;color:#3C5568}
+.chip.on{background:var(--abyss);border-color:var(--abyss);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:12px}
+.cell{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  display:flex;flex-direction:column;transition:.13s}
+.cell.has{border-color:var(--aqua)}
+.cell.drag{border-color:var(--aqua);background:#EAF7FB}
+.drop{aspect-ratio:1/1;background:radial-gradient(120% 90% at 50% 8%,#fff,#E6F1F6);
+  position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px}
+.drop .ph{text-align:center;color:#9FB4C1;font-size:11.5px;font-weight:700;padding:10px}
+.drop .ph span{display:block;font-size:22px;margin-bottom:4px;opacity:.5}
+.promo{position:absolute;left:8px;top:8px;background:var(--sand);color:#fff;font-size:10px;
+  font-weight:800;padding:3px 7px;border-radius:6px;z-index:2}
+.meta{padding:10px 11px 11px;display:flex;flex-direction:column;gap:5px;flex:1}
+.meta .g{font-size:10px;font-weight:800;color:var(--aqua-d)}
+.meta .n{font-size:12.5px;font-weight:700;letter-spacing:-.02em;line-height:1.35;flex:1}
+.meta .c{font-size:10.5px;color:var(--muted);font-weight:600}
+.del{border:1px solid var(--line);border-radius:7px;padding:5px;font-size:11px;
+  font-weight:700;color:var(--save)}
+.del:hover{background:#FDEEEC}
+.foot{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);
+  box-shadow:0 -6px 24px rgba(4,18,31,.12);padding:12px 20px;display:flex;gap:14px;
+  align-items:center;flex-wrap:wrap;z-index:40}
+.foot .st{font-size:12.5px;font-weight:700;color:var(--muted)}
+.foot .st b{color:var(--ink);font-size:15px}
+.foot .r{margin-left:auto;display:flex;gap:8px}
+.btn-d{background:var(--abyss);color:#fff}
+.btn-o{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:var(--abyss);
+  color:#fff;padding:12px 20px;border-radius:11px;font-size:13.5px;font-weight:700;
+  z-index:90;opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1}
+@media(max-width:640px){main{padding:14px 12px 96px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div><b>제품 이미지 관리</b> <i>ADMIN</i></div>
+  <span class="cnt" id="hcnt"></span>
+  <div class="hact">
+    <a class="btn btn-g" href="index.html">사이트 보기</a>
+    <button class="btn btn-g" id="loadBtn">기존 images.js 불러오기</button>
+    <input type="file" id="loadFile" accept=".js" hidden>
+  </div>
+</header>
+
+<main>
+  <div class="guide">
+    <h2>사용 방법</h2>
+    <ol>
+      <li>아래 칸을 눌러 사진을 고르거나, 사진을 끌어다 놓으세요. 자동으로 크기가 줄어 저장됩니다.</li>
+      <li>다 넣었으면 하단의 <b>images.js 내려받기</b>를 누르세요.</li>
+      <li>내려받은 <code>images.js</code>를 GitHub 저장소에 <b>덮어쓰기</b>하면 사이트에 반영됩니다.</li>
+      <li>다음에 이어서 작업할 땐 우측 상단 <b>기존 images.js 불러오기</b>로 지금까지 넣은 사진을 되살릴 수 있습니다.</li>
+    </ol>
+  </div>
+
+  <div class="bar">
+    <input id="q" placeholder="제품명 · 모델 · 코드 검색">
+    <select id="grp"><option value="">전체 카테고리</option></select>
+    <button class="chip" id="fPromo">행사 제품만</button>
+    <button class="chip" id="fEmpty">사진 없는 것만</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="foot">
+  <div class="st">등록된 사진 <b id="fcnt">0</b> / <span id="tcnt">0</span>장</div>
+  <div class="st" id="fsize">예상 용량 0 KB</div>
+  <div class="r">
+    <button class="btn btn-o" id="clearBtn">전체 지우기</button>
+    <button class="btn btn-d" id="dlBtn">images.js 내려받기</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="images.js"></script>
+<script>
+const DATA = window.RENTAL_DATA;
+let IMG = Object.assign({}, window.PRODUCT_IMAGES || {});
+const el = id => document.getElementById(id);
+let F = {q:'', grp:'', promo:false, empty:false};
+
+/* 행사(H규정) 제품 코드 */
+const PROMO = new Set();
+{
+  const byProd = {};
+  DATA.t.forEach(r => (byProd[r[0]] = byProd[r[0]] || []).push(DATA.r[r[1]]));
+  Object.keys(byProd).forEach(pi => {
+    if (byProd[pi].some(x => /^H/.test(x))) PROMO.add(DATA.p[pi][0]);
+  });
+}
+
+el('grp').innerHTML = '<option value="">전체 카테고리</option>' +
+  DATA.g.map(g => `<option value="${g}">${g}</option>`).join('');
+
+function list(){
+  return DATA.p.filter(p=>{
+    if(F.grp && DATA.g[p[3]]!==F.grp) return false;
+    if(F.promo && !PROMO.has(p[0])) return false;
+    if(F.empty && IMG[p[0]]) return false;
+    if(F.q){
+      const q=F.q.toLowerCase();
+      if(!(p[2]+' '+p[1]+' '+p[0]).toLowerCase().includes(q)) return false;
+    }
+    return true;
+  }).sort((a,b)=>(PROMO.has(b[0])?1:0)-(PROMO.has(a[0])?1:0) || a[3]-b[3] || a[2].localeCompare(b[2],'ko'));
+}
+
+function render(){
+  const items = list();
+  el('hcnt').textContent = `제품 ${DATA.p.length}종 · 행사 ${PROMO.size}종`;
+  el('grid').innerHTML = items.map(p=>`
+    <div class="cell ${IMG[p[0]]?'has':''}" data-code="${p[0]}">
+      <div class="drop">
+        ${PROMO.has(p[0])?'<span class="promo">행사</span>':''}
+        ${IMG[p[0]] ? `<img src="${IMG[p[0]]}" alt="">`
+          : '<div class="ph"><span>＋</span>사진 넣기</div>'}
+      </div>
+      <div class="meta">
+        <div class="g">${DATA.g[p[3]]}</div>
+        <div class="n">${p[2]}</div>
+        <div class="c num">${p[0]}</div>
+        ${IMG[p[0]]?'<button class="del">사진 삭제</button>':''}
+      </div>
+    </div>`).join('') || '<p style="grid-column:1/-1;padding:40px;text-align:center;color:var(--muted)">조건에 맞는 제품이 없습니다.</p>';
+
+  el('grid').querySelectorAll('.cell').forEach(c=>{
+    const code=c.dataset.code, drop=c.querySelector('.drop');
+    drop.onclick=()=>pickFile(code);
+    drop.ondragover=e=>{e.preventDefault();c.classList.add('drag');};
+    drop.ondragleave=()=>c.classList.remove('drag');
+    drop.ondrop=e=>{e.preventDefault();c.classList.remove('drag');
+      const f=e.dataTransfer.files[0]; if(f) shrink(f,code);};
+    const d=c.querySelector('.del');
+    if(d) d.onclick=e=>{e.stopPropagation(); delete IMG[code]; render(); toast('사진을 지웠습니다');};
+  });
+  stats();
+}
+
+function pickFile(code){
+  const i=document.createElement('input'); i.type='file'; i.accept='image/*';
+  i.onchange=()=>{ if(i.files[0]) shrink(i.files[0],code); };
+  i.click();
+}
+
+/* 이미지 축소 — 가로세로 최대 520px, JPEG 82% */
+function shrink(file,code){
+  if(!file.type.startsWith('image/')) return toast('이미지 파일만 넣을 수 있습니다');
+  const fr=new FileReader();
+  fr.onload=()=>{
+    const im=new Image();
+    im.onload=()=>{
+      const M=520, sc=Math.min(1,M/Math.max(im.width,im.height));
+      const w=Math.round(im.width*sc), h=Math.round(im.height*sc);
+      const cv=document.createElement('canvas'); cv.width=w; cv.height=h;
+      const cx=cv.getContext('2d');
+      cx.fillStyle='#fff'; cx.fillRect(0,0,w,h);
+      cx.drawImage(im,0,0,w,h);
+      IMG[code]=cv.toDataURL('image/jpeg',0.82);
+      render(); toast('사진을 넣었습니다');
+    };
+    im.onerror=()=>toast('이미지를 읽지 못했습니다');
+    im.src=fr.result;
+  };
+  fr.readAsDataURL(file);
+}
+
+function stats(){
+  const n=Object.keys(IMG).length;
+  el('fcnt').textContent=n;
+  el('tcnt').textContent=DATA.p.length;
+  const bytes=Object.values(IMG).reduce((a,v)=>a+v.length*0.75,0);
+  el('fsize').textContent='예상 용량 '+(bytes>1048576?(bytes/1048576).toFixed(1)+' MB':Math.round(bytes/1024)+' KB');
+}
+
+let tt;
+function toast(m){ const t=el('toast'); t.textContent=m; t.classList.add('on');
+  clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),1600); }
+
+el('q').oninput=e=>{F.q=e.target.value;render();};
+el('grp').onchange=e=>{F.grp=e.target.value;render();};
+el('fPromo').onclick=()=>{F.promo=!F.promo;el('fPromo').classList.toggle('on',F.promo);render();};
+el('fEmpty').onclick=()=>{F.empty=!F.empty;el('fEmpty').classList.toggle('on',F.empty);render();};
+el('clearBtn').onclick=()=>{ if(confirm('등록한 사진을 모두 지웁니다. 계속할까요?')){IMG={};render();} };
+
+el('dlBtn').onclick=()=>{
+  const js='/* 제품 이미지 — admin.html 에서 생성됩니다. */\n'
+    +'window.PRODUCT_IMAGES = '+JSON.stringify(IMG)+';\n';
+  const b=new Blob([js],{type:'application/javascript'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b); a.download='images.js'; a.click();
+  URL.revokeObjectURL(a.href);
+  toast('내려받았습니다 — GitHub에 덮어쓰기 하세요');
+};
+el('loadBtn').onclick=()=>el('loadFile').click();
+el('loadFile').onchange=e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const fr=new FileReader();
+  fr.onload=()=>{
+    try{
+      const m=fr.result.match(/window\.PRODUCT_IMAGES\s*=\s*(\{[\s\S]*\})\s*;/);
+      if(!m) throw new Error('형식이 다릅니다');
+      IMG=Object.assign(IMG,JSON.parse(m[1]));
+      render(); toast('불러왔습니다');
+    }catch(err){ alert('불러오지 못했습니다: '+err.message); }
+  };
+  fr.readAsText(f); e.target.value='';
+};
+
+render();
+</script>
+</body>
+</html>
