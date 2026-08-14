@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+
+# 다음 검색로봇
+User-agent: Daum
+Allow: /
+
+# 관리자 페이지는 색인 제외
+Disallow: /chungho-rental/admin.html
+
+Sitemap: https://pg5chb7mn6-blip.github.io/chungho-rental/sitemap.xml
