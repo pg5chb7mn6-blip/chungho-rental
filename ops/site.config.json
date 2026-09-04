@@ -1,0 +1,24 @@
+{
+  "_안내": "이 파일의 값만 채우고 `python3 tools/apply_config.py` 를 실행하면 사이트 전체의 {{...}} 플레이스홀더가 한 번에 치환됩니다. 값을 비워두면 해당 플레이스홀더는 그대로 남고, 스크립트가 무엇이 남았는지 알려줍니다.",
+
+  "origin": "https://pg5chb7mn6-blip.github.io/chungho-rental",
+  "상호": "나이스엔지니어링",
+
+  "대표자명": "",
+  "사업자등록번호": "",
+  "통신판매업신고번호": "",
+  "사업장 주소": "",
+  "대표전화": "",
+  "사내 이메일": "",
+
+  "네이버_서치어드바이저_인증코드": "",
+  "구글_서치콘솔_인증코드": "",
+
+  "_추적": "GA4 측정 ID(G-XXXXXXXXXX)와 네이버 애널리틱스 ID를 넣으면 tools/apply_config.py 가 모든 페이지 <head>에 추적 스크립트를 삽입합니다. 비워두면 아무것도 삽입하지 않습니다.",
+  "ga4_measurement_id": "",
+  "naver_analytics_id": "",
+
+  "kakao_channel": "https://open.kakao.com/o/suMB3nEh",
+  "naver_blog_url": "",
+  "naver_place_url": ""
+}
