@@ -6,12 +6,17 @@
 
 ## 지금 당장 해야 할 것
 
+**네이버 서치어드바이저는 호스트 단위로만 사이트를 등록받습니다.** 지금 주소는 `/chungho-rental/`
+하위 경로라 등록 자체가 막힙니다(`URL을 호스트 단위로 입력해주세요`).
+→ `ops/체크리스트-초기세팅.md` **0번(주소 이전)** 이 모든 것의 선행 조건입니다.
+
 ```bash
 python3 tools/apply_config.py --check
 ```
 
 `{{네이버_서치어드바이저_인증코드}}` 같은 항목이 남아 있으면, **글을 아무리 써도 검색에 안 잡힙니다.**
 → `ops/체크리스트-초기세팅.md` 를 먼저 끝내십시오. 여기가 하루 2~4명의 가장 큰 원인입니다.
+구글 서치콘솔은 지금 주소 그대로 등록되니 **오늘 바로** 하십시오.
 
 원인 분석 전체는 `ops/진단-유입부진-원인.md` 에 있습니다.
 
@@ -73,6 +78,7 @@ python3 tools/apply_config.py --check
 | `python3 tools/apply_config.py --check` | 파일은 안 건드리고 남은 항목만 확인 |
 | `python3 tools/build_blog.py` | `ops/posts/*.md` → `blog/` 정적 HTML + sitemap + rss + 메인 최신글 |
 | `python3 tools/similarity_check.py A.md B.md` | 두 원고의 문장 겹침 검사 (25% 초과면 다시 쓰기) |
+| `python3 tools/set_origin.py https://새주소` | 사이트 주소 통째 이전 (링크·robots·CNAME·설정 일괄). `--dry-run` 지원 |
 
 ---
 

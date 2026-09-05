@@ -30,6 +30,7 @@ tools/                  빌드·검수 스크립트
 - `blog/`, `sitemap.xml`, `rss.xml` 은 **생성물**입니다. 직접 수정하지 말고 `ops/posts/*.md` 를 고친 뒤 `python3 tools/build_blog.py` 를 실행합니다.
 - 사업자 정보·인증코드는 `ops/site.config.json` 한 곳에서만 관리하고 `python3 tools/apply_config.py` 로 반영합니다. HTML의 `{{...}}` 를 손으로 고치지 마십시오.
 - 페이지를 새로 만들면 `tools/build_blog.py` 의 `STATIC_URLS` 와 `FNAV` 에 추가합니다.
+- 사이트 주소를 바꿀 때는 손으로 치환하지 말고 `python3 tools/set_origin.py https://새주소` 를 씁니다. 네이버 서치어드바이저는 **호스트 단위로만** 사이트를 등록받으므로, 하위 경로(`/chungho-rental/`)에 있는 한 네이버 등록이 되지 않습니다.
 - 원고에 **확정 렌탈료·위약금 액수·필터 교체 주기를 단정해 쓰지 않습니다.** "제품과 조건에 따라 다릅니다"로 처리합니다.
 - 본사 공식몰이 아니라 **공식 판매점(대리점)** 입니다. 오인될 표현을 쓰지 않습니다.
 
