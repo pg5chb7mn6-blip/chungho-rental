@@ -12,4 +12,4 @@ Allow: /
 # 관리자 페이지는 색인 제외
 Disallow: /admin.html
 
-Sitemap: https://niceeng-rental.co.kr/sitemap.xml
+Sitemap: https://www.niceeng-rental.co.kr/sitemap.xml

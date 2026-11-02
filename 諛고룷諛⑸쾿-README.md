@@ -100,7 +100,7 @@ Bing 웹마스터도구(https://www.bing.com/webmasters)도 같은 방식으로 
 `pg5chb7mn6-blip.github.io` 는 무작위 문자열이 섞인 공유 도메인이라, 검색엔진과 이용자 모두에게 "개인 테스트 페이지"로 보이기 쉽습니다. 상담·계약을 유도하는 상업 사이트라면 자체 도메인이 신뢰도 면에서 유리합니다.
 
 1. 도메인 구입 (가비아·후이즈 등, `.co.kr` 기준 연 2만원 안팎)
-   - **주의:** `청호나이스`만 단독으로 쓴 도메인(예: `chunghonais.co.kr`)은 본사 공식몰로 오인시킬 소지가 있어 상표·부정경쟁방지 측면에서 위험합니다. `niceeng-rental.co.kr` 처럼 **본인 상호를 포함한 도메인**을 권합니다.
+   - **주의:** `청호나이스`만 단독으로 쓴 도메인(예: `chunghonais.co.kr`)은 본사 공식몰로 오인시킬 소지가 있어 상표·부정경쟁방지 측면에서 위험합니다. `www.niceeng-rental.co.kr` 처럼 **본인 상호를 포함한 도메인**을 권합니다.
 2. DNS에 CNAME 또는 A 레코드 설정 → GitHub 저장소 Settings → Pages → Custom domain 입력 → Enforce HTTPS 체크
 3. 도메인을 붙였다면 `build.py`의 `PREFIX = "/chungho-rental"` 을 `PREFIX = ""`, `ORIGIN`을 새 도메인으로 바꿔 다시 생성하거나, 파일 전체에서 기존 주소를 새 주소로 일괄 치환하세요.
 4. 도메인 변경 후에는 서치어드바이저·서치콘솔에 **새 주소로 다시 등록**해야 합니다.
