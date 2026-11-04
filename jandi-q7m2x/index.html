@@ -9,20 +9,18 @@ body{margin:0;font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-sy
 .top .in{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px}
 .logo{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-weight:800;font-size:18px;border:1px solid rgba(255,255,255,.25)}
 .top h1{margin:0;font-size:19px;letter-spacing:-.3px}.top p{margin:2px 0 0;font-size:12px;opacity:.75}
-.layout{max-width:620px;margin:-46px auto 120px;padding:0 14px}
-main{min-width:0}
-.fee{position:fixed;left:0;right:0;bottom:0;top:7vh;z-index:30;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -12px 40px rgba(20,33,61,.3);transform:translateY(105%);transition:transform .28s ease;display:flex;flex-direction:column;visibility:hidden}
+main{max-width:620px;margin:-46px auto 120px;padding:0 14px}
+.dim{position:fixed;inset:0;background:rgba(20,33,61,.45);z-index:25;opacity:0;pointer-events:none;transition:.25s}.dim.on{opacity:1;pointer-events:auto}
+.fee{position:fixed;left:0;right:0;margin:0 auto;max-width:760px;bottom:0;top:6vh;z-index:30;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -12px 40px rgba(20,33,61,.3);transform:translateY(105%);transition:transform .28s ease;display:flex;flex-direction:column;visibility:hidden}
 .fee.open{transform:none;visibility:visible}
 .fee .fh{display:flex;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid var(--line);font-weight:800;font-size:15px}
 .fee .fh small{font-weight:500;color:var(--mute);font-size:12px}
-.fee .fh button{margin-left:auto;border:0;background:#e8ecf4;color:#46506a;border-radius:10px;padding:8px 14px;font:inherit;font-weight:700;font-size:13px;cursor:pointer}
+.fee .fh .fpay{margin-left:auto;background:var(--c);color:#fff;text-decoration:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700}.fee .fh button{margin-left:8px;border:0;background:#e8ecf4;color:#46506a;border-radius:10px;padding:8px 14px;font:inherit;font-weight:700;font-size:13px;cursor:pointer}
+.fee .fh{white-space:nowrap}.fee .fh .fpay,.fee .fh button{white-space:nowrap}@media(max-width:560px){.fee .fh small{display:none}}
 .fee iframe{flex:1;width:100%;border:0;background:#fff;border-radius:0 0 0 0}
-#feeBtn{background:#fff;color:var(--v);border:1.5px solid #c9d7f7!important;padding:15px 16px}
-@media(min-width:1180px){
- .layout{max-width:1140px;display:grid;grid-template-columns:620px minmax(0,1fr);gap:22px;align-items:start}
- .fee{position:sticky;top:14px;left:auto;right:auto;bottom:auto;z-index:1;transform:none;visibility:visible;border-radius:16px;border:1px solid var(--line);box-shadow:0 2px 10px rgba(20,33,61,.06);height:calc(100vh - 130px);min-height:480px;overflow:hidden}
- .fee .fh button{display:none}.fee iframe{border-radius:0}
- #feeBtn{display:none}
+.fbrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}@media(max-width:560px){.fbrow{grid-template-columns:1fr}}
+.feebtn{text-decoration:none;width:100%;display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:16px;border:1.5px solid #c9d7f7;background:#fff;color:var(--ink);font:inherit;cursor:pointer;text-align:left;box-shadow:0 2px 10px rgba(20,33,61,.06);transition:.15s}.feebtn:hover{border-color:var(--v);background:#f4f8ff}.feebtn.pay{border-color:#ffd9b8}.feebtn.pay:hover{border-color:var(--c);background:#fff7ef}.feebtn.pay i{background:var(--cbg);color:var(--c)}.feebtn.pay em{color:var(--c)}.feebtn i{font-style:normal;width:38px;height:38px;border-radius:12px;background:#e9f0ff;color:var(--v);display:grid;place-items:center;font-size:18px;font-weight:800;flex:none}.feebtn b{display:block;font-size:15px}.feebtn small{display:block;color:var(--mute);font-size:12px;margin-top:2px}.feebtn em{margin-left:auto;font-style:normal;color:var(--v);font-weight:800;font-size:18px}
+
 }
 .tabs{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.96);border-radius:14px;padding:5px;box-shadow:0 8px 24px rgba(20,33,61,.15);gap:5px}
 .tabs button{border:0;border-radius:10px;padding:13px 8px;font:inherit;font-weight:700;font-size:14px;color:var(--mute);background:transparent;cursor:pointer;transition:.18s}
@@ -102,7 +100,7 @@ body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
 #msg.show span{opacity:1}#msg.err span{background:var(--red)}
 </style></head><body class="v">
 <div class="top"><div class="in"><div class="logo">J</div><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div></div></div>
-<div class="layout"><main>
+<main>
 <div class="tabs"><button class="v on" id="tv">유베이스<small>접수 · 문의 등록</small></button><button class="c" id="tc">센터 · 본사<small>답변 작성</small></button></div>
 
 <div id="V">
@@ -126,6 +124,8 @@ body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
   <div class="sec"><i>3</i>내용·증상<small>자유 입력</small></div>
   <textarea id="memo" placeholder="증상, 요청 내용을 자유롭게 적어 주세요"></textarea>
  </div>
+ <div class="fbrow"><button type="button" class="feebtn" id="feeBtn"><i>₩</i><span><b>유상서비스 요금 조회</b><small>이 화면에서 바로 확인</small></span><em>›</em></button>
+ <a class="feebtn pay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer"><i>✓</i><span><b>유상서비스 결제</b><small>이노페이 로그인 · 새 탭</small></span><em>↗</em></a></div>
 </div>
 
 <div id="C" class="hide">
@@ -154,8 +154,9 @@ body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
 
 <div class="card" style="background:transparent;box-shadow:none;border:0;padding:0;margin-top:18px"><div class="sec" style="color:var(--mute);font-size:13px">잔디에 붙여넣을 내용 미리보기</div><div class="pv" id="pv"></div></div>
 </main>
-<aside class="fee" id="fee"><div class="fh">유상서비스 요금 조회<small>접수 작성 중에도 바로 확인</small><button id="feeClose">닫기</button></div><iframe id="feeFrame" title="유상서비스 요금 조회" loading="lazy"></iframe></aside></div>
-<div class="bar"><div class="in"><div id="msg"><span></span></div><button id="feeBtn">요금조회</button><button id="copy">복사하기</button><button id="reset">초기화</button></div></div>
+<div class="dim" id="dim"></div>
+<aside class="fee" id="fee"><div class="fh">유상서비스 요금 조회<small>작성 내용은 그대로 유지됩니다</small><a class="fpay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer">결제하기 ↗</a><button id="feeClose">닫기</button></div><iframe id="feeFrame" title="유상서비스 요금 조회" loading="lazy"></iframe></aside>
+<div class="bar"><div class="in"><div id="msg"><span></span></div><button id="copy">복사하기</button><button id="reset">초기화</button></div></div>
 <script>
 const $=id=>document.getElementById(id),Q=s=>[...document.querySelectorAll(s)];
 const CENTERS=['서부센터','동부센터','영남센터','호남센터','본사'];
@@ -202,10 +203,9 @@ $('copy').onclick=async()=>{const miss=[];
  const txt=build();try{await navigator.clipboard.writeText(txt)}catch(e){const a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
  say('복사되었습니다. 잔디에 Ctrl+V 로 붙여넣으세요')};
 const FEE_SRC='../yusang-x4k9p/?embed=1';let feeLoaded=false;
-function loadFee(){if(!feeLoaded){$('feeFrame').src=FEE_SRC;feeLoaded=true}}
-const wide=matchMedia('(min-width:1180px)');if(wide.matches)loadFee();wide.addEventListener&&wide.addEventListener('change',e=>{if(e.matches)loadFee()});
-$('feeBtn').onclick=()=>{loadFee();$('fee').classList.add('open')};
-$('feeClose').onclick=()=>$('fee').classList.remove('open');
+function feeOpen(o){if(o&&!feeLoaded){$('feeFrame').src=FEE_SRC;feeLoaded=true}$('fee').classList.toggle('open',o);$('dim').classList.toggle('on',o)}
+$('feeBtn').onclick=()=>feeOpen(true);$('feeClose').onclick=()=>feeOpen(false);$('dim').onclick=()=>feeOpen(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')feeOpen(false)});
 $('reset').onclick=()=>{const w=$('who').value;Q('input[type=text],textarea').forEach(x=>x.value='');$('who').value=w;Q('input:checked').forEach(x=>x.checked=false);$('no').disabled=false;$('cno').disabled=false;$('reslab').textContent='처리 결과·안내 내용 (자유 입력)';pv();window.scrollTo({top:0,behavior:'smooth'})};
 try{setMode(localStorage.getItem('mode')==='c'?'c':'v')}catch(e){setMode('v')}
 </script></body></html>
