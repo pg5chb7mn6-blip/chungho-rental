@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>잔디 접수·답변 양식</title>
+<style>
+:root{--navy:#14213d;--ink:#1c2740;--mute:#6b7690;--line:#e3e8f1;--bg:#eef2f8;--card:#fff;--v:#2f6feb;--c:#e8731a;--cbg:#fff0e3;--h:#4b4fb8;--hbg:#ecedff;--red:#e0354b;--redbg:#ffe9ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.top{background:linear-gradient(135deg,#14213d 0%,#24386b 100%);color:#fff;padding:22px 20px 70px}
+.top .in{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-weight:800;font-size:18px;border:1px solid rgba(255,255,255,.25)}
+.top h1{margin:0;font-size:19px;letter-spacing:-.3px}.top p{margin:2px 0 0;font-size:12px;opacity:.75}
+main{max-width:620px;margin:-46px auto 120px;padding:0 14px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.96);border-radius:14px;padding:5px;box-shadow:0 8px 24px rgba(20,33,61,.15);gap:5px}
+.tabs button{border:0;border-radius:10px;padding:13px 8px;font:inherit;font-weight:700;font-size:14px;color:var(--mute);background:transparent;cursor:pointer;transition:.18s}
+.tabs button small{display:block;font-weight:500;font-size:11px;opacity:.8;margin-top:2px}
+.tabs button.on.v{background:var(--v);color:#fff;box-shadow:0 4px 12px rgba(47,111,235,.35)}
+.tabs button.on.c{background:var(--c);color:#fff;box-shadow:0 4px 12px rgba(232,115,26,.35)}
+.card{background:var(--card);border-radius:16px;padding:18px 18px 20px;margin-top:14px;box-shadow:0 2px 10px rgba(20,33,61,.06);border:1px solid var(--line)}
+.sec{display:flex;align-items:center;gap:9px;margin:0 0 13px;font-size:15px;font-weight:800;letter-spacing:-.2px}
+.sec i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;display:grid;place-items:center}
+.sec small{font-weight:500;color:var(--mute);font-size:12px;margin-left:auto}
+label.t{display:block;font-size:12px;font-weight:700;color:var(--mute);margin:12px 0 5px}
+label.t:first-of-type{margin-top:0}
+input[type=text],textarea{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:10px;font:inherit;font-size:14.5px;background:#fafbfd;color:var(--ink);transition:.15s}
+input[type=text]:focus,textarea:focus{outline:0;border-color:var(--v);background:#fff;box-shadow:0 0 0 3px rgba(47,111,235,.14)}
+body.c input[type=text]:focus,body.c textarea:focus{border-color:var(--c);box-shadow:0 0 0 3px rgba(232,115,26,.16)}
+textarea{min-height:104px;resize:vertical;line-height:1.5}.sm{min-height:70px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{display:flex;gap:10px;align-items:flex-end}.row>.f{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-size:13.5px;font-weight:600;cursor:pointer;user-select:none;transition:.15s;color:#46506a}
+.chip span::before{content:'';width:15px;height:15px;border-radius:5px;border:1.5px solid #c3cbdb;background:#fff;transition:.15s;flex:none}
+.chip.r span::before{border-radius:50%}
+.chip span:hover{border-color:#b5c0d6}
+.chip input:checked+span{color:#fff;border-color:transparent}
+.chip input:checked+span::before{background:#fff;border-color:#fff;box-shadow:inset 0 0 0 3.5px currentColor}
+.chip input:focus-visible+span{outline:2px solid var(--v);outline-offset:2px}
+.center .chip input:checked+span{background:var(--c);color:#fff;box-shadow:0 3px 8px rgba(232,115,26,.3)}
+.center .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--c)}
+.hq .chip input:checked+span{background:var(--h);box-shadow:0 3px 8px rgba(75,79,184,.3)}
+.hq .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--h)}
+.area .chip input:checked+span{background:var(--v);box-shadow:0 3px 8px rgba(47,111,235,.3)}
+.area .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--v)}
+.act .chip input:checked+span{background:var(--c);box-shadow:0 3px 8px rgba(232,115,26,.3)}
+.act .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--c)}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.panels,.grid2{grid-template-columns:1fr}}
+.panel{border-radius:14px;padding:13px;border:1.5px solid}
+.panel.hq{background:var(--hbg);border-color:#d6d8ff}.panel.center{background:var(--cbg);border-color:#ffd9b8}
+.panel h3{margin:0 0 3px;font-size:14px;display:flex;align-items:center;gap:7px}
+.panel.hq h3{color:var(--h)}.panel.center h3{color:#b85a0f}
+.panel h3 b{margin-left:auto;font-size:11px;background:#fff;border-radius:20px;padding:2px 9px;min-width:26px;text-align:center}
+.panel p{margin:0 0 10px;font-size:11.5px;color:var(--mute)}
+.panel .chips{flex-direction:column;gap:7px}.panel .chip span{display:flex;width:100%}
+.sw{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;user-select:none;font-weight:700;font-size:14px;transition:.15s}
+.sw input{display:none}
+.sw .k{width:38px;height:22px;border-radius:12px;background:#cfd6e4;position:relative;transition:.2s;flex:none}
+.sw .k::after{content:'';position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.sw input:checked~.k{background:var(--red)}.sw input:checked~.k::after{left:19px}
+.sw.urg:has(input:checked){background:var(--redbg);border-color:#ffb8c1;color:var(--red)}
+.sw.xf input:checked~.k{background:var(--h)}.sw.xf:has(input:checked){background:var(--hbg);border-color:#cfd1ff;color:var(--h)}
+.sw small{display:block;font-weight:500;font-size:11.5px;color:var(--mute);margin-top:1px}
+.stage{display:grid;gap:9px}
+.stage .chip span{display:flex;align-items:flex-start;width:100%;padding:12px 14px}
+.stage .chip span::before{margin-top:2px}
+.stage .chip em{display:block;font-style:normal;font-weight:500;font-size:12px;opacity:.78;margin-top:2px}
+.stage .chip input:checked+span{background:var(--c)}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.quick button{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:5px 11px;font:inherit;font-size:12px;font-weight:600;color:var(--mute);cursor:pointer}
+.quick button:hover{border-color:var(--c);color:#b85a0f}
+.quick button.end{background:var(--c);border-color:var(--c);color:#fff}
+.nn{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:var(--mute);cursor:pointer;user-select:none}.nn input{width:16px;height:16px;accent-color:var(--v);margin:0}
+input:disabled{background:#eef1f6;color:#9aa3b8}
+.hide{display:none!important}
+.pv{background:#14213d;color:#e9eefb;border-radius:14px;padding:15px 16px;font:13px/1.65 'Consolas','Malgun Gothic',monospace;white-space:pre-wrap;min-height:70px}
+.pv .u{color:#ff8b9b;font-weight:700}
+.bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 14px calc(12px + env(safe-area-inset-bottom));z-index:10}
+.bar .in{max-width:620px;margin:0 auto;display:flex;gap:10px;align-items:center;position:relative}
+.bar button{border:0;border-radius:12px;padding:15px;font:inherit;font-weight:800;font-size:15px;cursor:pointer}
+#copy{flex:1;background:var(--v);color:#fff;box-shadow:0 6px 16px rgba(47,111,235,.32);transition:.15s}
+body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
+#copy:active{transform:scale(.99)}
+#reset{background:#e8ecf4;color:#46506a;padding:15px 20px}
+#msg{position:absolute;left:0;right:0;top:-38px;text-align:center;pointer-events:none}
+#msg span{display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:20px;opacity:0;transition:.2s;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+#msg.show span{opacity:1}#msg.err span{background:var(--red)}
+</style></head><body class="v">
+<div class="top"><div class="in"><div class="logo">J</div><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div></div></div>
+<main>
+<div class="tabs"><button class="v on" id="tv">유베이스<small>접수 · 문의 등록</small></button><button class="c" id="tc">센터 · 본사<small>답변 작성</small></button></div>
+
+<div id="V">
+ <div class="card">
+  <div class="sec"><i>1</i>접수 정보<small>필수</small></div>
+  <div class="row"><div class="f"><label class="t">접수번호</label><input type="text" id="no" placeholder="접수번호 (직배수 설치건은 업체명 입력)" autocomplete="off"><label class="nn"><input type="checkbox" id="nno"> 접수번호 없음</label></div>
+   <label class="sw urg"><input type="checkbox" id="urg"><span class="k"></span>긴급</label></div>
+  <div class="grid2"><div><label class="t">고객명</label><input type="text" id="name" placeholder="예: 김*수" autocomplete="off"></div>
+  <div><label class="t">연락처</label><input type="text" id="tel" placeholder="010-0000-0000" inputmode="tel" autocomplete="off"></div></div>
+  <label class="t">관할 센터 <span style="font-weight:500">(접수내역의 수리 센터)</span></label>
+  <div class="chips area" id="scope"></div>
+ </div>
+ <div class="card">
+  <div class="sec"><i>2</i>인입유형<small>해당 칸에서 눌러 주세요</small></div>
+  <div class="panels">
+   <div class="panel hq"><h3>본사에 문의 <b id="nh">0</b></h3><p>이력·부품·승인이 필요한 건</p><div class="chips hq" id="tH"></div></div>
+   <div class="panel center"><h3>센터에 문의 <b id="nc">0</b></h3><p>현장 일정·엔지니어 연락 건</p><div class="chips center" id="tC"></div></div>
+  </div>
+ </div>
+ <div class="card">
+  <div class="sec"><i>3</i>내용·증상<small>자유 입력</small></div>
+  <textarea id="memo" placeholder="증상, 요청 내용을 자유롭게 적어 주세요"></textarea>
+ </div>
+</div>
+
+<div id="C" class="hide">
+ <div class="card">
+  <div class="sec"><i>1</i>답변할 접수건<small>필수</small></div>
+  <label class="t">접수번호</label><input type="text" id="cno" placeholder="답변할 접수번호 (업체명도 가능)" autocomplete="off"><label class="nn"><input type="checkbox" id="cnn"> 접수번호 없음</label>
+  <label class="sw xf" style="margin-top:12px"><input type="checkbox" id="xfer"><span class="k"></span><span>본사로 이관<small>센터에서 처리 불가한 건 (센터 답변 시 선택)</small></span></label>
+ </div>
+ <div class="card">
+  <div class="sec"><i>2</i>답변 단계<small>하나 선택</small></div>
+  <div class="stage" id="stage"></div>
+ </div>
+ <div class="card">
+  <div class="sec"><i>3</i>조치 내용<small>해당 항목 모두</small></div>
+  <div class="chips act" id="acts"></div>
+ </div>
+ <div class="card">
+  <div class="sec"><i>4</i>답변 내용</div>
+  <label class="t" id="reslab">처리 결과·안내 내용 (자유 입력)</label><textarea id="res" placeholder="확인한 내용, 처리 결과, 고객에게 안내한 내용"></textarea>
+  <label class="t">다음 안내 시점</label><input type="text" id="next" placeholder="예: 10/31 오전, 부품 입고 후 즉시" autocomplete="off">
+  <div class="quick" id="quick"></div>
+  <label class="t">유베이스 요청사항 <span style="font-weight:500">(선택)</span></label><textarea id="ask" class="sm" placeholder="필요한 추가 정보나 확인 요청이 있으면 적어 주세요"></textarea>
+  <label class="t">담당자</label><input type="text" id="who" placeholder="이름 (한 번 입력하면 기억합니다)" autocomplete="off">
+ </div>
+</div>
+
+<div class="card" style="background:transparent;box-shadow:none;border:0;padding:0;margin-top:18px"><div class="sec" style="color:var(--mute);font-size:13px">잔디에 붙여넣을 내용 미리보기</div><div class="pv" id="pv"></div></div>
+</main>
+<div class="bar"><div class="in"><div id="msg"><span></span></div><button id="copy">복사하기</button><button id="reset">초기화</button></div></div>
+<script>
+const $=id=>document.getElementById(id),Q=s=>[...document.querySelectorAll(s)];
+const CENTERS=['서부센터','동부센터','영남센터','호남센터','본사'];
+const HQ=['진행상황 문의','수리내역 확인','환불·교환·반품','부품 지연','접수 취소','직배수(부품·모델 확인)','기타'];
+const CT=['진행상황 문의','수거·배송·방문','재증상/추가증상','직배수(방문·설치)','기타'];
+const STAGES=[['처리중','유베이스 인입내용 확인, 엔지니어에게 내용 전달'],['처리완료','엔지니어 또는 센터에서 고객안내 완료'],['추가확인필요','피드백 필요한 부분으로 추후 재안내 예정']];
+const ACTS=['수리내역 안내','부품 지연시트 업로드','부품 입고 예정 안내','방문·수거 일정 확정','고객 연락 완료','환불·교환 접수','기술 확인 중','접수 취소 처리'];
+const QUICK=['센터안내 종결','오늘 중','내일 오전','내일 오후','확인 후 즉시','부품 입고 후'];
+const chip=(type,name,val,cls)=>`<label class="chip ${cls||''}"><input type="${type}" name="${name}" value="${val}"><span>${val}</span></label>`;
+$('scope').innerHTML=CENTERS.map(v=>chip('radio','scope',v,'r')).join('');
+$('tH').innerHTML=HQ.map(v=>chip('checkbox','tH',v)).join('');
+$('tC').innerHTML=CT.map(v=>chip('checkbox','tC',v)).join('');
+$('stage').innerHTML=STAGES.map(t=>`<label class="chip r"><input type="radio" name="stage" value="${t[0]}"><span><div><b>${t[0]}</b><em>${t[1]}</em></div></span></label>`).join('');
+$('acts').innerHTML=ACTS.map(v=>chip('checkbox','acts',v)).join('');
+$('quick').innerHTML=QUICK.map((t,i)=>`<button type="button" class="${i?'':'end'}">${t}</button>`).join('');
+$('quick').onclick=e=>{if(e.target.tagName==='BUTTON'){$('next').value=e.target.textContent;pv()}};
+try{$('who').value=localStorage.getItem('who')||''}catch(e){}
+$('who').addEventListener('change',()=>{try{localStorage.setItem('who',$('who').value)}catch(e){}});
+let mode='v';
+function setMode(m){mode=m;document.body.className=m;$('V').classList.toggle('hide',m!='v');$('C').classList.toggle('hide',m!='c');$('tv').classList.toggle('on',m=='v');$('tc').classList.toggle('on',m=='c');pv();try{localStorage.setItem('mode',m)}catch(e){}}
+$('tv').onclick=()=>setMode('v');$('tc').onclick=()=>setMode('c');
+const tk=(v,n)=>n?'접수번호 없음':v.trim();
+const val=n=>(document.querySelector(`input[name=${n}]:checked`)||{}).value||'';
+const vals=n=>Q(`input[name=${n}]:checked`).map(x=>x.value);
+function types(){const h=vals('tH'),c=vals('tC'),p=[];if(h.length)p.push('[본사] '+h.join(', '));if(c.length)p.push('[센터] '+c.join(', '));return p.join(' / ')}
+function buildV(){const no=tk($('no').value,$('nno').checked);return `${$('urg').checked?'[긴급] ':''}${no}\n관할센터 : ${val('scope')}\n고객명 : ${$('name').value.trim()}\n연락처 : ${$('tel').value.trim()}\n인입유형 : ${types()}\n내용·증상 : ${$('memo').value.trim()}`}
+function buildC(){const no=tk($('cno').value,$('cnn').checked);let t=`${no} [${val('stage')}]${$('xfer').checked?' [센터→본사 이관]':''}\n조치 : ${vals('acts').join(', ')}\n결과 : ${$('res').value.trim()}\n다음 안내 : ${$('next').value.trim()}`;if($('ask').value.trim())t+=`\n요청사항 : ${$('ask').value.trim()}`;return t+`\n담당 : ${$('who').value.trim()}`}
+const build=()=>mode=='v'?buildV():buildC();
+function pv(){$('nh').textContent=vals('tH').length;$('nc').textContent=vals('tC').length;const t=build();$('pv').innerHTML=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\[(긴급|센터→본사 이관)\]/g,'<span class="u">[$1]</span>')}
+function say(t,e){const m=$('msg');m.firstElementChild.textContent=t;m.className='show'+(e?' err':'');clearTimeout(say.t);say.t=setTimeout(()=>m.className='',2800)}
+function fmtTel(v){let d=v.replace(/\D/g,'').slice(0,12);
+ if(/^1[5-9]\d\d/.test(d))return d.length>4?d.slice(0,4)+'-'+d.slice(4,8):d;
+ if(d.startsWith('02')){d=d.slice(0,10);return d.length>6?d.slice(0,2)+'-'+d.slice(2,d.length-4)+'-'+d.slice(-4):d.length>2?d.slice(0,2)+'-'+d.slice(2):d}
+ if(d.startsWith('050')&&d.length>3){d=d.slice(0,12);const h=d.slice(0,4);const r=d.slice(4);return r.length>4?h+'-'+r.slice(0,r.length-4)+'-'+r.slice(-4):r?h+'-'+r:h}
+ d=d.slice(0,11);return d.length>7?d.slice(0,3)+'-'+d.slice(3,d.length-4)+'-'+d.slice(-4):d.length>3?d.slice(0,3)+'-'+d.slice(3):d}
+$('tel').addEventListener('input',e=>{e.target.value=fmtTel(e.target.value)});
+[['nno','no'],['cnn','cno']].forEach(([c,i])=>$(c).addEventListener('change',()=>{$(i).disabled=$(c).checked;if($(c).checked)$(i).value='';pv()}));
+document.addEventListener('input',pv);document.addEventListener('change',pv);
+$('xfer').addEventListener('change',()=>{$('reslab').textContent=$('xfer').checked?'이관 사유와 확인한 내용 (자유 입력)':'처리 결과·안내 내용 (자유 입력)'});
+$('copy').onclick=async()=>{const miss=[];
+ if(mode=='v'){if(!$('no').value.trim()&&!$('nno').checked)miss.push('접수번호');if(!$('name').value.trim())miss.push('고객명');if(!$('tel').value.trim())miss.push('연락처');if(!val('scope'))miss.push('관할 센터');if(!vals('tH').length&&!vals('tC').length)miss.push('인입유형');if(!$('memo').value.trim())miss.push('내용·증상')}
+ else{if(!$('cno').value.trim()&&!$('cnn').checked)miss.push('접수번호');if(!val('stage'))miss.push('답변 단계');if(!vals('acts').length)miss.push('조치 내용');if(!$('res').value.trim())miss.push('처리 결과');if(!$('next').value.trim())miss.push('다음 안내 시점');if(!$('who').value.trim())miss.push('담당자')}
+ if(miss.length)return say('입력 필요: '+miss.join(', '),1);
+ const txt=build();try{await navigator.clipboard.writeText(txt)}catch(e){const a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ say('복사되었습니다. 잔디에 Ctrl+V 로 붙여넣으세요')};
+$('reset').onclick=()=>{const w=$('who').value;Q('input[type=text],textarea').forEach(x=>x.value='');$('who').value=w;Q('input:checked').forEach(x=>x.checked=false);$('no').disabled=false;$('cno').disabled=false;$('reslab').textContent='처리 결과·안내 내용 (자유 입력)';pv();window.scrollTo({top:0,behavior:'smooth'})};
+try{setMode(localStorage.getItem('mode')==='c'?'c':'v')}catch(e){setMode('v')}
+</script></body></html>
