@@ -84,7 +84,7 @@ textarea{min-height:104px;resize:vertical;line-height:1.5}.sm{min-height:70px}
 .nn{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;font-weight:700;color:var(--mute);cursor:pointer;user-select:none}.nn input{width:16px;height:16px;accent-color:var(--v);margin:0}
 input:disabled{background:#eef1f6;color:#9aa3b8}
 .hide{display:none!important}
-.pv{background:#14213d;color:#e9eefb;border-radius:14px;padding:15px 16px;font:13px/1.65 'Consolas','Malgun Gothic',monospace;white-space:pre-wrap;min-height:70px}
+.pv{background:#14213d;color:#e9eefb;border-radius:14px;padding:15px 16px;font:13px/1.65 'Consolas','Malgun Gothic',monospace;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;min-height:70px}
 .pv .u{color:#ff8b9b;font-weight:700}
 .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 14px calc(12px + env(safe-area-inset-bottom));z-index:10}
 .bar .in{max-width:620px;margin:0 auto;display:flex;gap:10px;align-items:center;position:relative}
@@ -176,12 +176,19 @@ $('who').addEventListener('change',()=>{try{localStorage.setItem('who',$('who').
 let mode='v';
 function setMode(m){mode=m;document.body.className=m;$('V').classList.toggle('hide',m!='v');$('C').classList.toggle('hide',m!='c');$('tv').classList.toggle('on',m=='v');$('tc').classList.toggle('on',m=='c');pv();try{localStorage.setItem('mode',m)}catch(e){}}
 $('tv').onclick=()=>setMode('v');$('tc').onclick=()=>setMode('c');
+const tidy=v=>{let t=String(v||'').replace(/\r/g,'').replace(/\t/g,' ').replace(/[​﻿]/g,'');
+ t=t.replace(/\s*(?<![0-9])([1-9]\d?)[.)]\s+(?=\S)/g,(m,n,o)=>(o===0?'':'\n')+n+'. ');
+ t=t.replace(/\s*[①②③④⑤⑥⑦⑧⑨⑩]\s*/g,m=>'\n'+('①②③④⑤⑥⑦⑧⑨⑩'.indexOf(m.trim())+1)+'. ');
+ let L=t.split('\n').map(x=>x.replace(/ {2,}/g,' ').replace(/ +([,.!?])/g,'$1').replace(/,(?=\S)(?!\d)/g,', ').trim()).filter(x=>x&&!/^[.\-~·,]+$/.test(x));
+ return L};
+const blk=(lab,v)=>{const L=tidy(v);if(L.length<=1)return lab+' : '+(L[0]||'');return '\n'+lab+' :\n'+L.join('\n')+'\n'};
+const clean=s=>s.replace(/\n{3,}/g,'\n\n').replace(/^\n+|\n+$/g,'').replace(/\n\n(?=담당|다음 안내|요청사항|접수번호|관할|고객|연락|인입|내용|결과|조치)/g,'\n\n');
 const tk=(v,n)=>n?'없음':v.trim();
 const val=n=>(document.querySelector(`input[name=${n}]:checked`)||{}).value||'';
 const vals=n=>Q(`input[name=${n}]:checked`).map(x=>x.value);
 function types(){const h=vals('tH'),c=vals('tC'),p=[];if(h.length)p.push('[본사] '+h.join(', '));if(c.length)p.push('[센터] '+c.join(', '));return p.join(' / ')}
-function buildV(){const no=tk($('no').value,$('nno').checked);return `${$('urg').checked?'[긴급] ':''}접수번호 : ${no}\n관할센터 : ${val('scope')}\n고객명 : ${$('name').value.trim()}\n연락처 : ${$('tel').value.trim()}\n인입유형 : ${types()}\n내용·증상 : ${$('memo').value.trim()}`}
-function buildC(){const no=tk($('cno').value,$('cnn').checked);let t=`접수번호 : ${no} [${val('stage')}]${$('xfer').checked?' [센터→본사 이관]':''}\n조치 : ${vals('acts').join(', ')}\n결과 : ${$('res').value.trim()}\n다음 안내 : ${$('next').value.trim()}`;if($('ask').value.trim())t+=`\n요청사항 : ${$('ask').value.trim()}`;return t+`\n담당 : ${$('who').value.trim()}`}
+function buildV(){const no=tk($('no').value,$('nno').checked);return `${$('urg').checked?'[긴급] ':''}접수번호 : ${no}\n관할센터 : ${val('scope')}\n고객명 : ${$('name').value.trim()}\n연락처 : ${$('tel').value.trim()}\n인입유형 : ${types()}\n${blk('내용·증상',$('memo').value)}`.replace(/\n{3,}/g,'\n\n').trim()}
+function buildC(){const no=tk($('cno').value,$('cnn').checked);let t=`접수번호 : ${no} [${val('stage')}]${$('xfer').checked?' [센터→본사 이관]':''}\n조치 : ${vals('acts').join(', ')}\n${blk('결과',$('res').value)}\n${blk('다음 안내',$('next').value)}`;if($('ask').value.trim())t+=`\n${blk('요청사항',$('ask').value)}`;return (t+`\n담당 : ${$('who').value.trim()}`).replace(/\n{3,}/g,'\n\n').replace(/\n\n(?=담당)/,'\n')}
 const build=()=>mode=='v'?buildV():buildC();
 function pv(){$('nh').textContent=vals('tH').length;$('nc').textContent=vals('tC').length;const t=build();$('pv').innerHTML=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\[(긴급|센터→본사 이관)\]/g,'<span class="u">[$1]</span>')}
 function say(t,e){const m=$('msg');m.firstElementChild.textContent=t;m.className='show'+(e?' err':'');clearTimeout(say.t);say.t=setTimeout(()=>m.className='',2800)}
