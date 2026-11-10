@@ -88,6 +88,16 @@ a{color:inherit;text-decoration:none}
 footer{max-width:1080px;margin:70px auto 0;padding:30px 22px 50px;border-top:1px solid #D2D2D7;font-size:12px;color:var(--ink-2);line-height:1.8}
 @media(max-width:860px){.gnav ul{display:none}.tiles{grid-template-columns:1fr}.tile,.tile.wide{min-height:560px}.cta .st{flex-direction:column;gap:18px}.cta .st div{border-left:0;padding:0}.hero{padding-top:56px}.links{gap:22px;font-size:17px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+
+/* 실제 제품 사진: 있으면 일러스트를 대체, 없으면 일러스트 유지 */
+.art img,.th img{width:100%;height:100%;object-fit:contain;display:block}
+.art.has-img svg,.th.has-img svg{display:none}
+.art.has-img img,.th.has-img img{display:block}
+.art.has-img img{filter:drop-shadow(0 28px 30px rgba(20,30,50,.18))}
+.tile:not(.dark) .art.has-img img.flat,.th.has-img img.flat{mix-blend-mode:multiply;filter:none}
+.tile.dark.has-photo-bg{background:#F5F5F7;color:var(--ink)}
+.tile.dark.has-photo-bg .links a{color:var(--accent)}
+.tile .art.has-img{transform:translateY(0) scale(1)}
 </style>
 </head>
 <body>
@@ -257,27 +267,27 @@ footer{max-width:1080px;margin:70px auto 0;padding:30px 22px 50px;border-top:1px
   <article class="tile wide rv" id="water">
     <div class="k">정수기</div><h2>물 한 잔에도<br>얼음이 따라옵니다.</h2><p class="sub">아이스트리, OMNi, NEW 700. 얼음정수기부터 직수형까지.</p>
     <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a><a href="../../jeongsugi-rental/">자세히 알아보기</a></div>
-    <div class="art"><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div>
+    <div class="art" data-code="Z10562"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div>
   </article>
   <article class="tile dark rv" id="air">
     <div class="k">공기청정기</div><h2>보이지 않는 곳까지<br>맑게.</h2><p class="sub">항균, 환기, 가습. 공간에 맞는 모델.</p>
     <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a><a href="../../gonggi-cheongjeonggi/">자세히 알아보기</a></div>
-    <div class="art"><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div>
+    <div class="art" data-code="Z24252"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div>
   </article>
   <article class="tile warm rv" id="sleep">
     <div class="k">매트리스</div><h2>잠자리도<br>관리받는 시대.</h2><p class="sub">프레임, 파운데이션, 온열 홈케어 라인업.</p>
     <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a><a href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener nofollow">상담 문의</a></div>
-    <div class="art"><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div>
+    <div class="art" data-code="M20001"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div>
   </article>
   <article class="tile rv" id="bidet">
     <div class="k">비데</div><h2>가장 작은 공간의<br>가장 큰 차이.</h2><p class="sub">살균, 트윈노즐, 리모컨 모델.</p>
     <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a><a href="../../bidet/">자세히 알아보기</a></div>
-    <div class="art"><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div>
+    <div class="art" data-code="Z21069"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div>
   </article>
   <article class="tile cool rv" id="office">
     <div class="k">사무실 · 매장</div><h2>인원이 많을수록<br>선택이 중요합니다.</h2><p class="sub">인원과 업종에 맞춘 정수기 구성.</p>
     <div class="links"><a href="../../office/">자세히 알아보기</a><a href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener nofollow">상담 문의</a></div>
-    <div class="art"><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div>
+    <div class="art" data-code="Z10568"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div>
   </article>
 </main>
 
@@ -291,18 +301,36 @@ footer{max-width:1080px;margin:70px auto 0;padding:30px 22px 50px;border-top:1px
 <section class="lineup" id="lineup">
   <h3>대표 라인업. <span>제품군별 인기 모델을 한눈에.</span></h3>
   <div class="rail">
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div><small>얼음냉온정수기</small><b>슈퍼 아이스트리</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div><small>얼음냉정수기</small><b>OMNi Plus</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div><small>항균 공기청정기</small><b>A600S</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div><small>공기청정기</small><b>휘바람 숨소리3</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div><small>매트리스</small><b>로얄스위트 프라임</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div><small>온열 매트리스</small><b>듀얼 드림 온열</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div><small>살균 비데</small><b>B600 PLUS</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a></div>
-    <div class="card"><div class="th"><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div><small>쾌변 비데</small><b>B350</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z10562"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div><small>얼음냉온정수기</small><b>슈퍼 아이스트리</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z10568"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div><small>얼음냉정수기</small><b>OMNi Plus</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z24252"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div><small>항균 공기청정기</small><b>A600S</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z24266"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div><small>공기청정기</small><b>휘바람 숨소리3</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="M20001"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div><small>매트리스</small><b>로얄스위트 프라임</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="M47001"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div><small>온열 매트리스</small><b>듀얼 드림 온열</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z21069"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div><small>살균 비데</small><b>B600 PLUS</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z21038"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div><small>쾌변 비데</small><b>B350</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a></div>
   </div>
 </section>
 
 <footer>본 사이트는 청호나이스 공식 판매점(대리점) 나이스엔지니어링이 운영하는 상담·견적 안내 사이트이며, 청호나이스 본사가 직접 운영하는 공식몰은 아닙니다. 월 렌탈료는 부가세 포함 금액이며 제품·조건·프로모션 시기에 따라 달라질 수 있습니다. 렌탈 계약에는 의무사용기간이 있으며, 중도해지 시 계약서에 정한 기준에 따라 위약금이 발생할 수 있습니다.<br>시안 미리보기 · 제품 이미지는 임시 일러스트이며 실제 제품 사진으로 교체됩니다.</footer>
+<script src="../../images.js"></script>
+<script>
+/* 제품 이미지 로더 — 우선순위: images.js(관리자 도구로 넣은 사진) → assets/products/<코드>.webp|png|jpg → 일러스트 */
+const BASE='../../', PI=window.PRODUCT_IMAGES||{};
+function candidates(code){return [PI[code],`${BASE}assets/products/${code}.webp`,`${BASE}assets/products/${code}.png`,`${BASE}assets/products/${code}.jpg`].filter(Boolean)}
+function tryLoad(list,ok){ if(!list.length) return; const im=new Image(); im.onload=()=>ok(im,list[0]); im.onerror=()=>tryLoad(list.slice(1),ok); im.src=list[0]; }
+/* 배경이 투명하지 않은(흰 배경) 사진인지 모서리 픽셀로 판별 */
+function opaqueCorners(im){ try{ const c=document.createElement('canvas'); c.width=c.height=8; const x=c.getContext('2d'); x.drawImage(im,0,0,8,8); const d=x.getImageData(0,0,8,8).data; return d[3]>250&&d[(7*8+7)*4+3]>250; }catch(e){ return true; } }
+document.querySelectorAll('[data-code]').forEach(box=>{
+  tryLoad(candidates(box.dataset.code),(im,src)=>{
+    const img=box.querySelector('img'); img.src=src; img.hidden=false;
+    const opaque=opaqueCorners(im);
+    if(opaque) img.classList.add('flat');                 /* 흰 배경 → 밝은 바탕에서 multiply 로 녹임 */
+    box.classList.add('has-img');
+    const tile=box.closest('.tile.dark'); if(tile&&opaque) tile.classList.add('has-photo-bg'); /* 어두운 타일에 흰 배경 사진이면 밝은 타일로 전환 */
+  });
+});
+</script>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
