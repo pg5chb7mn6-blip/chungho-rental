@@ -316,16 +316,16 @@ CSS += SKIN
 
 FOOTER_TMPL = """<footer><div class="wrap">
   <div class="fnav">{fnav}</div>
-  <b>청호나이스 공식 판매점</b>
+  <b>청호나이스 판매점(대리점)</b>
   <div class="biz">
-    상호 나이스엔지니어링 &middot; 대표자 {{{{대표자명}}}} &middot; 사업자등록번호 {{{{사업자등록번호}}}}<br>
-    통신판매업신고번호 {{{{통신판매업신고번호}}}} &middot; 주소 {{{{사업장 주소}}}}<br>
+    상호 {{{{상호}}}} &middot; 대표자 {{{{대표자명}}}} &middot; 사업자등록번호 {{{{사업자등록번호}}}} &middot; 통신판매업 신고번호 {{{{통신판매업신고번호}}}}<br>
+    주소 {{{{사업장 주소}}}}<br>
     전화 {{{{대표전화}}}} &middot; 이메일 {{{{사내 이메일}}}} &middot;
     <a href="{kakao}" target="_blank" rel="noopener nofollow">카카오톡 오픈채팅 상담</a><br>
-    개인정보 보호책임자 {{{{대표자명}}}} ({{{{사내 이메일}}}})
+    개인정보 보호책임자 {{{{개인정보보호책임자}}}} ({{{{사내 이메일}}}})<br>호스팅 서비스 제공 : GitHub, Inc.
   </div>
-  <div class="disc">본 사이트는 청호나이스 공식 판매점(대리점)이 운영하는 상담·견적 안내 사이트이며, 청호나이스 본사가 직접 운영하는 공식몰은 아닙니다. 게재된 월 렌탈료는 부가세 포함 금액이며 제품·조건·프로모션 시기에 따라 달라질 수 있습니다. 렌탈 계약에는 의무사용기간이 있으며, 의무사용기간 내 중도해지 시 계약서에 정한 기준에 따라 위약금이 발생할 수 있습니다. 본 페이지는 계약서가 아니며 최종 금액과 조건은 상담 시 확정됩니다.<br>
-    Copyright &copy; 나이스엔지니어링. All rights reserved.</div>
+  <div class="disc">본 사이트는 청호나이스 판매점(대리점)이 운영하는 상담·견적 안내 사이트이며, 청호나이스 본사가 직접 운영하는 공식몰은 아닙니다. 게재된 월 렌탈료는 부가세 포함 금액이며 제품·조건·프로모션 시기에 따라 달라질 수 있습니다. 렌탈 계약에는 의무사용기간이 있으며, 의무사용기간 내 중도해지 시 계약서에 정한 기준에 따라 위약금이 발생할 수 있습니다. 본 페이지는 계약서가 아니며 최종 금액과 조건은 상담 시 확정됩니다.<br>
+    Copyright &copy; {{{{상호}}}}. All rights reserved.</div>
 </div></footer>"""
 
 FNAV = [
@@ -377,7 +377,7 @@ def head(origin, title, desc, url, keywords, extra_meta="", ld=""):
 <body>
 <div class="topbar"><div class="wrap">
   <a class="logo" href="{origin}/"><span class="mark"></span>
-    <b>청호나이스 렌탈</b><span>청호나이스 공식 판매점</span></a>
+    <b>청호나이스 렌탈</b><span>청호나이스 판매점(대리점)</span></a>
   <a class="tcta" href="{origin}/#quote">1분 견적 확인</a>
 </div></div>
 """
@@ -423,8 +423,8 @@ def build_post(post, origin, kakao, prev_post, next_post, all_posts):
          "mainEntityOfPage": url, "image": f"{origin}/og.png",
          "articleSection": CATEGORIES[post["category"]],
          "keywords": kw_str,
-         "author": {"@type": "Organization", "name": "청호나이스 공식 판매점"},
-         "publisher": {"@type": "Organization", "name": "청호나이스 공식 판매점",
+         "author": {"@type": "Organization", "name": "청호나이스 판매점(대리점)"},
+         "publisher": {"@type": "Organization", "name": "청호나이스 판매점(대리점)",
                        "url": f"{origin}/"}},
     ]
     if faqs:
@@ -463,7 +463,7 @@ def build_post(post, origin, kakao, prev_post, next_post, all_posts):
 <nav class="crumb"><a href="{origin}/">홈</a> › <a href="{origin}/blog/">블로그</a> › <span>{ihtml.escape(CATEGORIES[post['category']])}</span></nav>
 <span class="cat">{ihtml.escape(CATEGORIES[post['category']])}</span>
 <h1>{ihtml.escape(post['title'])}</h1>
-<div class="dateline"><time datetime="{post['date']}">{post['date']}</time>{updated_note} · 청호나이스 공식 판매점</div>
+<div class="dateline"><time datetime="{post['date']}">{post['date']}</time>{updated_note} · 청호나이스 판매점(대리점)</div>
 {'<p class="lead">' + inline(post['lead']) + '</p>' if post.get('lead') else ''}
 {body_html}
 {rel_html}
@@ -488,7 +488,7 @@ def build_index(posts, origin, kakao):
         "@graph": [
             {"@type": "Blog", "@id": url + "#blog", "url": url,
              "name": "청호나이스 렌탈 안내 블로그", "description": desc, "inLanguage": "ko-KR",
-             "publisher": {"@type": "Organization", "name": "청호나이스 공식 판매점", "url": f"{origin}/"}},
+             "publisher": {"@type": "Organization", "name": "청호나이스 판매점(대리점)", "url": f"{origin}/"}},
             {"@type": "ItemList", "itemListElement": [
                 {"@type": "ListItem", "position": i + 1, "name": p["title"],
                  "url": f"{origin}/blog/{p['slug']}/"} for i, p in enumerate(posts[:50])]},

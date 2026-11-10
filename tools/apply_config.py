@@ -12,7 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG = os.path.join(ROOT, "ops", "site.config.json")
 
 PLACEHOLDER_KEYS = [
-    "대표자명", "사업자등록번호", "통신판매업신고번호", "사업장 주소",
+    "상호", "개인정보보호책임자", "대표자명", "사업자등록번호", "통신판매업신고번호", "사업장 주소",
     "대표전화", "사내 이메일",
     "네이버_서치어드바이저_인증코드", "구글_서치콘솔_인증코드",
 ]

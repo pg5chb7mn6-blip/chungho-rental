@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>잔디방 인입·응대 현황</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0} *{box-sizing:border-box}
+.art{width:1280px;height:1700px;background:#F3F6FB;color:#0F1E3C;font-family:'IBM Plex Sans KR',sans-serif;font-size:14px;line-height:1.45;display:flex;flex-direction:column;overflow:hidden;font-variant-numeric:tabular-nums}
+.mono{font-family:'IBM Plex Mono',monospace}
+.hd{background:#0F1E3C;color:#fff;height:128px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex:none}
+.hd .ch{display:flex;align-items:center;gap:14px}
+.hd .hash{width:44px;height:44px;border-radius:12px;background:#1F4FA8;display:flex;align-items:center;justify-content:center}
+.hd h1{margin:0;font-size:26px;font-weight:700;letter-spacing:-.4px;line-height:1.2}
+.hd .sub{margin:4px 0 0;font-size:13.5px;color:#CFDCF3}
+.asof{background:#1F4FA8;border-radius:16px 16px 4px 16px;padding:12px 18px 12px;max-width:560px}
+.asof .lab{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#CFDCF3}
+.asof .dot{width:9px;height:9px;border-radius:50%;background:#fff}
+.asof .big{margin-top:2px;font-size:25px;font-weight:600;color:#fff;letter-spacing:-.3px;white-space:nowrap}
+.asof .big b{font-family:'IBM Plex Sans KR',sans-serif;font-size:15px;font-weight:600;color:#CFDCF3;margin-right:10px;letter-spacing:0}
+.asof .nt{margin-top:4px;font-size:12.5px;color:#E3ECFA}
+.main{padding:20px 32px 0;display:flex;flex-direction:column;gap:16px;flex:1;min-height:0}
+.sech{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;margin:0}
+.sech small{font-size:12.5px;font-weight:500;color:#4A5A78;margin-left:4px}
+.day{display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:600;color:#4A5A78;margin-bottom:10px}
+.day:before,.day:after{content:"";flex:1;height:1px;background:#CBD7EA}
+.day span{background:#E4ECF8;border-radius:999px;padding:3px 12px;color:#0F1E3C}
+.kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kc{background:#fff;border-radius:4px 16px 16px 16px;padding:12px 16px 12px;border:1px solid #DCE5F2;position:relative;height:104px}
+.kc .l{font-size:13px;font-weight:600;color:#4A5A78;display:flex;justify-content:space-between;align-items:center}
+.kc .v{font-size:32px;font-weight:700;letter-spacing:-.8px;line-height:1.1;margin-top:2px;color:#0F1E3C}
+.kc .v.warn{color:#B4380F}
+.kc .p{font-size:12.5px;color:#4A5A78;margin-top:2px}
+.kc .p.warn{color:#B4380F;font-weight:600}
+.chip{font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.chip.good{background:#CFDCF3;color:#0F1E3C}
+.chip.warn{background:#FBE3DA;color:#8A2A09}
+.chip.neu{background:#fff;border:1px solid #B3C6E6;color:#0F1E3C}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pn{background:#fff;border:1px solid #DCE5F2;border-radius:16px;padding:18px 20px}
+.pn .sech{margin-bottom:8px}
+svg{display:block;overflow:visible}
+svg text{font-family:'IBM Plex Sans KR',sans-serif;fill:#0F1E3C}
+.t12{font-size:12.5px;fill:#4A5A78}
+.t13b{font-size:13.5px;font-weight:700}
+.mid{text-anchor:middle}
+.catr{display:grid;grid-template-columns:150px 1fr 140px;gap:10px;align-items:center;height:39px;border-top:1px solid #E8EEF8}
+.catr:first-of-type{border-top:0}
+.catr .nm{font-size:13.5px;font-weight:600}
+.bars{display:flex;flex-direction:column;gap:4px}
+.bar{display:flex;align-items:center;gap:6px;height:8px}
+.bar i{display:block;height:8px;border-radius:0 4px 4px 0;min-width:3px}
+.o{background:#7FA3E0}.n{background:#1F4FA8}
+.catr .ct{white-space:nowrap;font-size:12.5px;color:#4A5A78;line-height:1.3;text-align:right}
+.catr .ct b{color:#0F1E3C;font-weight:600}
+.lg{display:flex;gap:18px;font-size:12.5px;color:#4A5A78;align-items:center}
+.lg span{display:flex;align-items:center;gap:6px}
+.lg i{display:inline-block;width:22px;height:0;border-top:3px solid #1F4FA8}
+.ctab{padding:0}
+.crow{display:grid;grid-template-columns:150px 204px repeat(6,1fr);gap:8px;align-items:center;padding:0 20px;height:56px;border-top:1px solid #E8EEF8}
+.crow.h{height:34px;border-top:0;background:#F3F6FB;font-size:12.5px;font-weight:600;color:#4A5A78;border-radius:16px 16px 0 0}
+.crow.tot{background:#F3F6FB}
+.who{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600}
+.av{width:32px;height:32px;border-radius:50%;background:#CFDCF3;color:#0F1E3C;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.av.in{background:#1F4FA8;color:#fff}.av.ink{background:#0F1E3C;color:#fff}
+.who small{display:block;font-size:12px;font-weight:400;color:#4A5A78;line-height:1.2}
+.m b{display:block;font-size:15px;font-weight:700;line-height:1.25}
+.m b.warn{color:#B4380F}
+.m span{display:block;font-size:12px;color:#4A5A78;line-height:1.3}
+.m span.warn{color:#B4380F;font-weight:600}
+.cb{display:flex;flex-direction:column;gap:4px}
+.cb .bar b{font-size:12.5px;font-weight:600}
+.foot{flex:none;padding:14px 32px 22px;background:#E9EFF9;border-top:1px solid #CBD7EA;font-size:12.5px;color:#2C3E63;line-height:1.55;display:flex;gap:24px}
+.foot h3{margin:0 0 4px;font-size:13px;font-weight:700;color:#0F1E3C}
+.foot ul{margin:0;padding-left:16px}
+.foot .c1{flex:1.5}.foot .c2{flex:1}
+
+/* 리뉴얼 스킨 — 메인 화면과 같은 토큰·상단바·타이포 */
+:root{--ink:#1D1D1F;--ink2:#424245;--sub:#6E6E73;--blue:#0A63E8;--blue-d:#0752C4;--blue-lt:#E8F1FD;--blue-tint:#F3F8FE;--ivory:#F5F5F7;--line:#E3E3E8;--line2:#EDEDF1}
+html{background:#F5F5F7}body{background-image:none;background-color:#F5F5F7}
+.topbar{background:rgba(245,245,247,.8);border-bottom:1px solid rgba(0,0,0,.08)}.topbar .wrap{height:52px}
+.logo .mark{width:22px;height:22px;border-radius:7px;background:var(--ink);box-shadow:none}
+.logo .mark::after{left:7px;right:7px;bottom:5px;height:11px;background:#fff;border-radius:50% 50% 50% 50%/62% 62% 38% 38%}
+.tcta{background:var(--blue);box-shadow:none;border-radius:999px;font-weight:600}
+h1{letter-spacing:-.055em;font-weight:700}h2{letter-spacing:-.05em}
+.lead{background:#fff;border-color:transparent}
+.cta{background:#161618;border-radius:28px}
+</style>
+
+<style>html,body{background:#F3F6FB}.art{margin:0 auto}</style>
+</head><body>
+<div class="art">
+  <div class="hd">
+    <div class="ch">
+      <div class="hash" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M9 3L7 21M17 3l-2 18M4 9h17M3 15h17"></path></svg></div>
+      <div>
+        <h1>잔디방 인입·응대 현황</h1>
+        <p class="sub">센터 4곳(서부·동부·영남·호남) 합계 · 본사는 별도 집계</p>
+      </div>
+    </div>
+    <div class="asof">
+      <div class="lab"><span class="dot"></span>대시보드 기준 시각</div>
+      <div class="big mono"><b>최종 반영 기준</b>2026-11-06(금) 18:00</div>
+      <div class="nt">11월은 11/2~11/6 1주차만 반영 · 11/6은 18시 기준</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <section>
+      <div class="day"><span>10월 1주(10/1~10/8, 5영업일) → 11월 1주(11/2~11/6, 5영업일)</span></div>
+      <h2 class="sech">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F4FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v5M9 3h6l-1 7 3 3H7l3-3z"></path></svg>
+        고정 지표<small>센터 4곳 합계 · 주간 비교</small>
+      </h2>
+      <div class="kgrid" style="margin-top:10px">
+        
+          <div class="kc">
+            <div class="l"><span>인입</span><span class="chip neu">▼ 46건 감소</span></div>
+            <div class="v">47건</div>
+            <div class="p">10월 1주 93건</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>재인입률</span><span class="chip good">▼ 18.5%p 감소</span></div>
+            <div class="v">19.1%</div>
+            <div class="p">10월 1주 37.6%</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>응답 확인율 (댓글)</span><span class="chip good">▲ 20.5%p 상승</span></div>
+            <div class="v">97.9%</div>
+            <div class="p">10월 1주 77.4%</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>체크 포함 응답률</span><span class="chip good">▲ 15.1%p 상승</span></div>
+            <div class="v">100%</div>
+            <div class="p">10월 1주 84.9%</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>첫 응답 중앙값</span><span class="chip warn">▲ 1분 증가</span></div>
+            <div class="v">8분</div>
+            <div class="p">10월 1주 7분</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>상위10% 응답 (p90)</span><span class="chip good">▼ 1시간 17분 단축</span></div>
+            <div class="v">1시간 4분</div>
+            <div class="p">10월 1주 2시간 21분</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>4시간 초과</span><span class="chip good">▼ 6건 감소</span></div>
+            <div class="v">0건</div>
+            <div class="p warn">10월 1주 초과 6건</div>
+          </div>
+        
+          <div class="kc">
+            <div class="l"><span>긴급 미응답</span><span class="chip good">▼ 3건 감소</span></div>
+            <div class="v">0건</div>
+            <div class="p warn">10월 1주 미응답 3건</div>
+          </div>
+        
+      </div>
+    </section>
+
+    <div class="row2">
+      <section class="pn">
+        <h2 class="sech">월별 추이 · 8월~11월<small>전체(센터 4곳 합계) · 11월은 1주차 부분 집계</small></h2>
+        <svg width="560" height="262" viewBox="0 0 560 262" role="img" aria-label="월별 인입 건수와 응답 확인율 추이">
+          <text x="0" y="12" class="t12">월 인입 (건)</text>
+          <line x1="0" y1="96" x2="560" y2="96" stroke="#CBD7EA" stroke-width="1"></line>
+          <rect x="50" y="42" width="40" height="54" rx="9" fill="#7FA3E0" stroke="none" stroke-width="1.5" stroke-dasharray="none"></rect><rect x="190" y="22" width="40" height="74" rx="9" fill="#7FA3E0" stroke="none" stroke-width="1.5" stroke-dasharray="none"></rect><rect x="330" y="42" width="40" height="54" rx="9" fill="#1F4FA8" stroke="none" stroke-width="1.5" stroke-dasharray="none"></rect><rect x="470" y="88" width="40" height="8" rx="9" fill="#E1EAF8" stroke="#1F4FA8" stroke-width="1.5" stroke-dasharray="4 3"></rect>
+          <text x="70" y="36" class="t13b mid">301건</text><text x="70" y="114" class="t12 mid">8월</text><text x="70" y="204.26" class="t13b mid">78.1%</text><text x="70" y="250" class="t12 mid">재인입률 14.6%</text><text x="70" y="267" class="t12 mid">중앙값 8분</text><text x="210" y="16" class="t13b mid">411건</text><text x="210" y="114" class="t12 mid">9월</text><text x="210" y="216.24666666666667" class="t13b mid">72.3%</text><text x="210" y="250" class="t12 mid">재인입률 26.3%</text><text x="210" y="267" class="t12 mid">중앙값 10분</text><text x="350" y="36" class="t13b mid">299건</text><text x="350" y="114" class="t12 mid">10월</text><text x="350" y="203.84666666666664" class="t13b mid">78.3%</text><text x="350" y="250" class="t12 mid">재인입률 30.8%</text><text x="350" y="267" class="t12 mid">중앙값 8분</text><text x="490" y="82" class="t13b mid">47건</text><text x="490" y="114" class="t12 mid">11월 (1주차)</text><text x="490" y="163.33999999999997" class="t13b mid">97.9%</text><text x="490" y="250" class="t12 mid">재인입률 19.1%</text><text x="490" y="267" class="t12 mid">중앙값 8분</text>
+          <text x="0" y="150" class="t12">응답 확인율 · 댓글 기준 (%)</text>
+          <path d="M70.0 215.3 L210.0 227.2 L350.0 214.8" fill="none" stroke="#1F4FA8" stroke-width="2.2" stroke-linecap="round"></path>
+          <path d="M350.0 214.8 L490.0 174.3" fill="none" stroke="#1F4FA8" stroke-width="2.2" stroke-dasharray="4 4" stroke-linecap="round"></path>
+          <circle cx="70" cy="215.26" r="5" fill="#fff" stroke="#1F4FA8" stroke-width="2.2"></circle><circle cx="210" cy="227.24666666666667" r="5" fill="#fff" stroke="#1F4FA8" stroke-width="2.2"></circle><circle cx="350" cy="214.84666666666664" r="5" fill="#fff" stroke="#1F4FA8" stroke-width="2.2"></circle><circle cx="490" cy="174.33999999999997" r="5" fill="#1F4FA8" stroke="#1F4FA8" stroke-width="2.2"></circle>
+        </svg>
+      </section>
+
+      <section class="pn">
+        <h2 class="sech">인입유형 분포<small>10월 vs 11월(1주차) · 막대 길이 = 월 내 비중</small></h2>
+        <div class="lg" style="margin:0 0 4px"><span><i style="border-top-color:#7FA3E0"></i>10월 (299건)</span><span><i></i>11월 1주차 (47건)</span></div>
+        <div>
+          
+            <div class="catr">
+              <div class="nm">진행상황·완료일정 문의</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:218px"></i></div>
+                <div class="bar"><i class="n" style="width:196px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>142건 · 47%</b></span><br><span>11월 <b>20건 · 43%</b></span></div>
+            </div>
+          
+            <div class="catr">
+              <div class="nm">수거·배송·방문 일정</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:85px"></i></div>
+                <div class="bar"><i class="n" style="width:88px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>55건 · 18%</b></span><br><span>11월 <b>9건 · 19%</b></span></div>
+            </div>
+          
+            <div class="catr">
+              <div class="nm">재증상·재접수</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:43px"></i></div>
+                <div class="bar"><i class="n" style="width:78px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>28건 · 9%</b></span><br><span>11월 <b>8건 · 17%</b></span></div>
+            </div>
+          
+            <div class="catr">
+              <div class="nm">환불·교환·반품</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:35px"></i></div>
+                <div class="bar"><i class="n" style="width:39px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>23건 · 8%</b></span><br><span>11월 <b>4건 · 9%</b></span></div>
+            </div>
+          
+            <div class="catr">
+              <div class="nm">수리내역·원인·훼손 클레임</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:35px"></i></div>
+                <div class="bar"><i class="n" style="width:29px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>23건 · 8%</b></span><br><span>11월 <b>3건 · 6%</b></span></div>
+            </div>
+          
+            <div class="catr">
+              <div class="nm">부품 지연</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:29px"></i></div>
+                <div class="bar"><i class="n" style="width:20px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>19건 · 6%</b></span><br><span>11월 <b>2건 · 4%</b></span></div>
+            </div>
+          
+            <div class="catr">
+              <div class="nm">직배수·설치</div>
+              <div class="bars">
+                <div class="bar"><i class="o" style="width:14px"></i></div>
+                <div class="bar"><i class="n" style="width:10px"></i></div>
+              </div>
+              <div class="ct"><span>10월 <b>9건 · 3%</b></span><br><span>11월 <b>1건 · 2%</b></span></div>
+            </div>
+          
+        </div>
+      </section>
+    </div>
+
+    <section class="pn">
+      <h2 class="sech">일별 인입 추이<small>2026-10-01 ~ 11-06 · 데이터가 있는 영업일만 표시</small></h2>
+      <div class="lg" style="margin:2px 0 6px">
+        <span><i></i>센터 4곳 인입</span>
+        <span><i style="border-top-color:#4F7FD0"></i>센터 4곳 응답(댓글 있음)</span>
+        <span><i style="border-top:2px dashed #0F1E3C"></i>본사 인입</span>
+      </div>
+      <svg width="1176" height="206" viewBox="0 0 1176 206" role="img" aria-label="일별 인입 건수 추이">
+        <rect x="935.5000000000001" y="0" width="231.66666666666669" height="168" rx="8" fill="#E6EEFA"></rect>
+        <text x="1051.3333333333335" y="14" class="t12 mid">11월 1주차</text>
+        <line x1="0" y1="168" x2="1176" y2="168" stroke="#CBD7EA" stroke-width="1"></line>
+        <path d="M32.0 136.8 L78.3 131.6 L124.7 126.4 L171.0 136.8 L217.3 147.2 L263.7 95.2 L310.0 147.2 L356.3 157.6 L402.7 136.8 L449.0 131.6 L495.3 136.8 L541.7 136.8 L588.0 152.4 L634.3 142.0 L680.7 126.4 L727.0 147.2 L773.3 147.2 L819.7 142.0 L866.0 142.0 L912.3 157.6 L958.7 152.4 L1005.0 142.0 L1051.3 152.4 L1097.7 142.0 L1144.0 131.6" fill="none" stroke="#0F1E3C" stroke-width="1.6" stroke-dasharray="5 4"></path>
+        <path d="M32.0 95.2 L78.3 110.8 L124.7 69.2 L171.0 84.8 L217.3 105.6 L263.7 74.4 L310.0 69.2 L356.3 105.6 L402.7 116.0 L449.0 121.2 L495.3 131.6 L541.7 110.8 L588.0 126.4 L634.3 121.2 L680.7 95.2 L727.0 110.8 L773.3 105.6 L819.7 121.2 L866.0 131.6 L912.3 136.8 L958.7 90.0 L1005.0 90.0 L1051.3 126.4 L1097.7 147.2 L1144.0 147.2" fill="none" stroke="#4F7FD0" stroke-width="2.2"></path>
+        <path d="M32.0 84.8 L78.3 100.4 L124.7 32.8 L171.0 64.0 L217.3 74.4 L263.7 43.2 L310.0 32.8 L356.3 90.0 L402.7 90.0 L449.0 95.2 L495.3 131.6 L541.7 84.8 L588.0 105.6 L634.3 110.8 L680.7 74.4 L727.0 105.6 L773.3 100.4 L819.7 121.2 L866.0 126.4 L912.3 136.8 L958.7 84.8 L1005.0 90.0 L1051.3 126.4 L1097.7 147.2 L1144.0 147.2" fill="none" stroke="#1F4FA8" stroke-width="2.6" stroke-linejoin="round"></path>
+        <circle cx="32" cy="84.8" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="78.33333333333334" cy="100.39999999999999" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="124.66666666666667" cy="32.79999999999998" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="171" cy="64" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="217.33333333333334" cy="74.39999999999999" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="263.6666666666667" cy="43.19999999999999" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="310" cy="32.79999999999998" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="356.33333333333337" cy="90" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="402.6666666666667" cy="90" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="449" cy="95.2" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="495.33333333333337" cy="131.6" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="541.6666666666667" cy="84.8" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="588" cy="105.6" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="634.3333333333334" cy="110.8" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="680.6666666666667" cy="74.39999999999999" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="727" cy="105.6" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="773.3333333333334" cy="100.39999999999999" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="819.6666666666667" cy="121.19999999999999" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="866" cy="126.4" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="912.3333333333334" cy="136.8" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="958.6666666666667" cy="84.8" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="1005" cy="90" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="1051.3333333333335" cy="126.4" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="1097.6666666666667" cy="147.2" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle><circle cx="1144" cy="147.2" r="3.6" fill="#fff" stroke="#1F4FA8" stroke-width="2"></circle>
+        <text x="32" y="74.8" class="t13b mid">16</text><text x="32" y="186" class="t12 mid">10/1</text><text x="32" y="202" class="t12 mid">목</text><text x="78.33333333333334" y="90.39999999999999" class="t13b mid">13</text><text x="78.33333333333334" y="186" class="t12 mid">10/2</text><text x="78.33333333333334" y="202" class="t12 mid">금</text><text x="124.66666666666667" y="22.799999999999983" class="t13b mid">26</text><text x="124.66666666666667" y="186" class="t12 mid">10/6</text><text x="124.66666666666667" y="202" class="t12 mid">화</text><text x="171" y="54" class="t13b mid">20</text><text x="171" y="186" class="t12 mid">10/7</text><text x="171" y="202" class="t12 mid">수</text><text x="217.33333333333334" y="64.39999999999999" class="t13b mid">18</text><text x="217.33333333333334" y="186" class="t12 mid">10/8</text><text x="217.33333333333334" y="202" class="t12 mid">목</text><text x="263.6666666666667" y="33.19999999999999" class="t13b mid">24</text><text x="263.6666666666667" y="186" class="t12 mid">10/12</text><text x="263.6666666666667" y="202" class="t12 mid">월</text><text x="310" y="22.799999999999983" class="t13b mid">26</text><text x="310" y="186" class="t12 mid">10/13</text><text x="310" y="202" class="t12 mid">화</text><text x="356.33333333333337" y="80" class="t13b mid">15</text><text x="356.33333333333337" y="186" class="t12 mid">10/14</text><text x="356.33333333333337" y="202" class="t12 mid">수</text><text x="402.6666666666667" y="80" class="t13b mid">15</text><text x="402.6666666666667" y="186" class="t12 mid">10/15</text><text x="402.6666666666667" y="202" class="t12 mid">목</text><text x="449" y="85.2" class="t13b mid">14</text><text x="449" y="186" class="t12 mid">10/16</text><text x="449" y="202" class="t12 mid">금</text><text x="495.33333333333337" y="121.6" class="t13b mid">7</text><text x="495.33333333333337" y="186" class="t12 mid">10/19</text><text x="495.33333333333337" y="202" class="t12 mid">월</text><text x="541.6666666666667" y="74.8" class="t13b mid">16</text><text x="541.6666666666667" y="186" class="t12 mid">10/20</text><text x="541.6666666666667" y="202" class="t12 mid">화</text><text x="588" y="95.6" class="t13b mid">12</text><text x="588" y="186" class="t12 mid">10/21</text><text x="588" y="202" class="t12 mid">수</text><text x="634.3333333333334" y="100.8" class="t13b mid">11</text><text x="634.3333333333334" y="186" class="t12 mid">10/22</text><text x="634.3333333333334" y="202" class="t12 mid">목</text><text x="680.6666666666667" y="64.39999999999999" class="t13b mid">18</text><text x="680.6666666666667" y="186" class="t12 mid">10/23</text><text x="680.6666666666667" y="202" class="t12 mid">금</text><text x="727" y="95.6" class="t13b mid">12</text><text x="727" y="186" class="t12 mid">10/26</text><text x="727" y="202" class="t12 mid">월</text><text x="773.3333333333334" y="90.39999999999999" class="t13b mid">13</text><text x="773.3333333333334" y="186" class="t12 mid">10/27</text><text x="773.3333333333334" y="202" class="t12 mid">화</text><text x="819.6666666666667" y="111.19999999999999" class="t13b mid">9</text><text x="819.6666666666667" y="186" class="t12 mid">10/28</text><text x="819.6666666666667" y="202" class="t12 mid">수</text><text x="866" y="116.4" class="t13b mid">8</text><text x="866" y="186" class="t12 mid">10/29</text><text x="866" y="202" class="t12 mid">목</text><text x="912.3333333333334" y="126.80000000000001" class="t13b mid">6</text><text x="912.3333333333334" y="186" class="t12 mid">10/30</text><text x="912.3333333333334" y="202" class="t12 mid">금</text><text x="958.6666666666667" y="74.8" class="t13b mid">16</text><text x="958.6666666666667" y="186" class="t12 mid">11/2</text><text x="958.6666666666667" y="202" class="t12 mid">월</text><text x="1005" y="80" class="t13b mid">15</text><text x="1005" y="186" class="t12 mid">11/3</text><text x="1005" y="202" class="t12 mid">화</text><text x="1051.3333333333335" y="116.4" class="t13b mid">8</text><text x="1051.3333333333335" y="186" class="t12 mid">11/4</text><text x="1051.3333333333335" y="202" class="t12 mid">수</text><text x="1097.6666666666667" y="137.2" class="t13b mid">4</text><text x="1097.6666666666667" y="186" class="t12 mid">11/5</text><text x="1097.6666666666667" y="202" class="t12 mid">목</text><text x="1144" y="137.2" class="t13b mid">4</text><text x="1144" y="186" class="t12 mid">11/6</text><text x="1144" y="202" class="t12 mid">금</text>
+      </svg>
+    </section>
+
+    <section>
+      <h2 class="sech" style="margin-bottom:8px">센터별 비교<small>주간 · 큰 글씨는 11월 1주, 작은 글씨는 10월 1주</small></h2>
+      <div class="pn ctab">
+        <div class="crow h"><div>센터</div><div>인입 (건)</div><div>응답 확인율</div><div>첫 응답 중앙값</div><div>상위10% 응답</div><div>4시간 초과</div><div>긴급 미응답</div></div>
+        
+          <div class="crow">
+            <div class="who"><span class="av">서</span><span>서부센터<small>센터</small></span></div>
+            <div class="cb">
+              <div class="bar"><i class="n" style="width:50px"></i><b>13건</b></div>
+              <div class="bar"><i class="o" style="width:101px"></i><span class="t12" style="font-size:12px;color:#4A5A78">10월 26</span></div>
+            </div>
+            <div class="m"><b>92.3%</b><span>10월 61.5%</span></div>
+            <div class="m"><b>13분</b><span>10월 2시간 1분</span></div>
+            <div class="m"><b>1시간 58분</b><span>10월 16시간 12분</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 초과 5건</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 미응답 1건</span></div>
+          </div>
+        
+          <div class="crow">
+            <div class="who"><span class="av">동</span><span>동부센터<small>센터</small></span></div>
+            <div class="cb">
+              <div class="bar"><i class="n" style="width:31px"></i><b>8건</b></div>
+              <div class="bar"><i class="o" style="width:93px"></i><span class="t12" style="font-size:12px;color:#4A5A78">10월 24</span></div>
+            </div>
+            <div class="m"><b>100%</b><span>10월 83.3%</span></div>
+            <div class="m"><b>7.5분</b><span>10월 5분</span></div>
+            <div class="m"><b>38분</b><span>10월 25분</span></div>
+            <div class="m"><b class="">0건</b><span class="">10월 0건</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 미응답 1건</span></div>
+          </div>
+        
+          <div class="crow">
+            <div class="who"><span class="av">영</span><span>영남센터<small>센터</small></span></div>
+            <div class="cb">
+              <div class="bar"><i class="n" style="width:74px"></i><b>19건</b></div>
+              <div class="bar"><i class="o" style="width:112px"></i><span class="t12" style="font-size:12px;color:#4A5A78">10월 29</span></div>
+            </div>
+            <div class="m"><b>100%</b><span>10월 82.8%</span></div>
+            <div class="m"><b>5분</b><span>10월 2.5분</span></div>
+            <div class="m"><b>55분</b><span>10월 33분</span></div>
+            <div class="m"><b class="">0건</b><span class="">10월 0건</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 미응답 1건</span></div>
+          </div>
+        
+          <div class="crow">
+            <div class="who"><span class="av">호</span><span>호남센터<small>센터</small></span></div>
+            <div class="cb">
+              <div class="bar"><i class="n" style="width:27px"></i><b>7건</b></div>
+              <div class="bar"><i class="o" style="width:54px"></i><span class="t12" style="font-size:12px;color:#4A5A78">10월 14</span></div>
+            </div>
+            <div class="m"><b>100%</b><span>10월 85.7%</span></div>
+            <div class="m"><b>32분</b><span>10월 8분</span></div>
+            <div class="m"><b>1시간 4분</b><span>10월 1시간 59분</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 초과 1건</span></div>
+            <div class="m"><b class="">0건</b><span class="">10월 0건</span></div>
+          </div>
+        
+          <div class="crow tot">
+            <div class="who"><span class="av in">합</span><span>센터 4곳<small>센터 4곳 합계</small></span></div>
+            <div class="cb">
+              <div class="bar"><i class="n" style="width:61px"></i><b>47건</b></div>
+              <div class="bar"><i class="o" style="width:120px"></i><span class="t12" style="font-size:12px;color:#4A5A78">10월 93</span></div>
+            </div>
+            <div class="m"><b>97.9%</b><span>10월 77.4%</span></div>
+            <div class="m"><b>8분</b><span>10월 7분</span></div>
+            <div class="m"><b>1시간 4분</b><span>10월 2시간 21분</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 초과 6건</span></div>
+            <div class="m"><b class="">0건</b><span class="warn">10월 미응답 3건</span></div>
+          </div>
+        
+          <div class="crow">
+            <div class="who"><span class="av ink">본</span><span>본사<small>별도 집계</small></span></div>
+            <div class="cb">
+              <div class="bar"><i class="n" style="width:89px"></i><b>23건</b></div>
+              <div class="bar"><i class="o" style="width:120px"></i><span class="t12" style="font-size:12px;color:#4A5A78">10월 31</span></div>
+            </div>
+            <div class="m"><b>91.3%</b><span>10월 83.9%</span></div>
+            <div class="m"><b>7분</b><span>10월 8분</span></div>
+            <div class="m"><b>2시간 2분</b><span>10월 51분</span></div>
+            <div class="m"><b class="warn">초과 2건</b><span class="">10월 0건</span></div>
+            <div class="m"><b class="">0건</b><span class="">10월 0건</span></div>
+          </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <div class="foot">
+    <div class="c1">
+      <h3>집계 기준</h3>
+      <ul>
+        <li>응답시간은 댓글이 달린 건 기준이며, 체크(확인 표시)만으로 종결된 건은 제외합니다.</li>
+        <li>접수번호가 '없음'인 글은 인입에서 제외합니다.</li>
+        <li>10월 1주는 휴일(10/3·5·9)을 뺀 첫 5영업일(10/1·2·6·7·8)입니다.</li>
+      </ul>
+    </div>
+    <div class="c2">
+      <h3>반영 범위</h3>
+      <ul>
+        <li>11월은 11/2~11/6 1주차만 반영, 11/6은 18시 기준입니다.</li>
+        <li>센터 4곳은 서부·동부·영남·호남 합계, 본사는 별도 집계입니다.</li>
+        <li>60분 이상의 응답시간은 "N시간 M분"으로 표기합니다.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+(function(){var a=document.querySelector('.art');function fit(){var w=document.documentElement.clientWidth;a.style.zoom=Math.max(.6,Math.min(1,w/1280))}fit();addEventListener('resize',fit)})();
+</script></body></html>
