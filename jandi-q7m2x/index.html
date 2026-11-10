@@ -97,48 +97,61 @@ body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
 #msg span{display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:20px;opacity:0;transition:.2s;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 #msg.show span{opacity:1}#msg.err span{background:var(--red)}
 
-/* ===== 시안 C : 잔디 인계 대화 ===== */
-:root{--navy:#262947;--ink:#262947;--mute:#5a5f78;--line:#dce0ee;--bg:#eef0f8;--v:#594eb7;--c:#c2571a;--h:#594eb7;--hbg:#f1effd;--cbg:#fff4ea}
-body{font-size:15px}
-.top{background:#262947;padding:24px 20px 70px}
+/* ===== 시안 1 : 대화방 (네이비) ===== */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap');
+:root{--navy:#0F1E3C;--ink:#0F1E3C;--mute:#4A5A78;--line:#DCE5F2;--bg:#F3F6FB;--v:#1F4FA8;--c:#0F1E3C;--h:#1F4FA8;--hbg:#EAF0FB;--cbg:#F6F8FC}
+body{font-family:'IBM Plex Sans KR','Pretendard','Malgun Gothic',-apple-system,sans-serif;font-size:14.5px;background:var(--bg)}
+.top{background:#0F1E3C;padding:26px 20px 70px}
 .top .in{max-width:1080px}
-.top h1{font-size:21px}.top p{font-size:13px;opacity:.8}
-.shell{max-width:1080px;margin:-46px auto 130px;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:18px;align-items:start}
+.top h1{font-size:22px;letter-spacing:-.4px}.top p{font-size:13.5px;color:#CFDCF3;opacity:1}
+.shell{max-width:1080px;margin:-46px auto 130px;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:22px;align-items:start}
 .shell main{max-width:none;margin:0;padding:0;min-width:0}
-.tabs{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:none;padding:5px}
-.tabs button{border-radius:14px;padding:15px 8px;font-size:16px}
-.tabs button.on.v{background:var(--v);box-shadow:none}.tabs button.on.c{background:var(--c);box-shadow:none}
-.card{border-radius:18px;box-shadow:none;border:1px solid var(--line);padding:20px}
-.sec{font-size:16px}.sec i{background:#edebfa;color:var(--v);font-weight:800;width:24px;height:24px}
-.sec small{font-size:12.5px}
-label.t{font-size:13px;color:var(--mute)}
-input[type=text],textarea{border-radius:12px;background:#f7f7fc;border:1px solid var(--line);font-size:15.5px;color:var(--ink)}
-.feebtn{border-radius:14px}
-.panel{border-radius:16px;padding:16px;border-width:1px}
-.panel.hq{background:var(--hbg);border-color:#dcd8f5}.panel.center{background:var(--cbg);border-color:#f6d9bf}
-.panel h3{font-size:17px}.panel.hq h3{color:var(--v)}.panel.center h3{color:#a24a15}
-.panel h3 b{font-size:12.5px;min-width:28px}
-.panel p{font-size:13.5px;color:var(--mute);margin-bottom:12px}
-.panel .chips{gap:8px}
-.panel .chip span{font-size:15.5px;font-weight:600;color:#262947;padding:13px 14px;border-color:#d4d1ee;line-height:1.35}
-.panel.center .chip span{border-color:#f0d3b8}
-.chip span{font-size:15px;font-weight:600;color:#262947}
-.chip input:checked+span{color:#fff}
-.hq .chip input:checked+span{background:var(--v)}.hq .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--v)}
-.area .chip input:checked+span{background:var(--v)}.area .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--v)}
-.center .chip input:checked+span,.act .chip input:checked+span{background:var(--c)}
-.side{position:sticky;top:16px;background:#262947;color:#fff;border-radius:18px;overflow:hidden}
-.side h2{margin:0;padding:16px 18px;font-size:14px;font-weight:700;color:#e4e3f7;border-bottom:1px solid #454766}
-.side .pv{background:transparent;border-radius:0;min-height:280px;padding:18px;font:14px/1.8 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#eceaff}
-.side .bar{position:static;background:transparent;backdrop-filter:none;border-top:1px solid #454766;padding:14px}
-.side #reset{background:#343654;color:#efeff8}
-#copy{background:var(--v);box-shadow:none}body.c #copy{background:var(--c);box-shadow:none}
-.bar button{border-radius:14px}
+.tabs{background:#E3ECFA;border:0;border-radius:14px;box-shadow:none;padding:5px;gap:5px}
+.tabs button{border-radius:10px;padding:13px 8px;font-size:15px;color:#2C3E63}.tabs button small{color:#2C3E63;opacity:.85}
+.tabs button.on.v{background:var(--v);color:#fff;box-shadow:none}.tabs button.on.c{background:#0F1E3C;color:#fff;box-shadow:none}
+.tabs button.on small{color:#fff}
+.card{border-radius:16px;box-shadow:none;border:1px solid var(--line);padding:18px 20px 20px}
+.sec{font-size:16px}.sec i{background:var(--v);color:#fff;font-weight:700;width:26px;height:26px;font-size:13px}
+.sec small{font-size:12.5px;color:var(--mute)}
+label.t{font-size:13.5px;font-weight:600;color:var(--ink)}
+input[type=text],textarea{border-radius:10px;background:#fff;border:1.5px solid #8A9BBD;font-size:14.5px;color:var(--ink)}
+input[type=text]:focus,textarea:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(31,79,168,.16)}
+body.c input[type=text]:focus,body.c textarea:focus{border-color:#0F1E3C;box-shadow:0 0 0 3px rgba(15,30,60,.14)}
+#no,#cno,#tel{font-family:'IBM Plex Mono',monospace;font-weight:500}
+.feebtn{border-radius:12px;border:1px solid #CFDCF3}
+.fbrow{grid-template-columns:1fr 1fr}.fbrow .dashbtn{grid-column:1/-1}
+.panel{border-radius:14px;padding:14px 12px 12px;border-width:1px}
+.panel.hq{background:var(--hbg);border-color:#CCDAF2}.panel.center{background:var(--cbg);border-color:#D9E1F0}
+.panel h3{font-size:15px;color:var(--ink)}.panel.hq h3,.panel.center h3{color:var(--ink)}
+.panel h3 b{background:var(--ink);color:#fff;font-size:12.5px;min-width:22px}
+.panel p{font-size:12.5px;color:var(--mute);margin-bottom:10px}
+.panel .chips{gap:6px}
+.panel .chip span{font-size:13.5px;font-weight:600;color:var(--ink);padding:9px 12px;border:1.5px solid #C5D3EA;border-radius:10px;min-height:40px;background:#fff}
+.panel .chip input:checked+span,.panel.center .chip input:checked+span{background:#CFDCF3;border-color:var(--v);color:var(--ink);box-shadow:none}
+.panel .chip input:checked+span::before{background:var(--v);border-color:var(--v);box-shadow:inset 0 0 0 3px #CFDCF3}
+.chip span{font-size:13.5px;font-weight:600;color:var(--ink)}
+.chip span::before{border-color:#8A9BBD}
+.area .chip span{border-radius:999px;padding:8px 16px;border-color:#B6C6E4}
+.area .chip input:checked+span{background:var(--v);color:#fff}
+.area .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--v)}
+.center .chip input:checked+span,.act .chip input:checked+span{background:#0F1E3C;color:#fff}
+.act .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px #0F1E3C}
+.stage .chip input:checked+span{background:#0F1E3C}
+.sw.urg:has(input:checked){color:#B4380F}
+.side{position:sticky;top:16px;background:#fff;color:var(--ink);border:1px solid #CBD7EA;border-radius:18px;overflow:hidden}
+.side h2{margin:0;padding:15px 18px;font-size:15.5px;font-weight:700;color:var(--ink);background:#EAF0FB;border-bottom:1px solid #CBD7EA}
+.side .pv{background:#CFDCF3;color:#0F1E3C;border-radius:18px 18px 4px 18px;margin:18px 16px 14px;padding:14px 16px;min-height:220px;font:500 13.5px/1.75 'IBM Plex Mono','Malgun Gothic',monospace}
+.side .pv .u{color:#B4380F}
+.side .bar{position:static;background:#F3F6FB;backdrop-filter:none;border-top:1px solid #CBD7EA;padding:12px 14px}
+.side #reset{background:#fff;border:1.5px solid #8A9BBD;color:var(--ink)}
+.bar button{border-radius:999px}
+#copy{background:var(--v);box-shadow:none}body.c #copy{background:#0F1E3C;box-shadow:none}
+#msg span{background:#0F1E3C}
+#dsh{max-width:1180px}
 @media(max-width:900px){
  .shell{grid-template-columns:1fr;max-width:640px;margin-bottom:150px}
  .side{position:static}
  .side .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 14px calc(12px + env(safe-area-inset-bottom))}
- .side #reset{background:#e8ecf4;color:#46506a}
 }
 </style></head><body class="v">
 <div class="top"><div class="in"><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div></div></div>
@@ -148,7 +161,7 @@ input[type=text],textarea{border-radius:12px;background:#f7f7fc;border:1px solid
 
 <div id="V">
  <div class="fbrow"><button type="button" class="feebtn" id="feeBtn"><i>₩</i><span><b>유상서비스 요금 조회</b><small>이 화면에서 바로 확인</small></span><em>›</em></button>
- <a class="feebtn pay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer"><i>✓</i><span><b>유상서비스 결제</b><small>이노페이 로그인 · 새 탭</small></span><em>↗</em></a></div>
+ <a class="feebtn pay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer"><i>✓</i><span><b>유상서비스 결제</b><small>이노페이 로그인 · 새 탭</small></span><em>↗</em></a><button type="button" class="feebtn dashbtn" id="dashBtn"><i>▦</i><span><b>인입·응대 현황 대시보드</b><small>센터 4곳·본사 지표를 이 화면에서 확인</small></span><em>›</em></button></div>
  <div class="card">
   <div class="sec"><i>1</i>접수 정보<small>필수</small></div>
   <div class="row"><div class="f"><label class="t">접수번호</label><input type="text" id="no" placeholder="접수번호 (직배수 설치건은 업체명 입력)" autocomplete="off"><label class="nn"><input type="checkbox" id="nno"> 접수번호 없음</label></div>
@@ -199,6 +212,7 @@ input[type=text],textarea{border-radius:12px;background:#f7f7fc;border:1px solid
 <aside class="side"><h2>잔디에 붙여넣을 내용</h2><div class="pv" id="pv"></div><div class="bar"><div class="in"><div id="msg"><span></span></div><button id="copy">복사하기</button><button id="reset">초기화</button></div></div></aside>
 </div>
 <div class="dim" id="dim"></div>
+<aside class="fee" id="dsh"><div class="fh">인입·응대 현황 대시보드<small>센터 4곳 · 본사</small><a class="fpay" href="../dash-r6w2m/" target="_blank" rel="noopener">새 탭으로 열기 ↗</a><button id="dshClose">닫기</button></div><iframe id="dshFrame" title="인입·응대 현황 대시보드" loading="lazy"></iframe></aside>
 <aside class="fee" id="fee"><div class="fh">유상서비스 요금 조회<small>작성 내용은 그대로 유지됩니다</small><a class="fpay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer">결제하기 ↗</a><button id="feeClose">닫기</button></div><iframe id="feeFrame" title="유상서비스 요금 조회" loading="lazy"></iframe></aside>
 
 <script>
@@ -255,8 +269,11 @@ $('copy').onclick=async()=>{const miss=[];
  say('복사되었습니다. 잔디에 Ctrl+V 로 붙여넣으세요')};
 const FEE_SRC='../yusang-x4k9p/?embed=1';let feeLoaded=false;
 function feeOpen(o){if(o&&!feeLoaded){$('feeFrame').src=FEE_SRC;feeLoaded=true}$('fee').classList.toggle('open',o);$('dim').classList.toggle('on',o)}
-$('feeBtn').onclick=()=>feeOpen(true);$('feeClose').onclick=()=>feeOpen(false);$('dim').onclick=()=>feeOpen(false);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')feeOpen(false)});
+$('feeBtn').onclick=()=>feeOpen(true);$('feeClose').onclick=()=>feeOpen(false);$('dim').onclick=()=>{feeOpen(false);dashOpen(false)};
+const DASH_SRC='../dash-r6w2m/?embed=1';let dashLoaded=false;
+function dashOpen(o){if(o&&!dashLoaded){$('dshFrame').src=DASH_SRC;dashLoaded=true}$('dsh').classList.toggle('open',o);$('dim').classList.toggle('on',o)}
+$('dashBtn').onclick=()=>{feeOpen(false);dashOpen(true)};$('dshClose').onclick=()=>dashOpen(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){feeOpen(false);dashOpen(false)}});
 $('reset').onclick=()=>{const w=$('who').value;Q('input[type=text],textarea').forEach(x=>x.value='');$('who').value=w;Q('input:checked').forEach(x=>x.checked=false);$('no').disabled=false;$('cno').disabled=false;$('reslab').textContent='처리 결과·안내 내용 (자유 입력)';pv();window.scrollTo({top:0,behavior:'smooth'})};
 try{setMode(localStorage.getItem('mode')==='c'?'c':'v')}catch(e){setMode('v')}
 </script></body></html>
