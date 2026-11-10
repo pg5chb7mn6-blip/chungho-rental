@@ -96,8 +96,53 @@ body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
 #msg{position:absolute;left:0;right:0;top:-38px;text-align:center;pointer-events:none}
 #msg span{display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:20px;opacity:0;transition:.2s;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 #msg.show span{opacity:1}#msg.err span{background:var(--red)}
+
+/* ===== 시안 C : 잔디 인계 대화 ===== */
+:root{--navy:#262947;--ink:#262947;--mute:#5a5f78;--line:#dce0ee;--bg:#eef0f8;--v:#594eb7;--c:#c2571a;--h:#594eb7;--hbg:#f1effd;--cbg:#fff4ea}
+body{font-size:15px}
+.top{background:#262947;padding:24px 20px 70px}
+.top .in{max-width:1080px}
+.top h1{font-size:21px}.top p{font-size:13px;opacity:.8}
+.shell{max-width:1080px;margin:-46px auto 130px;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:18px;align-items:start}
+.shell main{max-width:none;margin:0;padding:0;min-width:0}
+.tabs{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:none;padding:5px}
+.tabs button{border-radius:14px;padding:15px 8px;font-size:16px}
+.tabs button.on.v{background:var(--v);box-shadow:none}.tabs button.on.c{background:var(--c);box-shadow:none}
+.card{border-radius:18px;box-shadow:none;border:1px solid var(--line);padding:20px}
+.sec{font-size:16px}.sec i{background:#edebfa;color:var(--v);font-weight:800;width:24px;height:24px}
+.sec small{font-size:12.5px}
+label.t{font-size:13px;color:var(--mute)}
+input[type=text],textarea{border-radius:12px;background:#f7f7fc;border:1px solid var(--line);font-size:15.5px;color:var(--ink)}
+.feebtn{border-radius:14px}
+.panel{border-radius:16px;padding:16px;border-width:1px}
+.panel.hq{background:var(--hbg);border-color:#dcd8f5}.panel.center{background:var(--cbg);border-color:#f6d9bf}
+.panel h3{font-size:17px}.panel.hq h3{color:var(--v)}.panel.center h3{color:#a24a15}
+.panel h3 b{font-size:12.5px;min-width:28px}
+.panel p{font-size:13.5px;color:var(--mute);margin-bottom:12px}
+.panel .chips{gap:8px}
+.panel .chip span{font-size:15.5px;font-weight:600;color:#262947;padding:13px 14px;border-color:#d4d1ee;line-height:1.35}
+.panel.center .chip span{border-color:#f0d3b8}
+.chip span{font-size:15px;font-weight:600;color:#262947}
+.chip input:checked+span{color:#fff}
+.hq .chip input:checked+span{background:var(--v)}.hq .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--v)}
+.area .chip input:checked+span{background:var(--v)}.area .chip input:checked+span::before{box-shadow:inset 0 0 0 3.5px var(--v)}
+.center .chip input:checked+span,.act .chip input:checked+span{background:var(--c)}
+.side{position:sticky;top:16px;background:#262947;color:#fff;border-radius:18px;overflow:hidden}
+.side h2{margin:0;padding:16px 18px;font-size:14px;font-weight:700;color:#e4e3f7;border-bottom:1px solid #454766}
+.side .pv{background:transparent;border-radius:0;min-height:280px;padding:18px;font:14px/1.8 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#eceaff}
+.side .bar{position:static;background:transparent;backdrop-filter:none;border-top:1px solid #454766;padding:14px}
+.side #reset{background:#343654;color:#efeff8}
+#copy{background:var(--v);box-shadow:none}body.c #copy{background:var(--c);box-shadow:none}
+.bar button{border-radius:14px}
+@media(max-width:900px){
+ .shell{grid-template-columns:1fr;max-width:640px;margin-bottom:150px}
+ .side{position:static}
+ .side .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 14px calc(12px + env(safe-area-inset-bottom))}
+ .side #reset{background:#e8ecf4;color:#46506a}
+}
 </style></head><body class="v">
-<div class="top"><div class="in"><div class="logo">J</div><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div></div></div>
+<div class="top"><div class="in"><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div></div></div>
+<div class="shell">
 <main>
 <div class="tabs"><button class="v on" id="tv">유베이스<small>접수 · 문의 등록</small></button><button class="c" id="tc">센터 · 본사<small>답변 작성</small></button></div>
 
@@ -150,11 +195,12 @@ body.c #copy{background:var(--c);box-shadow:0 6px 16px rgba(232,115,26,.32)}
  </div>
 </div>
 
-<div class="card" style="background:transparent;box-shadow:none;border:0;padding:0;margin-top:18px"><div class="sec" style="color:var(--mute);font-size:13px">잔디에 붙여넣을 내용 미리보기</div><div class="pv" id="pv"></div></div>
 </main>
+<aside class="side"><h2>잔디에 붙여넣을 내용</h2><div class="pv" id="pv"></div><div class="bar"><div class="in"><div id="msg"><span></span></div><button id="copy">복사하기</button><button id="reset">초기화</button></div></div></aside>
+</div>
 <div class="dim" id="dim"></div>
 <aside class="fee" id="fee"><div class="fh">유상서비스 요금 조회<small>작성 내용은 그대로 유지됩니다</small><a class="fpay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer">결제하기 ↗</a><button id="feeClose">닫기</button></div><iframe id="feeFrame" title="유상서비스 요금 조회" loading="lazy"></iframe></aside>
-<div class="bar"><div class="in"><div id="msg"><span></span></div><button id="copy">복사하기</button><button id="reset">초기화</button></div></div>
+
 <script>
 const $=id=>document.getElementById(id),Q=s=>[...document.querySelectorAll(s)];
 const CENTERS=['서부센터','동부센터','영남센터','호남센터','본사'];
