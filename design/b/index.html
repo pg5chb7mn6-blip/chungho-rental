@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>시안 B · 제품 진열 — 청호나이스 렌탈</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#F5F5F7;--white:#fff;--dark:#161618;--ink:#1D1D1F;--ink-2:#6E6E73;--accent:#0A63E8;--font:'Pretendard Variable',Pretendard,'Noto Sans KR',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;--ease:cubic-bezier(.22,.8,.24,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.5;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.promo{background:#fff;text-align:center;font-size:13.5px;padding:11px 16px;color:var(--ink);border-bottom:1px solid #E8E8ED}
+.promo a{color:var(--accent);font-weight:600;margin-left:6px}
+.promo a:hover{text-decoration:underline}
+.gnav{position:sticky;top:0;z-index:50;background:rgba(245,245,247,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+.gnav .in{max-width:1080px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;gap:18px}
+.logo{font-weight:800;font-size:16px;letter-spacing:-.04em;white-space:nowrap}
+.logo small{font-weight:500;color:var(--ink-2);font-size:11.5px;margin-left:7px}
+.gnav ul{display:flex;gap:32px;list-style:none;font-size:13.5px;color:#424245}
+.gnav ul a:hover{color:#000}
+.gnav .buy{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:7px 15px;border-radius:999px;white-space:nowrap}
+.gnav .buy:hover{background:#0752C4}
+
+.hero{text-align:center;padding:84px 22px 40px}
+.hero .ey{font-size:19px;font-weight:600;color:var(--accent);letter-spacing:-.02em;margin-bottom:14px}
+.hero h1{font-size:clamp(40px,7vw,84px);line-height:1.05;letter-spacing:-.056em;font-weight:700}
+.hero p{font-size:clamp(18px,2.2vw,24px);color:var(--ink-2);margin:20px auto 0;max-width:720px;letter-spacing:-.025em;line-height:1.45}
+.links{display:flex;justify-content:center;gap:34px;margin-top:26px;font-size:19px;flex-wrap:wrap}
+.links a{color:var(--accent);letter-spacing:-.02em}
+.links a::after{content:" ›";transition:margin .25s var(--ease)}
+.links a:hover{text-decoration:underline}.links a:hover::after{margin-left:3px}
+
+.tiles{max-width:1480px;margin:0 auto;padding:0 12px 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{position:relative;border-radius:28px;overflow:hidden;background:#fff;text-align:center;padding:52px 24px 0;min-height:620px;display:flex;flex-direction:column;align-items:center}
+.tile.wide{grid-column:1/-1;min-height:760px}
+.tile.dark{background:var(--dark);color:#F5F5F7}
+.tile.warm{background:#EFEAE0}
+.tile.cool{background:#E6ECF4}
+.tile .k{font-size:14px;font-weight:600;letter-spacing:-.01em;opacity:.7;margin-bottom:6px}
+.tile h2{font-size:clamp(34px,4.6vw,56px);letter-spacing:-.055em;line-height:1.08;font-weight:700}
+.tile.wide h2{font-size:clamp(40px,6vw,76px)}
+.tile .sub{font-size:clamp(17px,1.7vw,23px);letter-spacing:-.03em;margin-top:10px;opacity:.88}
+.tile .links{margin-top:18px;font-size:17.5px;gap:26px}
+.tile.dark .links a{color:#4DA3FF}
+.tile .art{margin-top:auto;width:min(100%,520px);aspect-ratio:1;transform:translateY(5%) scale(.94);transition:transform 1.2s var(--ease)}
+.tile.wide .art{width:min(100%,640px)}
+.tile.in .art{transform:translateY(2%) scale(1)}
+.tile:hover .art{transform:translateY(0) scale(1.035)}
+.tile .art svg{width:100%;height:100%;display:block;overflow:visible}
+.tile.dark .art svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.tile .art svg{filter:drop-shadow(0 24px 30px rgba(20,30,50,.14))}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+.band{max-width:1480px;margin:12px auto 0;padding:0 12px}
+.cta{background:linear-gradient(180deg,#0B1424 0%,#101C33 100%);color:#fff;border-radius:28px;padding:96px 28px;text-align:center}
+.cta h2{font-size:clamp(34px,5.2vw,64px);letter-spacing:-.055em;line-height:1.1;font-weight:700}
+.cta p{font-size:clamp(17px,1.8vw,22px);opacity:.78;margin:16px auto 0;max-width:620px;letter-spacing:-.02em}
+.cta .row{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.cta .b{padding:15px 28px;border-radius:999px;font-weight:600;font-size:17px;transition:transform .3s var(--ease)}
+.cta .b:hover{transform:translateY(-2px)}
+.cta .b.p{background:#fff;color:#0B1424}.cta .b.s{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.cta .st{display:flex;justify-content:center;gap:0;margin:54px auto 0;max-width:760px;text-align:left}
+.cta .st div{flex:1;padding:0 22px;border-left:1px solid rgba(255,255,255,.18)}
+.cta .st div:first-child{border-left:0}
+.cta .st b{display:block;font-size:13px;opacity:.55;font-weight:600;margin-bottom:6px}
+.cta .st span{font-size:15.5px;opacity:.92;line-height:1.45;display:block}
+
+.lineup{max-width:1480px;margin:0 auto;padding:96px 0 0}
+.lineup h3{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.05em;font-weight:700;padding:0 24px;max-width:1480px}
+.lineup h3 span{color:var(--ink-2)}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 24px 34px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 280px;scroll-snap-align:start;background:#fff;border-radius:24px;padding:22px 22px 24px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 40px -26px rgba(0,0,0,.3)}
+.card .th{aspect-ratio:1;background:#F5F5F7;border-radius:16px;display:grid;place-items:center;padding:8%}
+.card .th svg{width:100%;height:100%;overflow:visible}
+.card small{display:block;font-size:12.5px;color:var(--ink-2);margin-top:18px;font-weight:600}
+.card b{display:block;font-size:19px;letter-spacing:-.04em;margin-top:2px}
+.card a{display:inline-block;margin-top:14px;font-size:14.5px;color:var(--accent);font-weight:600}
+.card a::after{content:" ›"}
+footer{max-width:1080px;margin:70px auto 0;padding:30px 22px 50px;border-top:1px solid #D2D2D7;font-size:12px;color:var(--ink-2);line-height:1.8}
+@media(max-width:860px){.gnav ul{display:none}.tiles{grid-template-columns:1fr}.tile,.tile.wide{min-height:560px}.cta .st{flex-direction:column;gap:18px}.cta .st div{border-left:0;padding:0}.hero{padding-top:56px}.links{gap:22px;font-size:17px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+
+/* 실제 제품 사진: 있으면 일러스트를 대체, 없으면 일러스트 유지 */
+.art img,.th img{width:100%;height:100%;object-fit:contain;display:block}
+.art.has-img svg,.th.has-img svg{display:none}
+.art.has-img img,.th.has-img img{display:block}
+.art.has-img img{filter:drop-shadow(0 28px 30px rgba(20,30,50,.18))}
+.tile:not(.dark) .art.has-img img.flat,.th.has-img img.flat{mix-blend-mode:multiply;filter:none}
+.tile.dark.has-photo-bg{background:#F5F5F7;color:var(--ink)}
+.tile.dark.has-photo-bg .links a{color:var(--accent)}
+.tile .art.has-img{transform:translateY(0) scale(1)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gBody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DDE2E8"/><stop offset=".16" stop-color="#FFFFFF"/><stop offset=".78" stop-color="#F6F8FA"/><stop offset="1" stop-color="#D6DCE3"/></linearGradient>
+<linearGradient id="gBay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D5DCE4"/><stop offset="1" stop-color="#EEF1F5"/></linearGradient>
+<linearGradient id="gWhite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E7EBF0"/></linearGradient>
+<radialGradient id="gLamp" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE9B0" stop-opacity=".9"/><stop offset="1" stop-color="#FFE9B0" stop-opacity="0"/></radialGradient>
+<pattern id="pDots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.7" fill="#BFC8D1"/></pattern>
+<clipPath id="cBed"><circle cx="150" cy="88" r="38"/></clipPath>
+</defs><symbol id="room-kitchen" viewBox="0 0 300 400">
+ <rect width="300" height="400" fill="#EBE3D6"/>
+ <rect y="214" width="300" height="64" fill="#F5F0E7"/>
+ <g stroke="#E6DDCC" stroke-width="1"><path d="M0 235H300M0 256H300"/><path d="M25 214V278M50 214V278M75 214V278M100 214V278M125 214V278M150 214V278M175 214V278M200 214V278M225 214V278M250 214V278M275 214V278"/></g>
+ <rect x="26" y="50" width="104" height="132" rx="4" fill="#FFF9EA"/>
+ <rect x="26" y="50" width="104" height="132" rx="4" fill="none" stroke="#D8CDB9" stroke-width="4"/>
+ <path d="M78 50V182M26 116H130" stroke="#D8CDB9" stroke-width="3"/>
+ <path d="M26 182H130L226 400H92Z" fill="#FFF1C8" opacity=".34"/>
+ <rect x="166" y="98" width="116" height="6" rx="2" fill="#B88A5B"/>
+ <rect x="178" y="82" width="16" height="16" rx="3" fill="#F7F1E6"/><rect x="200" y="78" width="14" height="20" rx="3" fill="#CFA37A"/>
+ <rect x="240" y="80" width="22" height="18" rx="3" fill="#C47B5A"/>
+ <path d="M251 80C238 66 240 50 250 40C258 54 260 68 251 80Z" fill="#7F9A6B"/><path d="M251 80C262 70 272 62 280 66C274 76 264 82 251 80Z" fill="#6F8B5E"/>
+ <rect y="284" width="300" height="116" fill="#F4EFE6"/>
+ <rect y="276" width="300" height="12" fill="#C99C6C"/>
+ <rect x="14" y="300" width="128" height="86" rx="4" fill="none" stroke="#E4DBC9" stroke-width="2"/><rect x="158" y="300" width="128" height="86" rx="4" fill="none" stroke="#E4DBC9" stroke-width="2"/>
+ <rect x="124" y="306" width="4" height="22" rx="2" fill="#BDB29E"/><rect x="172" y="306" width="4" height="22" rx="2" fill="#BDB29E"/>
+ <path d="M64 276V246Q64 232 78 232H92" stroke="#9AA3AB" stroke-width="6" fill="none" stroke-linecap="round"/><rect x="56" y="270" width="16" height="7" rx="2" fill="#9AA3AB"/>
+ <ellipse cx="214" cy="277" rx="52" ry="4" fill="#000" opacity=".14"/>
+ <g transform="translate(168 140)">
+  <rect width="92" height="137" rx="13" fill="url(#gBody)" stroke="#DDD5C6"/>
+  <rect x="12" y="14" width="68" height="22" rx="7" fill="#18253A"/><circle cx="25" cy="25" r="3.2" fill="#6FB1FF"/><rect x="35" y="23" width="32" height="4" rx="2" fill="#4E6A8E"/>
+  <rect x="12" y="46" width="68" height="54" rx="9" fill="url(#gBay)"/>
+  <rect x="40" y="52" width="12" height="9" rx="3" fill="#A9B4BF"/><rect x="45" y="61" width="2.4" height="19" rx="1.2" fill="#8FC4FF"/>
+  <path d="M33 99L36 78H56L59 99Z" fill="#CFE6FF" opacity=".8"/><path d="M34.5 90H57.5L58.4 99H33.6Z" fill="#9FD0FF" opacity=".85"/>
+  <rect x="12" y="102" width="68" height="6" rx="2" fill="#D5DCE4"/><rect x="12" y="118" width="68" height="2" rx="1" fill="#E3E8ED"/>
+ </g>
+</symbol>
+<symbol id="room-living" viewBox="0 0 300 400">
+ <rect width="300" height="400" fill="#D8DCCD"/>
+ <rect y="318" width="300" height="82" fill="#CDB898"/><rect y="311" width="300" height="8" fill="#F1ECE2"/>
+ <path d="M34 250V120A50 50 0 0 1 134 120V250Z" fill="#FFF8E6" stroke="#EFE8D8" stroke-width="5"/>
+ <path d="M84 70V250M34 152H134" stroke="#EFE8D8" stroke-width="3"/>
+ <path d="M34 250H134L240 400H70Z" fill="#FFF1C8" opacity=".3"/>
+ <rect x="176" y="62" width="84" height="104" fill="#F6F1E7" stroke="#BFAE92" stroke-width="3"/>
+ <circle cx="208" cy="100" r="14" fill="#C77C5B"/><path d="M179 163V142Q200 122 222 142T257 138V163Z" fill="#8C9A7E" opacity=".85"/>
+ <ellipse cx="150" cy="360" rx="140" ry="22" fill="#EBE3D3"/>
+ <ellipse cx="121" cy="326" rx="100" ry="5" fill="#000" opacity=".1"/>
+ <rect x="48" y="236" width="146" height="56" rx="16" fill="#D9C9AF"/>
+ <rect x="36" y="270" width="170" height="52" rx="16" fill="#E6D8C0"/>
+ <rect x="30" y="258" width="28" height="64" rx="12" fill="#DCCBB1"/><rect x="184" y="258" width="28" height="64" rx="12" fill="#DCCBB1"/>
+ <rect x="62" y="264" width="58" height="34" rx="10" fill="#EFE3CE"/><rect x="122" y="264" width="58" height="34" rx="10" fill="#EFE3CE"/>
+ <rect x="66" y="242" width="30" height="30" rx="8" fill="#C77C5B" transform="rotate(-8 81 257)"/>
+ <rect x="44" y="320" width="4" height="10" fill="#8A745C"/><rect x="194" y="320" width="4" height="10" fill="#8A745C"/>
+ <rect x="6" y="284" width="26" height="36" rx="4" fill="#C47B5A"/>
+ <path d="M19 286C4 264 8 238 22 224C30 246 30 268 19 286Z" fill="#6F8B5E"/><path d="M19 286C30 270 40 262 46 266C40 278 30 286 19 286Z" fill="#7F9A6B"/>
+ <path d="M236 184q-16 -14 0 -30M246 178q-12 -12 0 -24" stroke="#8FC4FF" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".6"/>
+ <ellipse cx="250" cy="321" rx="34" ry="4" fill="#000" opacity=".14"/>
+ <g transform="translate(222 196)">
+  <rect width="56" height="125" rx="22" fill="url(#gBody)" stroke="#DAD3C6"/>
+  <rect x="14" y="14" width="28" height="4" rx="2" fill="#6FB1FF"/>
+  <g stroke="#BFC8D1" stroke-width="2" stroke-linecap="round"><path d="M14 36H42M14 44H42M14 52H42M14 60H42M14 68H42M14 76H42M14 84H42M14 92H42"/></g>
+  <rect x="9" y="111" width="38" height="7" rx="3" fill="#D3D9E0"/>
+ </g>
+</symbol>
+<symbol id="room-bedroom" viewBox="0 0 300 400">
+ <rect width="300" height="400" fill="#C9D3DB"/>
+ <rect y="332" width="300" height="68" fill="#C9B697"/><rect y="326" width="300" height="8" fill="#F0ECE3"/>
+ <circle cx="150" cy="88" r="42" fill="#F3EEE3" stroke="#A89678" stroke-width="4"/>
+ <g clip-path="url(#cBed)"><circle cx="150" cy="76" r="12" fill="#D9B36B"/><path d="M100 110Q150 70 200 110V130H100Z" fill="#8FA08A"/></g>
+ <rect x="40" y="62" width="34" height="48" fill="#F3EEE3" stroke="#A89678" stroke-width="3"/><circle cx="57" cy="80" r="7" fill="#C77C5B"/><path d="M43 107V96Q57 84 71 96V107Z" fill="#8FA08A"/>
+ <rect x="226" y="62" width="34" height="48" fill="#F3EEE3" stroke="#A89678" stroke-width="3"/><path d="M230 106L243 74L256 106Z" fill="#B9A07E"/>
+ <circle cx="268" cy="258" r="50" fill="url(#gLamp)" opacity=".6"/>
+ <rect x="26" y="166" width="206" height="136" rx="12" fill="#B6A48D"/>
+ <path d="M78 176V296M130 176V296M182 176V296" stroke="#A8957D" stroke-width="2"/>
+ <rect x="20" y="300" width="220" height="28" rx="6" fill="#8A745C"/><rect x="28" y="326" width="8" height="10" fill="#6F5C47"/><rect x="224" y="326" width="8" height="10" fill="#6F5C47"/>
+ <rect x="24" y="262" width="216" height="44" rx="10" fill="#FBFAF6" stroke="#E3DED2" stroke-width="2"/>
+ <path d="M30 292H234" stroke="#E3DED2" stroke-width="2"/>
+ <rect x="40" y="230" width="66" height="36" rx="14" fill="#FFF" stroke="#E6E1D6" stroke-width="2"/>
+ <rect x="110" y="236" width="60" height="30" rx="13" fill="#F4F1EA" stroke="#E6E1D6" stroke-width="2"/>
+ <rect x="116" y="248" width="124" height="46" rx="12" fill="#8CA2B6"/><rect x="116" y="248" width="124" height="14" rx="10" fill="#A3B6C7"/>
+ <rect x="246" y="288" width="46" height="40" rx="4" fill="#B88A5B"/><path d="M246 308H292" stroke="#9C7448" stroke-width="2"/><circle cx="269" cy="298" r="2" fill="#6F5C47"/>
+ <rect x="262" y="270" width="12" height="18" fill="#D9C9AF"/><path d="M252 248H284L278 270H258Z" fill="#F6E7C4"/>
+ <ellipse cx="130" cy="332" rx="120" ry="5" fill="#000" opacity=".1"/>
+</symbol>
+<symbol id="room-bath" viewBox="0 0 300 400">
+ <rect width="300" height="400" fill="#E4DED3"/>
+ <g stroke="#D6CEC0" stroke-width="1"><path d="M0 40H300M0 80H300M0 120H300M0 160H300M0 200H300M0 240H300M0 280H300M0 320H300M0 360H300"/><path d="M40 0V400M80 0V400M120 0V400M160 0V400M200 0V400M240 0V400M280 0V400"/></g>
+ <rect y="366" width="300" height="34" fill="#CFC6B6"/>
+ <circle cx="84" cy="112" r="50" fill="#F5F8FA" stroke="#B79E7E" stroke-width="5"/><path d="M54 98L82 68" stroke="#fff" stroke-width="5" opacity=".75" stroke-linecap="round"/>
+ <rect x="188" y="124" width="86" height="6" rx="2" fill="#B88A5B"/>
+ <rect x="196" y="98" width="40" height="26" rx="3" fill="#FFF"/><path d="M196 106H236M196 114H236" stroke="#E6EBEF" stroke-width="2"/><rect x="198" y="84" width="36" height="14" rx="3" fill="#DCE5EA"/>
+ <rect x="248" y="98" width="14" height="26" rx="4" fill="#C77C5B"/><rect x="252" y="90" width="6" height="8" rx="2" fill="#A9654A"/>
+ <ellipse cx="150" cy="368" rx="130" ry="5" fill="#000" opacity=".12"/>
+ <rect x="130" y="338" width="68" height="30" fill="#F2EFE8" stroke="#DDD6CA" stroke-width="2"/>
+ <rect x="196" y="188" width="76" height="90" rx="10" fill="#FDFCFA" stroke="#DDD6CA" stroke-width="2"/><circle cx="234" cy="200" r="5" fill="#D5CCBC"/>
+ <path d="M198 278H112Q70 278 70 308Q72 340 118 346H198Z" fill="#FFF" stroke="#DDD6CA" stroke-width="2"/>
+ <rect x="170" y="244" width="42" height="26" rx="8" fill="#FAF9F6" stroke="#D9D2C5" stroke-width="2"/><rect x="178" y="251" width="26" height="9" rx="3" fill="#18253A"/><circle cx="184" cy="255.5" r="2" fill="#6FB1FF"/>
+ <rect x="72" y="262" width="130" height="18" rx="9" fill="#F3F1EC" stroke="#D9D2C5" stroke-width="2"/>
+ <path d="M100 284q10 18 32 22" stroke="#7FB6F5" stroke-width="4" fill="none" stroke-dasharray="1 8" stroke-linecap="round"/>
+ <rect x="56" y="368" width="150" height="12" rx="6" fill="#BBA98F"/>
+</symbol>
+<symbol id="prod-purifier" viewBox="0 0 400 400">
+ <ellipse cx="200" cy="366" rx="112" ry="12" fill="#000" opacity=".1"/>
+ <rect x="116" y="40" width="168" height="318" rx="30" fill="url(#gBody)" stroke="#D9DEE4"/>
+ <rect x="146" y="68" width="108" height="38" rx="12" fill="#131E2E"/><circle cx="168" cy="87" r="5" fill="#5FA8FF"/><rect x="182" y="82" width="56" height="5" rx="2.5" fill="#3C5778"/><rect x="182" y="92" width="34" height="4" rx="2" fill="#2A405E"/>
+ <rect x="146" y="124" width="108" height="120" rx="18" fill="url(#gBay)"/>
+ <rect x="188" y="134" width="24" height="16" rx="6" fill="#AEB9C4"/><rect x="194" y="150" width="12" height="9" rx="3" fill="#8E9AA7"/>
+ <rect x="198" y="159" width="4" height="40" rx="2" fill="#7FB9FF"/><ellipse cx="200" cy="203" rx="11" ry="3" fill="#BFE0FF" opacity=".8"/>
+ <path d="M172 240L177 192H223L228 240Z" fill="#CFE6FF" opacity=".75" stroke="#A7CFF2"/><path d="M174 222H226L227.5 240H172.5Z" fill="#9FD0FF" opacity=".85"/>
+ <rect x="146" y="246" width="108" height="8" rx="3" fill="#CDD5DD"/>
+ <rect x="146" y="270" width="108" height="2" rx="1" fill="#E3E8ED"/><rect x="146" y="282" width="108" height="2" rx="1" fill="#E3E8ED"/>
+ <rect x="176" y="318" width="48" height="6" rx="3" fill="#C9D1D9"/>
+ <rect x="140" y="356" width="20" height="6" rx="2" fill="#B8C1CA"/><rect x="240" y="356" width="20" height="6" rx="2" fill="#B8C1CA"/>
+</symbol>
+<symbol id="prod-air" viewBox="0 0 400 400">
+ <ellipse cx="200" cy="366" rx="100" ry="12" fill="#000" opacity=".1"/>
+ <path d="M158 30q42 -22 84 0M146 44q54 -28 108 0" stroke="#9DCBFF" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+ <rect x="128" y="62" width="144" height="294" rx="58" fill="url(#gBody)" stroke="#D9DEE4"/>
+ <ellipse cx="200" cy="82" rx="68" ry="13" fill="#EEF2F6" stroke="#DDE3E9"/><ellipse cx="200" cy="82" rx="50" ry="8" fill="#FAFBFC"/>
+ <path d="M160 90Q200 104 240 90" stroke="#6FB1FF" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <rect x="170" y="112" width="60" height="16" rx="8" fill="#131E2E"/><circle cx="184" cy="120" r="3.5" fill="#6FB1FF"/><rect x="194" y="118" width="26" height="4" rx="2" fill="#3C5778"/>
+ <rect x="146" y="148" width="108" height="182" rx="36" fill="#EEF2F6"/><rect x="146" y="148" width="108" height="182" rx="36" fill="url(#pDots)"/>
+ <rect x="136" y="338" width="128" height="14" rx="7" fill="#D5DCE3"/>
+</symbol>
+<symbol id="prod-mattress" viewBox="0 0 400 400">
+<ellipse cx="205" cy="332" rx="172" ry="22" fill="#000" opacity=".09"/>
+<rect x="68" y="272" width="10" height="22" fill="#7A6650"/>
+<rect x="171" y="312" width="10" height="22" fill="#7A6650"/>
+<rect x="336" y="250" width="10" height="22" fill="#7A6650"/>
+<path d="M60 250L176 290L176 316L60 276Z" fill="#CDB594"/><path d="M176 290L352 228L352 254L176 316Z" fill="#B59A74"/>
+<path d="M60 196L176 236L176 290L60 250Z" fill="#E9E5DC"/><path d="M176 236L352 174L352 228L176 290Z" fill="#D6D1C6"/>
+<path d="M60 250L176 290" stroke="#DAD5CA" stroke-width="1.5" fill="none"/>
+<path d="M60 196L236 134L352 174L176 236Z" fill="#F3F0E8" stroke="#E0DACD" stroke-width="2" stroke-linejoin="round"/>
+<path d="M95.2 183.6L211.2 223.6M130.4 171.2L246.4 211.2M165.6 158.8L281.6 198.8M200.8 146.4L316.8 186.4M89.0 206.0L265.0 144.0M118.0 216.0L294.0 154.0M147.0 226.0L323.0 164.0" stroke="#EAE5DA" stroke-width="1.5" fill="none"/>
+<path d="M132.0 215.9L293.9 158.9L341.5 175.3L179.6 232.3Z" fill="#8FA4B8"/><path d="M132.0 215.9L293.9 158.9L305.5 162.9L143.6 219.9Z" fill="#A6B9CA"/>
+<path d="M82.2 188.8L149.1 165.3L175.8 174.5L108.9 198.0Z" fill="#DDD7CA" stroke="#DDD7CA" stroke-width="9" stroke-linejoin="round" transform="translate(0 6)"/><path d="M82.2 188.8L149.1 165.3L175.8 174.5L108.9 198.0Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
+<path d="M82.2 188.8L149.1 165.3L175.8 174.5L108.9 198.0Z" fill="#FFFFFF" stroke="#DDD8CC" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M159.6 161.6L226.5 138.0L253.2 147.2L186.3 170.8Z" fill="#DDD7CA" stroke="#DDD7CA" stroke-width="9" stroke-linejoin="round" transform="translate(0 6)"/><path d="M159.6 161.6L226.5 138.0L253.2 147.2L186.3 170.8Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
+<path d="M159.6 161.6L226.5 138.0L253.2 147.2L186.3 170.8Z" fill="#FFFFFF" stroke="#DDD8CC" stroke-width="1.2" stroke-linejoin="round"/>
+</symbol><symbol id="prod-bidet" viewBox="0 0 400 400">
+ <ellipse cx="200" cy="344" rx="132" ry="14" fill="#000" opacity=".1"/>
+ <ellipse cx="200" cy="238" rx="132" ry="100" fill="#D4DAE1"/>
+ <ellipse cx="200" cy="230" rx="132" ry="100" fill="url(#gWhite)" stroke="#D9DEE4"/>
+ <ellipse cx="200" cy="246" rx="78" ry="54" fill="#C5CDD6"/><ellipse cx="200" cy="240" rx="78" ry="54" fill="#DCE2E9"/><ellipse cx="200" cy="244" rx="66" ry="43" fill="#CFD7E0"/>
+ <rect x="192" y="206" width="16" height="7" rx="3.5" fill="#9FB0C0"/><path d="M200 216q0 12 -4 22" stroke="#7FB6F5" stroke-width="3.5" fill="none" stroke-dasharray="1 7" stroke-linecap="round"/>
+ <circle cx="162" cy="316" r="5" fill="#C5CCD5"/><circle cx="238" cy="316" r="5" fill="#C5CCD5"/>
+ <rect x="102" y="92" width="196" height="78" rx="32" fill="url(#gBody)" stroke="#D9DEE4"/>
+ <rect x="160" y="112" width="80" height="16" rx="8" fill="#131E2E"/><circle cx="174" cy="120" r="3.5" fill="#6FB1FF"/><rect x="184" y="118" width="40" height="4" rx="2" fill="#3C5778"/>
+ <rect x="150" y="142" width="100" height="3" rx="1.5" fill="#E3E8ED"/>
+ <rect x="318" y="236" width="34" height="86" rx="14" fill="#fff" stroke="#D9DEE4"/><circle cx="335" cy="256" r="7" fill="#E4E9EE"/><circle cx="335" cy="278" r="5" fill="#6FB1FF"/><circle cx="335" cy="296" r="5" fill="#DDE3E9"/>
+</symbol>
+</svg>
+<div class="promo">이달 행사 제품과 월 렌탈료를 조건별로 바로 확인해 보세요.<a href="../../#quote">견적 계산기 열기 ›</a></div>
+<header class="gnav"><div class="in">
+  <a class="logo" href="../../">청호나이스 렌탈<small>판매점(대리점)</small></a>
+  <ul><li><a href="#water">정수기</a></li><li><a href="#air">공기청정기</a></li><li><a href="#sleep">매트리스</a></li><li><a href="#bidet">비데</a></li><li><a href="../../office/">사무실·매장</a></li><li><a href="#lineup">라인업</a></li></ul>
+  <a class="buy" href="../../#quote">견적 보기</a>
+</div></header>
+
+<section class="hero">
+  <p class="ey rv">청호나이스 렌탈</p>
+  <h1 class="rv">집에 필요한 건<br>한 번에 골라서.</h1>
+  <p class="rv">정수기, 공기청정기, 매트리스, 비데.<br>조건만 고르면 월 렌탈료가 바로 계산됩니다.</p>
+  <div class="links rv"><a href="../../#quote">월 렌탈료 계산하기</a><a href="#water">제품 둘러보기</a></div>
+</section>
+
+<main class="tiles">
+  <article class="tile wide rv" id="water">
+    <div class="k">정수기</div><h2>물 한 잔에도<br>얼음이 따라옵니다.</h2><p class="sub">아이스트리, OMNi, NEW 700. 얼음정수기부터 직수형까지.</p>
+    <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a><a href="../../jeongsugi-rental/">자세히 알아보기</a></div>
+    <div class="art" data-code="Z10562"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div>
+  </article>
+  <article class="tile dark rv" id="air">
+    <div class="k">공기청정기</div><h2>보이지 않는 곳까지<br>맑게.</h2><p class="sub">항균, 환기, 가습. 공간에 맞는 모델.</p>
+    <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a><a href="../../gonggi-cheongjeonggi/">자세히 알아보기</a></div>
+    <div class="art" data-code="Z24252"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div>
+  </article>
+  <article class="tile warm rv" id="sleep">
+    <div class="k">매트리스</div><h2>잠자리도<br>관리받는 시대.</h2><p class="sub">프레임, 파운데이션, 온열 홈케어 라인업.</p>
+    <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a><a href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener nofollow">상담 문의</a></div>
+    <div class="art" data-code="M20001"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div>
+  </article>
+  <article class="tile rv" id="bidet">
+    <div class="k">비데</div><h2>가장 작은 공간의<br>가장 큰 차이.</h2><p class="sub">살균, 트윈노즐, 리모컨 모델.</p>
+    <div class="links"><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a><a href="../../bidet/">자세히 알아보기</a></div>
+    <div class="art" data-code="Z21069"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div>
+  </article>
+  <article class="tile cool rv" id="office">
+    <div class="k">사무실 · 매장</div><h2>인원이 많을수록<br>선택이 중요합니다.</h2><p class="sub">인원과 업종에 맞춘 정수기 구성.</p>
+    <div class="links"><a href="../../office/">자세히 알아보기</a><a href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener nofollow">상담 문의</a></div>
+    <div class="art" data-code="Z10568"><img alt="" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div>
+  </article>
+</main>
+
+<section class="band"><div class="cta rv">
+  <h2>월 얼마인지,<br>1분이면 알 수 있습니다.</h2>
+  <p>고객 유형과 관리 방식, 의무사용기간을 고르면 부가세 포함 월 렌탈료와 총액을 보여드립니다.</p>
+  <div class="row"><a class="b p" href="../../#quote">견적 계산기 열기</a><a class="b s" href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener nofollow">카카오톡으로 문의</a></div>
+  <div class="st"><div><b>01</b><span>제품군을 고릅니다</span></div><div><b>02</b><span>조건별 월 렌탈료와 총액 확인</span></div><div><b>03</b><span>상담 신청으로 이어서 안내</span></div></div>
+</div></section>
+
+<section class="lineup" id="lineup">
+  <h3>대표 라인업. <span>제품군별 인기 모델을 한눈에.</span></h3>
+  <div class="rail">
+    <div class="card"><div class="th" data-code="Z10562"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div><small>얼음냉온정수기</small><b>슈퍼 아이스트리</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z10568"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-purifier" width="400" height="400"/></svg></div><small>얼음냉정수기</small><b>OMNi Plus</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z24252"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div><small>항균 공기청정기</small><b>A600S</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z24266"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-air" width="400" height="400"/></svg></div><small>공기청정기</small><b>휘바람 숨소리3</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="M20001"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div><small>매트리스</small><b>로얄스위트 프라임</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="M47001"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-mattress" width="400" height="400"/></svg></div><small>온열 매트리스</small><b>듀얼 드림 온열</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z21069"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div><small>살균 비데</small><b>B600 PLUS</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a></div>
+    <div class="card"><div class="th" data-code="Z21038"><img alt="" loading="lazy" decoding="async" hidden><svg viewBox="0 0 400 400"><use href="#prod-bidet" width="400" height="400"/></svg></div><small>쾌변 비데</small><b>B350</b><a href="../../?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote">월 렌탈료 보기</a></div>
+  </div>
+</section>
+
+<footer>본 사이트는 청호나이스 판매점(대리점) 나이스엔지니어링이 운영하는 상담·견적 안내 사이트이며, 청호나이스 본사가 직접 운영하는 공식몰은 아닙니다. 월 렌탈료는 부가세 포함 금액이며 제품·조건·프로모션 시기에 따라 달라질 수 있습니다. 렌탈 계약에는 의무사용기간이 있으며, 중도해지 시 계약서에 정한 기준에 따라 위약금이 발생할 수 있습니다.<br>시안 미리보기 · 제품 이미지는 임시 일러스트이며 실제 제품 사진으로 교체됩니다.</footer>
+<script src="../../images.js"></script>
+<script>
+/* 제품 이미지 로더 — 우선순위: images.js(관리자 도구로 넣은 사진) → assets/products/<코드>.webp|png|jpg → 일러스트 */
+const BASE='../../', PI=window.PRODUCT_IMAGES||{};
+function candidates(code){return [PI[code],`${BASE}assets/products/${code}.webp`,`${BASE}assets/products/${code}.png`,`${BASE}assets/products/${code}.jpg`].filter(Boolean)}
+function tryLoad(list,ok){ if(!list.length) return; const im=new Image(); im.onload=()=>ok(im,list[0]); im.onerror=()=>tryLoad(list.slice(1),ok); im.src=list[0]; }
+/* 배경이 투명하지 않은(흰 배경) 사진인지 모서리 픽셀로 판별 */
+function opaqueCorners(im){ try{ const c=document.createElement('canvas'); c.width=c.height=8; const x=c.getContext('2d'); x.drawImage(im,0,0,8,8); const d=x.getImageData(0,0,8,8).data; return d[3]>250&&d[(7*8+7)*4+3]>250; }catch(e){ return true; } }
+document.querySelectorAll('[data-code]').forEach(box=>{
+  tryLoad(candidates(box.dataset.code),(im,src)=>{
+    const img=box.querySelector('img'); img.src=src; img.hidden=false;
+    const opaque=opaqueCorners(im);
+    if(opaque) img.classList.add('flat');                 /* 흰 배경 → 밝은 바탕에서 multiply 로 녹임 */
+    box.classList.add('has-img');
+    const tile=box.closest('.tile.dark'); if(tile&&opaque) tile.classList.add('has-photo-bg'); /* 어두운 타일에 흰 배경 사진이면 밝은 타일로 전환 */
+  });
+});
+</script>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

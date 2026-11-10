@@ -464,16 +464,180 @@ footer p{margin-top:11px;line-height:1.8;max-width:540px}
 .halfbox .nw{font-size:10.5px;font-weight:700;color:var(--save);background:#FBEAE7;border-radius:6px;padding:1px 6px;margin-left:4px}
 .halfbox .regnote{margin-top:12px}
 @media(max-width:760px){.halfbox{padding:16px}.halfbox th:nth-child(3),.halfbox td:nth-child(3){display:none}}
+/* ═══════════ 2026-11 리뉴얼 스킨 ═══════════
+   계산기·폼의 구조와 클래스는 그대로 두고, 토큰과 표면만 한 벌로 통일한다. */
+:root{--ink:#1D1D1F;--ink2:#424245;--sub:#6E6E73;--blue:#0A63E8;--blue-d:#0752C4;--blue-lt:#E8F1FD;--blue-tint:#F3F8FE;
+  --ivory:#F5F5F7;--line:#E3E3E8;--line-2:#EDEDF1;--sh-s:none;--sh-m:0 0 0 1px rgba(0,0,0,.04);--sh-l:0 28px 46px -32px rgba(0,0,0,.34);
+  --ease:cubic-bezier(.22,.8,.24,1)}
+html{background:#F5F5F7}
+body{background:#F5F5F7;background-image:none}
+.pill{background:none;padding:0;font-size:14px;font-weight:600;letter-spacing:-.01em}
+.topbar{background:rgba(245,245,247,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+.topbar .wrap{height:52px;max-width:1080px;gap:18px}
+.logo .mark{width:22px;height:22px;border-radius:7px;background:var(--ink);box-shadow:none}
+.logo .mark::after{left:7px;right:7px;bottom:5px;height:11px;width:auto;background:#fff;border-radius:50% 50% 50% 50%/62% 62% 38% 38%}
+.logo b{font-size:16px}.logo small{font-size:11.5px;color:var(--sub);margin-left:2px;white-space:nowrap}
+.tnav{gap:0}.tnav a{font-size:13.5px;font-weight:500;color:#424245;padding:8px 12px;border-radius:8px;background:none}
+.tnav a:hover{background:none;color:#000}
+.tnav .cta{background:var(--blue);color:#fff;font-weight:600;padding:8px 16px;margin-left:8px;box-shadow:none;font-size:13px}
+.tnav .cta:hover{background:var(--blue-d)}
+@media(max-width:960px){.tnav a:not(.cta){display:none}.logo small{display:none}}
+
+/* 히어로 */
+.hx{text-align:center;padding:84px 22px 44px}
+.hx-ey{font-size:19px;font-weight:600;color:var(--blue);letter-spacing:-.02em;margin-bottom:14px}
+.hx h1{font-size:clamp(40px,7vw,84px);line-height:1.05;letter-spacing:-.056em;font-weight:700}
+.hx-lead{text-wrap:balance;font-size:clamp(17px,2.1vw,23px);color:var(--sub);margin:20px auto 0;max-width:720px;letter-spacing:-.025em;line-height:1.5}
+.hx-links{display:flex;justify-content:center;gap:30px;margin-top:22px;font-size:18px;flex-wrap:wrap}
+.hx-links a{color:var(--blue);letter-spacing:-.02em}
+.hx-links a::after{content:" ›";transition:margin .25s var(--ease)}
+.hx-links a:hover{text-decoration:underline}.hx-links a:hover::after{margin-left:3px}
+.hx-links.c{margin-top:26px;font-size:19px;gap:34px}
+.hx-tiles{max-width:1480px;margin:0 auto;padding:0 12px 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hx-tile{position:relative;border-radius:28px;overflow:hidden;background:#fff;text-align:center;padding:52px 24px 0;min-height:620px;display:flex;flex-direction:column;align-items:center}
+.hx-tile.wide{grid-column:1/-1;min-height:760px}
+.hx-tile.dark{background:#161618;color:#F5F5F7}
+.hx-tile.warm{background:#EFEAE0}.hx-tile.cool{background:#E6ECF4}
+.hx-tile.dark.has-photo-bg{background:#fff;color:var(--ink)}
+.hx-k{font-size:14px;font-weight:600;letter-spacing:-.01em;opacity:.7;margin-bottom:6px}
+.hx-tile h2{font-size:clamp(34px,4.6vw,56px);letter-spacing:-.055em;line-height:1.08;font-weight:700}
+.hx-tile.wide h2{font-size:clamp(40px,6vw,76px)}
+.hx-sub{font-size:clamp(17px,1.7vw,23px);letter-spacing:-.03em;margin-top:10px;opacity:.88}
+.hx-tile .hx-links{margin-top:18px;font-size:17.5px;gap:26px}
+.hx-tile.dark .hx-links a{color:#4DA3FF}
+.hx-tile.dark.has-photo-bg .hx-links a{color:var(--blue)}
+.hx-art{margin-top:auto;width:min(100%,520px);aspect-ratio:1;pointer-events:none}
+.hx-tile .hx-k,.hx-tile h2,.hx-tile .hx-sub,.hx-tile .hx-links{position:relative;z-index:2}
+.hx-tile.wide .hx-art{width:min(100%,600px)}
+/* 애니메이션은 .hx-art 가 아니라 그 자식에 건다: .hx-art 에 transform 이 있으면 stacking context 가 생겨
+   사진의 multiply 블렌딩이 타일 배경까지 닿지 않아 흰 배경이 네모로 남는다. */
+.hx-art svg,.hx-art img{width:100%;height:100%;display:block;overflow:visible;transform:translateY(5%) scale(.94);transition:transform 1.2s var(--ease)}
+.hx-art img[hidden]{display:none}
+.hx-tile.in .hx-art svg{transform:translateY(2%)}
+.hx-tile.in .hx-art img{transform:translateY(2%) scale(1.28)}
+.hx-art img{transform-origin:50% 62%;transform:translateY(5%) scale(1.2);object-fit:contain;filter:drop-shadow(0 28px 30px rgba(20,30,50,.18))}
+.hx-tile:hover .hx-art svg{transform:scale(1.035)}
+.hx-tile:hover .hx-art img{transform:scale(1.32)}
+.hx-art svg{filter:drop-shadow(0 24px 30px rgba(20,30,50,.14))}
+.hx-tile.dark .hx-art svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.hx-art img.flat{mix-blend-mode:multiply;filter:none}
+.hx-art.has-img svg{display:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+/* 빠른 시작 */
+.hx-start{padding:96px 0 40px;text-align:center}
+.hx-start .hx-k{font-size:19px;font-weight:600;color:var(--blue);opacity:1;margin-bottom:10px}
+.hx-start h2{font-size:clamp(34px,5.2vw,64px);letter-spacing:-.055em;line-height:1.1;font-weight:700}
+.hx-s{font-size:clamp(16px,1.7vw,21px);color:var(--sub);margin:16px auto 0;max-width:620px;letter-spacing:-.02em}
+.hx-start .startgrid{grid-template-columns:repeat(4,1fr);gap:12px;max-width:980px;margin:38px auto 0;text-align:left}
+.hx-start .sbtn{background:#fff;border:0;border-radius:20px;padding:22px 22px 24px;box-shadow:var(--sh-m);min-height:112px}
+.hx-start .sbtn:hover{transform:translateY(-4px);box-shadow:var(--sh-l);background:#fff}
+.hx-start .sbtn .l{font-size:19px;letter-spacing:-.04em}.hx-start .sbtn .d{font-size:13px;margin-top:6px;line-height:1.45}
+.hx-figs{display:flex;justify-content:center;gap:0;max-width:520px;margin:52px auto 0}
+.hx-figs div{flex:1;padding:0 20px;border-left:1px solid #D2D2D7}.hx-figs div:first-child{border-left:0}
+.hx-figs b{display:block;font-size:clamp(34px,4.4vw,56px);font-weight:700;letter-spacing:-.05em;line-height:1.05}
+.hx-figs span{font-size:14px;color:var(--sub)}
+.hx-n{font-size:12px;color:var(--sub);margin-top:30px}
+
+/* 아래 섹션을 같은 표면으로 */
+section.blk{padding:76px 0}
+.shead{max-width:760px}
+.shead h2{font-size:clamp(30px,4.2vw,48px);letter-spacing:-.055em;line-height:1.1;font-weight:700;margin-top:10px}
+.shead p{font-size:16px}
+.pcard,.card,.step,.wcard,.empty,.cform,.modal{border-radius:22px}
+.pcard{border:0;box-shadow:var(--sh-m)}.pcard:hover{box-shadow:var(--sh-l)}
+.pimg,.cthumb .t{background:#F5F5F7}
+.pimg img{mix-blend-mode:multiply}
+.step{box-shadow:var(--sh-m)}
+.obtn{background:#fff;border-color:var(--line)}
+.gseg{background:#fff;border-color:transparent;box-shadow:none}
+.crumb,.rbar select{box-shadow:none}
+.seo .lnk a{box-shadow:none;border-radius:16px}.seo .lnk a:hover{background:#fff;border-color:var(--ink)}
+
+/* 모바일 하단 상담 바 */
+.mbar{display:none}
+@media(max-width:760px){
+  .mbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:75;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(245,245,247,.86);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
+    border-top:1px solid rgba(0,0,0,.08);transform:translateY(110%);transition:transform .45s var(--ease)}
+  .mbar.on{transform:none}
+  .mbar a{flex:1;text-align:center;font-weight:700;font-size:15px;padding:14px 10px;border-radius:14px}
+  .mbar .k{background:#FEE500;color:#191600}.mbar .p{background:var(--blue);color:#fff}
+  body:has(.tape.show) .mbar{display:none}
+  footer{padding-bottom:96px}
+  .hx{padding-top:56px}.hx-links{gap:22px;font-size:17px}
+  .hx-tiles{grid-template-columns:1fr}.hx-tile,.hx-tile.wide{min-height:560px}
+  .hx-start{padding-top:64px}.hx-start .startgrid{grid-template-columns:1fr 1fr}
+  .hx-figs div{padding:0 8px}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hx-art{transform:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gBody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DDE2E8"/><stop offset=".16" stop-color="#FFFFFF"/><stop offset=".78" stop-color="#F6F8FA"/><stop offset="1" stop-color="#D6DCE3"/></linearGradient>
+<linearGradient id="gBay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D5DCE4"/><stop offset="1" stop-color="#EEF1F5"/></linearGradient>
+<linearGradient id="gWhite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E7EBF0"/></linearGradient>
+<radialGradient id="gLamp" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE9B0" stop-opacity=".9"/><stop offset="1" stop-color="#FFE9B0" stop-opacity="0"/></radialGradient>
+<pattern id="pDots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.7" fill="#BFC8D1"/></pattern>
+<clipPath id="cBed"><circle cx="150" cy="88" r="38"/></clipPath>
+</defs><symbol id="prod-purifier" viewBox="0 0 400 400">
+ <ellipse cx="200" cy="366" rx="112" ry="12" fill="#000" opacity=".1"/>
+ <rect x="116" y="40" width="168" height="318" rx="30" fill="url(#gBody)" stroke="#D9DEE4"/>
+ <rect x="146" y="68" width="108" height="38" rx="12" fill="#131E2E"/><circle cx="168" cy="87" r="5" fill="#5FA8FF"/><rect x="182" y="82" width="56" height="5" rx="2.5" fill="#3C5778"/><rect x="182" y="92" width="34" height="4" rx="2" fill="#2A405E"/>
+ <rect x="146" y="124" width="108" height="120" rx="18" fill="url(#gBay)"/>
+ <rect x="188" y="134" width="24" height="16" rx="6" fill="#AEB9C4"/><rect x="194" y="150" width="12" height="9" rx="3" fill="#8E9AA7"/>
+ <rect x="198" y="159" width="4" height="40" rx="2" fill="#7FB9FF"/><ellipse cx="200" cy="203" rx="11" ry="3" fill="#BFE0FF" opacity=".8"/>
+ <path d="M172 240L177 192H223L228 240Z" fill="#CFE6FF" opacity=".75" stroke="#A7CFF2"/><path d="M174 222H226L227.5 240H172.5Z" fill="#9FD0FF" opacity=".85"/>
+ <rect x="146" y="246" width="108" height="8" rx="3" fill="#CDD5DD"/>
+ <rect x="146" y="270" width="108" height="2" rx="1" fill="#E3E8ED"/><rect x="146" y="282" width="108" height="2" rx="1" fill="#E3E8ED"/>
+ <rect x="176" y="318" width="48" height="6" rx="3" fill="#C9D1D9"/>
+ <rect x="140" y="356" width="20" height="6" rx="2" fill="#B8C1CA"/><rect x="240" y="356" width="20" height="6" rx="2" fill="#B8C1CA"/>
+</symbol>
+<symbol id="prod-air" viewBox="0 0 400 400">
+ <ellipse cx="200" cy="366" rx="100" ry="12" fill="#000" opacity=".1"/>
+ <path d="M158 30q42 -22 84 0M146 44q54 -28 108 0" stroke="#9DCBFF" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+ <rect x="128" y="62" width="144" height="294" rx="58" fill="url(#gBody)" stroke="#D9DEE4"/>
+ <ellipse cx="200" cy="82" rx="68" ry="13" fill="#EEF2F6" stroke="#DDE3E9"/><ellipse cx="200" cy="82" rx="50" ry="8" fill="#FAFBFC"/>
+ <path d="M160 90Q200 104 240 90" stroke="#6FB1FF" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <rect x="170" y="112" width="60" height="16" rx="8" fill="#131E2E"/><circle cx="184" cy="120" r="3.5" fill="#6FB1FF"/><rect x="194" y="118" width="26" height="4" rx="2" fill="#3C5778"/>
+ <rect x="146" y="148" width="108" height="182" rx="36" fill="#EEF2F6"/><rect x="146" y="148" width="108" height="182" rx="36" fill="url(#pDots)"/>
+ <rect x="136" y="338" width="128" height="14" rx="7" fill="#D5DCE3"/>
+</symbol>
+<symbol id="prod-mattress" viewBox="0 0 400 400">
+<ellipse cx="205" cy="332" rx="172" ry="22" fill="#000" opacity=".09"/>
+<rect x="68" y="272" width="10" height="22" fill="#7A6650"/>
+<rect x="171" y="312" width="10" height="22" fill="#7A6650"/>
+<rect x="336" y="250" width="10" height="22" fill="#7A6650"/>
+<path d="M60 250L176 290L176 316L60 276Z" fill="#CDB594"/><path d="M176 290L352 228L352 254L176 316Z" fill="#B59A74"/>
+<path d="M60 196L176 236L176 290L60 250Z" fill="#E9E5DC"/><path d="M176 236L352 174L352 228L176 290Z" fill="#D6D1C6"/>
+<path d="M60 250L176 290" stroke="#DAD5CA" stroke-width="1.5" fill="none"/>
+<path d="M60 196L236 134L352 174L176 236Z" fill="#F3F0E8" stroke="#E0DACD" stroke-width="2" stroke-linejoin="round"/>
+<path d="M95.2 183.6L211.2 223.6M130.4 171.2L246.4 211.2M165.6 158.8L281.6 198.8M200.8 146.4L316.8 186.4M89.0 206.0L265.0 144.0M118.0 216.0L294.0 154.0M147.0 226.0L323.0 164.0" stroke="#EAE5DA" stroke-width="1.5" fill="none"/>
+<path d="M132.0 215.9L293.9 158.9L341.5 175.3L179.6 232.3Z" fill="#8FA4B8"/><path d="M132.0 215.9L293.9 158.9L305.5 162.9L143.6 219.9Z" fill="#A6B9CA"/>
+<path d="M82.2 188.8L149.1 165.3L175.8 174.5L108.9 198.0Z" fill="#DDD7CA" stroke="#DDD7CA" stroke-width="9" stroke-linejoin="round" transform="translate(0 6)"/><path d="M82.2 188.8L149.1 165.3L175.8 174.5L108.9 198.0Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
+<path d="M82.2 188.8L149.1 165.3L175.8 174.5L108.9 198.0Z" fill="#FFFFFF" stroke="#DDD8CC" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M159.6 161.6L226.5 138.0L253.2 147.2L186.3 170.8Z" fill="#DDD7CA" stroke="#DDD7CA" stroke-width="9" stroke-linejoin="round" transform="translate(0 6)"/><path d="M159.6 161.6L226.5 138.0L253.2 147.2L186.3 170.8Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
+<path d="M159.6 161.6L226.5 138.0L253.2 147.2L186.3 170.8Z" fill="#FFFFFF" stroke="#DDD8CC" stroke-width="1.2" stroke-linejoin="round"/>
+</symbol><symbol id="prod-bidet" viewBox="0 0 400 400">
+ <ellipse cx="200" cy="344" rx="132" ry="14" fill="#000" opacity=".1"/>
+ <ellipse cx="200" cy="238" rx="132" ry="100" fill="#D4DAE1"/>
+ <ellipse cx="200" cy="230" rx="132" ry="100" fill="url(#gWhite)" stroke="#D9DEE4"/>
+ <ellipse cx="200" cy="246" rx="78" ry="54" fill="#C5CDD6"/><ellipse cx="200" cy="240" rx="78" ry="54" fill="#DCE2E9"/><ellipse cx="200" cy="244" rx="66" ry="43" fill="#CFD7E0"/>
+ <rect x="192" y="206" width="16" height="7" rx="3.5" fill="#9FB0C0"/><path d="M200 216q0 12 -4 22" stroke="#7FB6F5" stroke-width="3.5" fill="none" stroke-dasharray="1 7" stroke-linecap="round"/>
+ <circle cx="162" cy="316" r="5" fill="#C5CCD5"/><circle cx="238" cy="316" r="5" fill="#C5CCD5"/>
+ <rect x="102" y="92" width="196" height="78" rx="32" fill="url(#gBody)" stroke="#D9DEE4"/>
+ <rect x="160" y="112" width="80" height="16" rx="8" fill="#131E2E"/><circle cx="174" cy="120" r="3.5" fill="#6FB1FF"/><rect x="184" y="118" width="40" height="4" rx="2" fill="#3C5778"/>
+ <rect x="150" y="142" width="100" height="3" rx="1.5" fill="#E3E8ED"/>
+ <rect x="318" y="236" width="34" height="86" rx="14" fill="#fff" stroke="#D9DEE4"/><circle cx="335" cy="256" r="7" fill="#E4E9EE"/><circle cx="335" cy="278" r="5" fill="#6FB1FF"/><circle cx="335" cy="296" r="5" fill="#DDE3E9"/>
+</symbol>
+</svg>
+
 
 <div class="topbar"><div class="wrap">
-  <a class="logo" href="https://www.niceeng-rental.co.kr/" style="color:inherit"><span class="mark"></span><b>청호나이스 렌탈</b></a>
-  <nav class="tnav">
-    <a href="#promo">이달의 행사</a>
-    <a href="#quote">렌탈료 확인</a>
-    <a href="#contact" class="cta">상담 신청</a>
+  <a class="logo" href="https://www.niceeng-rental.co.kr/" style="color:inherit"><span class="mark"></span><b>청호나이스 렌탈</b><small>판매점(대리점)</small></a>
+  <nav class="tnav" aria-label="주요 메뉴">
+    <a href="#water">정수기</a><a href="#air">공기청정기</a><a href="#sleep">매트리스</a><a href="#bidet">비데</a>
+    <a href="#promo">이달의 행사</a><a href="https://www.niceeng-rental.co.kr/blog/">블로그</a><a href="#contact" class="cta">상담 신청</a>
   </nav>
 </div></div>
 
@@ -481,29 +645,50 @@ footer p{margin-top:11px;line-height:1.8;max-width:540px}
 <a href="https://www.niceeng-rental.co.kr/jeongsugi-rental/" style="color:#96540A;text-decoration:underline">제품별 안내 페이지</a>에서 렌탈 조건을 확인하시거나,
 <a href="https://open.kakao.com/o/suMB3nEh" style="color:#96540A;text-decoration:underline">카카오톡 오픈채팅</a>으로 문의해 주세요.</div></noscript>
 <div id="app">
-<header class="hero"><div class="wrap">
-  <div>
-    <span class="pill" id="heroMonth">프로모션 진행 중</span>
-    <h1>매달 얼마인지,<br>고르면 바로<br>알려드립니다.</h1>
-    <p class="lead">조건 몇 개만 고르면 월 렌탈료와 의무기간 총액을 바로 보여드립니다.
-      최종 금액과 조건은 계약서 기준으로 확정됩니다.</p>
-    <div class="figs">
-      <div class="fig"><div class="k">이달 행사</div><div class="v num" id="hsPromo">—</div></div>
-      <div class="fig"><div class="k">최대 할인*</div><div class="v num" id="hsOff">—</div></div>
-    </div>
-    <div class="hcta"><a class="btn btn-p" href="#contact">무료 상담 신청</a><a class="btn btn-k" href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener">카카오톡 문의</a></div>
+<header class="hx">
+  <p class="hx-ey">청호나이스 판매점(대리점)</p>
+  <h1>집에 필요한 건<br>한 번에 골라서.</h1>
+  <p class="hx-lead">청호나이스 정수기, 공기청정기, 매트리스, 비데 렌탈.<br>조건만 고르면 월 렌탈료와 의무기간 총액을 바로 보여드립니다.</p>
+  <div class="hx-links c"><a href="#quote">월 렌탈료 계산하기</a><a href="#hx-tiles">제품 둘러보기</a></div>
+</header>
+<main class="hx-tiles" id="hx-tiles" aria-label="제품군">
+  <article class="hx-tile wide rv" id="water">
+    <div class="hx-k">정수기</div><h2>물 한 잔에도<br>얼음이 따라옵니다.</h2><p class="hx-sub">아이스트리, OMNi, NEW 700. 얼음정수기부터 직수형까지.</p>
+    <div class="hx-links"><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0">월 렌탈료 보기</a><a href="https://www.niceeng-rental.co.kr/jeongsugi-rental/">자세히 알아보기</a></div>
+    <div class="hx-art" data-code="Z10626"><img alt="청호나이스 얼음정수기" decoding="async" hidden><svg viewBox="0 0 400 400" role="img" aria-label="청호나이스 얼음정수기"><use href="#prod-purifier" width="400" height="400"/></svg></div>
+  </article>
+  <article class="hx-tile dark rv" id="air">
+    <div class="hx-k">공기청정기</div><h2>보이지 않는 곳까지<br>맑게.</h2><p class="hx-sub">항균, 환기, 가습. 공간에 맞는 모델.</p>
+    <div class="hx-links"><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0">월 렌탈료 보기</a><a href="https://www.niceeng-rental.co.kr/gonggi-cheongjeonggi/">자세히 알아보기</a></div>
+    <div class="hx-art" data-code="Z24252"><img alt="청호나이스 공기청정기" decoding="async" hidden><svg viewBox="0 0 400 400" role="img" aria-label="청호나이스 공기청정기"><use href="#prod-air" width="400" height="400"/></svg></div>
+  </article>
+  <article class="hx-tile warm rv" id="sleep">
+    <div class="hx-k">매트리스</div><h2>잠자리도<br>관리받는 시대.</h2><p class="hx-sub">프레임, 파운데이션, 온열 홈케어 라인업.</p>
+    <div class="hx-links"><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%28%ED%99%88%EC%BC%80%EC%96%B4%29%EB%A7%A4%ED%8A%B8%EB%A6%AC%EC%8A%A4">월 렌탈료 보기</a><a href="https://www.niceeng-rental.co.kr/mattress/">자세히 알아보기</a></div>
+    <div class="hx-art" data-code="M07001"><img alt="청호나이스 매트리스" decoding="async" hidden><svg viewBox="0 0 400 400" role="img" aria-label="청호나이스 매트리스"><use href="#prod-mattress" width="400" height="400"/></svg></div>
+  </article>
+  <article class="hx-tile  rv" id="bidet">
+    <div class="hx-k">비데</div><h2>가장 작은 공간의<br>가장 큰 차이.</h2><p class="hx-sub">살균, 트윈노즐, 리모컨 모델.</p>
+    <div class="hx-links"><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EB%B9%84%EB%8D%B0%EA%B5%B0">월 렌탈료 보기</a><a href="https://www.niceeng-rental.co.kr/bidet/">자세히 알아보기</a></div>
+    <div class="hx-art" data-code="Z21069"><img alt="청호나이스 비데" decoding="async" hidden><svg viewBox="0 0 400 400" role="img" aria-label="청호나이스 비데"><use href="#prod-bidet" width="400" height="400"/></svg></div>
+  </article>
+  <article class="hx-tile cool rv" id="office">
+    <div class="hx-k">사무실 · 매장</div><h2>인원이 많을수록<br>선택이 중요합니다.</h2><p class="hx-sub">인원과 업종에 맞춘 정수기 구성.</p>
+    <div class="hx-links"><a href="https://www.niceeng-rental.co.kr/office/">자세히 알아보기</a><a href="#contact">상담 문의</a></div>
+    <div class="hx-art" data-code="Z13704"><img alt="청호나이스 사무실 정수기" decoding="async" hidden><svg viewBox="0 0 400 400" role="img" aria-label="청호나이스 사무실 정수기"><use href="#prod-purifier" width="400" height="400"/></svg></div>
+  </article>
+</main>
+<section class="hx-start" id="start"><div class="wrap">
+  <p class="hx-k" id="heroMonth">프로모션 진행 중</p>
+  <h2>월 렌탈료,<br>1분이면 알 수 있습니다.</h2>
+  <p class="hx-s">어떤 고객이신가요? 선택하시면 조건에 맞는 제품과 금액만 보여드립니다.</p>
+  <div class="startgrid" id="heroStart"></div>
+  <div class="hx-figs">
+    <div><b class="num" id="hsPromo">—</b><span>이달 행사</span></div>
+    <div><b class="num" id="hsOff">—</b><span>최대 할인*</span></div>
   </div>
-
-  <div class="startcard">
-    <div class="tag"><i></i><span>STEP 1 / 5 · 고객 유형</span></div>
-    <h2>어떤 고객이신가요?</h2>
-    <div class="cs">선택하시면 조건에 맞는 제품과 금액만 보여드립니다.</div>
-    <div class="startgrid" id="heroStart"></div>
-    <div class="qpick"><span class="qpl">한 번에 보기</span><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EC%96%BC%EC%9D%8C%EC%A0%95%EC%88%98%EA%B8%B0">얼음정수기</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%83%89%EC%98%A8%EC%A0%95%EC%88%98%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EB%83%89%EC%98%A8%EC%A0%95%EC%88%98%EA%B8%B0">냉온정수기</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0">공기청정기</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EB%B9%84%EB%8D%B0%EA%B5%B0">비데</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%97%B0%EC%88%98%EA%B8%B0%EA%B5%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EC%97%B0%EC%88%98%EA%B8%B0%EA%B5%B0">연수기</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EC%A0%9C%EC%8A%B5%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EC%A0%9C%EC%8A%B5%EA%B8%B0">제습기</a></div>
-    <div class="fnote">위 버튼은 <b>가정용·신규·방문관리·60개월</b> 조건으로 바로 결과를 보여드립니다.
-      조건을 바꾸시려면 위에서 고객 유형부터 선택해 주세요. 등록비는 할인 적용 시 <b>0원</b>이며, 사용 중 반환 시 발생합니다.</div>
-  </div>
-</div></header>
+  <p class="hx-n">등록비는 할인 적용 시 0원이며, 사용 중 반환 시 발생합니다. 표시 금액은 부가세 포함 월 렌탈료입니다. * 할인율은 같은 제품의 일반(A규정) 월 렌탈료 대비입니다. 최종 금액과 조건은 계약서 기준으로 확정됩니다.</p>
+</div></section>
 
 <section class="blk" id="promo"><div class="wrap">
   <div class="shead">
@@ -600,9 +785,14 @@ footer p{margin-top:11px;line-height:1.8;max-width:540px}
   <h2>제품별 · 주제별 자세한 안내</h2>
   <p>제품군마다 관리 방식과 계약 조건이 다릅니다. 아래 페이지에서 자세한 내용을 확인하실 수 있고,
     각 페이지의 <b>1분 견적 시작</b> 버튼을 누르면 그 조건이 미리 채워진 상태로 계산기가 열립니다.</p>
-  <ul class="lnk"><li><a href="https://www.niceeng-rental.co.kr/jeongsugi-rental/"><b>정수기 렌탈</b><span>제품군·요금 구조·계약 조건</span></a></li><li><a href="https://www.niceeng-rental.co.kr/eoreum-jeongsugi/"><b>얼음정수기</b><span>아이스트리 · The M · 옴니</span></a></li><li><a href="https://www.niceeng-rental.co.kr/gonggi-cheongjeonggi/"><b>공기청정기</b><span>A880 시리즈 등</span></a></li><li><a href="https://www.niceeng-rental.co.kr/bidet/"><b>비데</b><span>B360 등 비데 렌탈</span></a></li><li><a href="https://www.niceeng-rental.co.kr/yeonsugi/"><b>연수기</b><span>경수 지역 연수기</span></a></li><li><a href="https://www.niceeng-rental.co.kr/jeseupgi/"><b>제습기</b><span>장마철 습기 관리</span></a></li><li><a href="https://www.niceeng-rental.co.kr/office/"><b>사무실·매장</b><span>사무실·매장·교육기관</span></a></li></ul>
+  <ul class="lnk"><li><a href="https://www.niceeng-rental.co.kr/jeongsugi-rental/"><b>정수기 렌탈</b><span>제품군·요금 구조·계약 조건</span></a></li><li><a href="https://www.niceeng-rental.co.kr/eoreum-jeongsugi/"><b>얼음정수기</b><span>아이스트리 · The M · 옴니</span></a></li><li><a href="https://www.niceeng-rental.co.kr/gonggi-cheongjeonggi/"><b>공기청정기</b><span>A880 시리즈 등</span></a></li><li><a href="https://www.niceeng-rental.co.kr/bidet/"><b>비데</b><span>B360 등 비데 렌탈</span></a></li><li><a href="https://www.niceeng-rental.co.kr/mattress/"><b>매트리스</b><span>프레임·온열·홈케어</span></a></li><li><a href="https://www.niceeng-rental.co.kr/yeonsugi/"><b>연수기</b><span>경수 지역 연수기</span></a></li><li><a href="https://www.niceeng-rental.co.kr/jeseupgi/"><b>제습기</b><span>장마철 습기 관리</span></a></li><li><a href="https://www.niceeng-rental.co.kr/office/"><b>사무실·매장</b><span>사무실·매장·교육기관</span></a></li></ul>
   <h3>계약 전에 확인할 것</h3>
   <ul class="lnk"><li><a href="https://www.niceeng-rental.co.kr/guide-rental-vs-purchase/"><b>렌탈 vs 구매</b><span>총비용으로 비교하기</span></a></li><li><a href="https://www.niceeng-rental.co.kr/guide-wiyakgeum/"><b>의무기간·위약금</b><span>의무사용기간과 위약금</span></a></li><li><a href="https://www.niceeng-rental.co.kr/guide-ijeon-seolchi/"><b>이전설치</b><span>이사 시 이전설치</span></a></li><li><a href="https://www.niceeng-rental.co.kr/guide-filter/"><b>필터 교체 주기</b><span>방문관리와 자가관리</span></a></li><li><a href="https://www.niceeng-rental.co.kr/guide-onerum/"><b>원룸·1인가구</b><span>1인가구 모델 선택</span></a></li></ul>
+  <h3>블로그 최신 글</h3>
+  <!-- blog:latest:begin -->
+  <ul class="lnk"><li><a href="https://www.niceeng-rental.co.kr/blog/jeongsugi-rental-fee-breakdown/"><b>정수기 렌탈료가 사람마다 다른 이유, 월 요금은 이렇게 정해집니다</b><span>렌탈료·비용 비교 · 2026-09-04</span></a></li><li><a href="https://www.niceeng-rental.co.kr/blog/office-water-purifier-capacity/"><b>사무실 정수기, 인원수별로 어떤 걸 놓아야 할까</b><span>사무실·매장·창업 · 2026-09-03</span></a></li><li><a href="https://www.niceeng-rental.co.kr/blog/rental-contract-checklist/"><b>정수기 렌탈 계약 전 확인할 7가지, 도장 찍기 전에 보세요</b><span>계약·위약금·해지 · 2026-09-02</span></a></li><li><a href="https://www.niceeng-rental.co.kr/blog/ice-purifier-vs-normal/"><b>얼음정수기 렌탈료가 더 비싼 이유와, 그래도 살 만한 경우</b><span>제품 선택 가이드 · 2026-09-01</span></a></li></ul>
+  <!-- blog:latest:end -->
+  <p style="margin-top:10px"><a href="https://www.niceeng-rental.co.kr/blog/" style="color:var(--blue);font-weight:700">블로그 글 전체 보기 →</a></p>
 </div></section>
 
 </details>
@@ -663,7 +853,7 @@ if(!window.RENTAL_DATA){
    ══════════════════════════════════════════════════════════ */
 const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbx5s3iDC6QWIYTxJGBtOKrgIzKqVDgRG1CCEn1LzpzNRJT3LcCjxC1c06X7jcuWE1Jv/exec";                       // Google Apps Script 웹앱 URL (README 참고)
 const KAKAO_CHANNEL = "https://open.kakao.com/o/suMB3nEh";   // 카카오톡 채널 채팅 주소
-const PHONE         = "010-8717-5749";
+const PHONE = "010-8717-5749";
 
 /* ── 명칭 ─────────────────────────────────────────── */
 const SIT = {
@@ -1131,6 +1321,27 @@ reindex(); applyDeepLink(); renderHero(); render(); bindQuickPick();
 if(S.cust) goQuote();
 
 }
+</script>
+<div class="mbar" id="mbar"><a class="k" href="https://open.kakao.com/o/suMB3nEh" target="_blank" rel="noopener nofollow">카카오톡 문의</a><a class="p" href="#quote">월 렌탈료 계산</a></div>
+<script>
+/* 제품 이미지 — 우선순위: images.js(관리자 도구) → assets/products/<코드>.webp|png|jpg → 일러스트. 계산기 카드와 같은 제품 코드(p[0])를 쓴다. */
+(function(){
+  const PI=window.PRODUCT_IMAGES||{};
+  const cand=c=>[PI[c],`assets/products/${c}.webp`,`assets/products/${c}.png`,`assets/products/${c}.jpg`].filter(Boolean);
+  const tryLoad=(l,ok)=>{if(!l.length)return;const im=new Image();im.onload=()=>ok(im,l[0]);im.onerror=()=>tryLoad(l.slice(1),ok);im.src=l[0]};
+  const opaque=im=>{try{const c=document.createElement('canvas');c.width=c.height=8;const x=c.getContext('2d');x.drawImage(im,0,0,8,8);const d=x.getImageData(0,0,8,8).data;return d[3]>250&&d[(7*8+7)*4+3]>250}catch(e){return true}};
+  document.querySelectorAll('.hx-art[data-code]').forEach(box=>tryLoad(cand(box.dataset.code),(im,src)=>{
+    const img=box.querySelector('img');img.src=src;img.hidden=false;const o=opaque(im);if(o)img.classList.add('flat');
+    box.classList.add('has-img');const t=box.closest('.hx-tile.dark');if(t&&o)t.classList.add('has-photo-bg');
+  }));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  /* 모바일 상담 바: 스크롤 후 노출, 상담 폼이 보이면 숨김 */
+  const bar=document.getElementById('mbar'),ct=document.getElementById('contact');let nearContact=false;
+  const upd=()=>bar.classList.toggle('on',scrollY>360&&!nearContact);
+  if(ct)new IntersectionObserver(es=>{nearContact=es[0].isIntersecting;upd()}).observe(ct);
+  addEventListener('scroll',upd,{passive:true});upd();
+})();
 </script>
 </body>
 </html>
