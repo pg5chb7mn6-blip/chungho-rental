@@ -153,15 +153,22 @@ body.c input[type=text]:focus,body.c textarea:focus{border-color:#0F1E3C;box-sha
  .side{position:static}
  .side .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 14px calc(12px + env(safe-area-inset-bottom))}
 }
+
+.top .in{justify-content:space-between}
+.hdash{display:flex;align-items:center;gap:10px;background:#fff;color:#0F1E3C;border:0;border-radius:12px;padding:10px 16px 10px 12px;font:inherit;font-weight:800;font-size:14.5px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18);text-align:left;white-space:nowrap}
+.hdash i{font-style:normal;width:32px;height:32px;border-radius:9px;background:#EAF0FB;color:#1F4FA8;display:grid;place-items:center;font-size:16px}
+.hdash small{display:block;font-weight:500;font-size:11.5px;color:#4A5A78;margin-top:1px}
+.hdash:hover{background:#EAF0FB}
+@media(max-width:560px){.hdash small{display:none}.hdash{padding:8px 12px 8px 8px;font-size:13px}.top h1{font-size:19px}}
 </style></head><body class="v">
-<div class="top"><div class="in"><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div></div></div>
+<div class="top"><div class="in"><div><h1>잔디 접수·답변 양식</h1><p>에코백스 CS 통일양식 · 작성 후 복사해서 잔디에 붙여넣기</p></div><button type="button" class="hdash" id="dashBtn"><i>▦</i><span>인입·응대 현황<small>공통 조회</small></span></button></div></div>
 <div class="shell">
 <main>
 <div class="tabs"><button class="v on" id="tv">유베이스<small>접수 · 문의 등록</small></button><button class="c" id="tc">센터 · 본사<small>답변 작성</small></button></div>
 
 <div id="V">
  <div class="fbrow"><button type="button" class="feebtn" id="feeBtn"><i>₩</i><span><b>유상서비스 요금 조회</b><small>이 화면에서 바로 확인</small></span><em>›</em></button>
- <a class="feebtn pay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer"><i>✓</i><span><b>유상서비스 결제</b><small>이노페이 로그인 · 새 탭</small></span><em>↗</em></a><button type="button" class="feebtn dashbtn" id="dashBtn"><i>▦</i><span><b>인입·응대 현황 대시보드</b><small>센터 4곳·본사 지표를 이 화면에서 확인</small></span><em>›</em></button></div>
+ <a class="feebtn pay" href="https://app.innopay.co.kr/Login.do" target="_blank" rel="noopener noreferrer"><i>✓</i><span><b>유상서비스 결제</b><small>이노페이 로그인 · 새 탭</small></span><em>↗</em></a></div>
  <div class="card">
   <div class="sec"><i>1</i>접수 정보<small>필수</small></div>
   <div class="row"><div class="f"><label class="t">접수번호</label><input type="text" id="no" placeholder="접수번호 (직배수 설치건은 업체명 입력)" autocomplete="off"><label class="nn"><input type="checkbox" id="nno"> 접수번호 없음</label></div>
