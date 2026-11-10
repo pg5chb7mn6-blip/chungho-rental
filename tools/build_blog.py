@@ -300,6 +300,20 @@ footer b{display:block;color:#fff;font-size:14px;margin-bottom:7px}
 @media(max-width:620px){h1,.hero h1{font-size:24px}article h2{font-size:19px}body{font-size:15.5px}}
 """
 
+SKIN = """
+/* 리뉴얼 스킨 — 메인 화면과 같은 토큰·상단바·타이포 */
+:root{--ink:#1D1D1F;--ink2:#424245;--sub:#6E6E73;--blue:#0A63E8;--blue-d:#0752C4;--blue-lt:#E8F1FD;--blue-tint:#F3F8FE;--ivory:#F5F5F7;--line:#E3E3E8;--line2:#EDEDF1}
+html{background:#F5F5F7}body{background-image:none;background-color:#F5F5F7}
+.topbar{background:rgba(245,245,247,.8);border-bottom:1px solid rgba(0,0,0,.08)}.topbar .wrap{height:52px}
+.logo .mark{width:22px;height:22px;border-radius:7px;background:var(--ink);box-shadow:none}
+.logo .mark::after{left:7px;right:7px;bottom:5px;height:11px;background:#fff;border-radius:50% 50% 50% 50%/62% 62% 38% 38%}
+.tcta{background:var(--blue);box-shadow:none;border-radius:999px;font-weight:600}
+h1{letter-spacing:-.055em;font-weight:700}h2{letter-spacing:-.05em}
+.lead{background:#fff;border-color:transparent}
+.cta{background:#161618;border-radius:28px}
+"""
+CSS += SKIN
+
 FOOTER_TMPL = """<footer><div class="wrap">
   <div class="fnav">{fnav}</div>
   <b>청호나이스 공식 판매점</b>
@@ -317,7 +331,7 @@ FOOTER_TMPL = """<footer><div class="wrap">
 FNAV = [
     ("", "렌탈료 견적 계산"), ("blog/", "블로그"), ("jeongsugi-rental/", "정수기 렌탈"),
     ("eoreum-jeongsugi/", "얼음정수기"), ("gonggi-cheongjeonggi/", "공기청정기"),
-    ("bidet/", "비데"), ("yeonsugi/", "연수기"), ("jeseupgi/", "제습기"),
+    ("bidet/", "비데"), ("mattress/", "매트리스"), ("yeonsugi/", "연수기"), ("jeseupgi/", "제습기"),
     ("office/", "사무실·매장"), ("guide-rental-vs-purchase/", "렌탈 vs 구매"),
     ("guide-wiyakgeum/", "의무기간·위약금"), ("guide-ijeon-seolchi/", "이전설치"),
     ("guide-filter/", "필터 교체 주기"), ("guide-onerum/", "원룸·1인가구"),
@@ -526,7 +540,7 @@ def build_index(posts, origin, kakao):
 STATIC_URLS = [
     ("", "1.0", "weekly"), ("blog/", "0.9", "daily"),
     ("jeongsugi-rental/", "0.9", "weekly"), ("eoreum-jeongsugi/", "0.9", "weekly"),
-    ("gonggi-cheongjeonggi/", "0.9", "weekly"), ("bidet/", "0.9", "weekly"),
+    ("gonggi-cheongjeonggi/", "0.9", "weekly"), ("bidet/", "0.9", "weekly"), ("mattress/", "0.9", "weekly"),
     ("yeonsugi/", "0.9", "weekly"), ("jeseupgi/", "0.9", "weekly"),
     ("office/", "0.9", "weekly"), ("guide-rental-vs-purchase/", "0.8", "monthly"),
     ("guide-wiyakgeum/", "0.8", "monthly"), ("guide-ijeon-seolchi/", "0.8", "monthly"),
@@ -576,6 +590,8 @@ def build_rss(posts, origin):
          "청호나이스 정수기 렌탈료와 관리 방식, 의무사용기간을 정리한 안내 페이지입니다."),
         ("eoreum-jeongsugi/", "청호나이스 얼음정수기 안내",
          "얼음정수기 렌탈료와 제빙 방식, 설치 조건을 정리한 안내 페이지입니다."),
+        ("mattress/", "청호나이스 매트리스 렌탈 안내",
+         "매트리스 사이즈, 프레임·파운데이션 구성, 온열 모델과 설치 전 확인사항을 정리한 안내 페이지입니다."),
         ("office/", "사무실·매장 정수기 렌탈 안내",
          "사무실과 매장의 인원·업종별 정수기 선택 기준을 정리한 안내 페이지입니다."),
         ("guide-wiyakgeum/", "의무사용기간과 위약금 안내",

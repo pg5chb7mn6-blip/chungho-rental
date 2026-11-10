@@ -18,7 +18,10 @@ GitHub Pages로 서비스됩니다: `https://www.niceeng-rental.co.kr/`
 ```
 index.html              견적 계산기 (data.js 기반, 자바스크립트로 렌더링)
 data.js                 제품·요금 데이터 (매월 프로모션 반영 필요)
-<제품군>/index.html      정적 랜딩 12종 (네이버 로봇은 JS를 실행하지 않아 별도 필요)
+<제품군>/index.html      정적 랜딩 13종: 정수기·얼음정수기·공기청정기·비데·매트리스·연수기·제습기·사무실 + 가이드 5종
+                        (네이버 로봇은 JS를 실행하지 않아 별도 필요)
+assets/products/        제품 사진 <제품코드>.webp|png|jpg — 메인 타일이 자동으로 찾아 일러스트를 대체
+design/                 메인 화면 시안(noindex). 채택안 B 는 index.html 에 적용됨
 blog/                   ⚠ 생성물. 직접 고치지 말 것 — ops/posts/*.md 를 고치고 빌드
 sitemap.xml, rss.xml    ⚠ 생성물. tools/build_blog.py 가 갱신
 ops/                    운영 문서·원고·설정
@@ -26,6 +29,9 @@ tools/                  빌드·검수 스크립트
 ```
 
 ## 규칙
+
+- 메인(`index.html`)은 애플 스타일 히어로 + 기존 견적 계산기 구조입니다. 계산기가 쓰는 id(`heroStart`, `hsProd`, `hsPromo`, `hsOff`, `heroMonth`, `flow`, `quote`)와 `data-qp` 빠른 견적 링크를 지우지 마십시오. 스킨은 `<style>` 맨 끝의 "리뉴얼 스킨" 블록입니다.
+- 제품 이미지는 제품 코드(`data.js` 의 `p[0]`)로 연결됩니다. `images.js` → `assets/products/` → 일러스트 순서입니다.
 
 - `blog/`, `sitemap.xml`, `rss.xml` 은 **생성물**입니다. 직접 수정하지 말고 `ops/posts/*.md` 를 고친 뒤 `python3 tools/build_blog.py` 를 실행합니다.
 - 사업자 정보·인증코드는 `ops/site.config.json` 한 곳에서만 관리하고 `python3 tools/apply_config.py` 로 반영합니다. HTML의 `{{...}}` 를 손으로 고치지 마십시오.
