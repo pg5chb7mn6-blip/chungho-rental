@@ -57,10 +57,10 @@ git push
 
 배포에는 보통 1~3분 걸립니다. 아래 주소가 모두 열리는지 확인하세요.
 
-- https://pg5chb7mn6-blip.github.io/chungho-rental/
-- https://pg5chb7mn6-blip.github.io/chungho-rental/jeongsugi-rental/
-- https://pg5chb7mn6-blip.github.io/chungho-rental/sitemap.xml
-- https://pg5chb7mn6-blip.github.io/chungho-rental/robots.txt
+- https://www.niceeng-rental.co.kr/
+- https://www.niceeng-rental.co.kr/jeongsugi-rental/
+- https://www.niceeng-rental.co.kr/sitemap.xml
+- https://www.niceeng-rental.co.kr/robots.txt
 
 ---
 
@@ -68,7 +68,7 @@ git push
 
 1. https://searchadvisor.naver.com 접속 → 네이버 로그인
 2. **웹마스터도구 → 사이트 관리 → 사이트 등록**
-   `https://pg5chb7mn6-blip.github.io/chungho-rental/` 입력
+   `https://www.niceeng-rental.co.kr/` 입력
 3. **소유확인** — "HTML 태그" 방식을 선택하면 `<meta name="naver-site-verification" content="...">` 코드가 나옵니다.
    그 content 값을 복사해 이 폴더 전체의 `{{네이버_서치어드바이저_인증코드}}` 자리에 치환하고 다시 커밋 → 서치어드바이저에서 "소유확인" 클릭
 4. **요청 → 사이트맵 제출**: `sitemap.xml` 입력
@@ -86,7 +86,7 @@ git push
 ## 3. 구글 서치콘솔 등록
 
 1. https://search.google.com/search-console 접속
-2. **속성 추가 → URL 접두어** → `https://pg5chb7mn6-blip.github.io/chungho-rental/`
+2. **속성 추가 → URL 접두어** → `https://www.niceeng-rental.co.kr/`
 3. 소유확인은 **HTML 태그** 방식 선택 → content 값을 `{{구글_서치콘솔_인증코드}}` 자리에 치환 후 커밋 → 확인
 4. **Sitemaps** 메뉴에서 `sitemap.xml` 제출
 5. **URL 검사**에서 주요 페이지를 하나씩 넣고 "색인 생성 요청"

@@ -1,7 +1,7 @@
 # 청호렌탈 — 프로젝트 안내
 
 청호나이스 공식 판매점(나이스엔지니어링)의 렌탈 견적·상담 사이트이자, 검색 유입을 만들기 위한 블로그 운영 저장소입니다.
-GitHub Pages로 서비스됩니다: `https://pg5chb7mn6-blip.github.io/chungho-rental/`
+GitHub Pages로 서비스됩니다: `https://www.niceeng-rental.co.kr/`
 
 ## 이 저장소에서 일할 때 먼저 읽을 것
 

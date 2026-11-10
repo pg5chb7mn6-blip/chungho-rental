@@ -63,7 +63,7 @@ git push -u origin claude/cheonho-rental-seo-blog-3faixj
        - 발행 시각: 평일 오전 8~9시 또는 오후 8~10시
 
 [ ] 2. 네이버 서치어드바이저 → 요청 → 웹페이지 수집
-       https://pg5chb7mn6-blip.github.io/chungho-rental/blog/<slug>/
+       https://www.niceeng-rental.co.kr/blog/<slug>/
        (하루 할당량이 있으니 새 글부터)
 
 [ ] 3. 구글 서치콘솔 → URL 검사 → 색인 생성 요청
