@@ -277,7 +277,7 @@ $('copy').onclick=async()=>{const miss=[];
 const FEE_SRC='../yusang-x4k9p/?embed=1';let feeLoaded=false;
 function feeOpen(o){if(o&&!feeLoaded){$('feeFrame').src=FEE_SRC;feeLoaded=true}$('fee').classList.toggle('open',o);$('dim').classList.toggle('on',o)}
 $('feeBtn').onclick=()=>feeOpen(true);$('feeClose').onclick=()=>feeOpen(false);$('dim').onclick=()=>{feeOpen(false);dashOpen(false)};
-const DASH_SRC='../dash-r6w2m/?embed=1&v=20261111b';let dashLoaded=false;
+const DASH_SRC='../dash-r6w2m/?embed=1&v=20261111c';let dashLoaded=false;
 function dashOpen(o){if(o&&!dashLoaded){$('dshFrame').src=DASH_SRC;dashLoaded=true}$('dsh').classList.toggle('open',o);$('dim').classList.toggle('on',o)}
 $('dashBtn').onclick=()=>{feeOpen(false);dashOpen(true)};$('dshClose').onclick=()=>dashOpen(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){feeOpen(false);dashOpen(false)}});
