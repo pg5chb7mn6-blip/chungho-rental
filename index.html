@@ -481,7 +481,7 @@ body{background:#F5F5F7;background-image:none}
 .tnav a:hover{background:none;color:#000}
 .tnav .cta{background:var(--blue);color:#fff;font-weight:600;padding:8px 16px;margin-left:8px;box-shadow:none;font-size:13px}
 .tnav .cta:hover{background:var(--blue-d)}
-@media(max-width:960px){.tnav a:not(.cta){display:none}.logo small{display:none}}
+@media(max-width:960px){.tnav a:not(.cta){display:none}.logo small{font-size:10.5px}.logo b{font-size:15px}}
 
 /* 히어로 */
 .hx{text-align:center;padding:84px 22px 44px}
@@ -612,7 +612,7 @@ html.xp-lock{overflow:hidden}
 .xp-n b{font-size:14.5px;font-weight:700;letter-spacing:-.035em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .xp-n small{font-size:12px;color:var(--sub)}
 .xp-n:hover .ph,.xp-n:focus-visible .ph{transform:scale(1.08);box-shadow:0 0 0 2px var(--ink),0 26px 34px -22px rgba(0,0,0,.5)}
-.xp-sheet{grid-row:1/-1;grid-column:1/-1;position:fixed;right:0;top:68px;bottom:0;z-index:5;width:min(440px,100vw);background:#fff;overflow-y:auto;border-radius:28px 0 0 0;box-shadow:-30px 0 60px -40px rgba(0,0,0,.35);position:relative;animation:xss .45s var(--ease)}
+.xp-sheet{grid-row:1/-1;grid-column:1/-1;position:fixed;right:0;top:68px;bottom:0;z-index:5;width:min(440px,100vw);background:#fff;overflow-y:auto;border-radius:28px 0 0 0;box-shadow:-30px 0 60px -40px rgba(0,0,0,.35);animation:xss .45s var(--ease)}
 @keyframes xss{from{transform:translateX(40px);opacity:0}}
 .xs-x{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;background:#F5F5F7;font-size:20px;z-index:2}
 .xs-ph{aspect-ratio:1/.82;background:#F5F5F7;display:grid;place-items:center}
@@ -678,6 +678,31 @@ body:has(.tape.show) .cmp-pill{bottom:calc(96px + env(safe-area-inset-bottom,0px
 }
 @keyframes xsm{from{transform:translateY(60px);opacity:0}}
 @media(prefers-reduced-motion:reduce){.xp-n,.xp-c,#xpLines path,.xp-sheet{animation:none!important}#xpLines path{stroke-dashoffset:0}}
+
+/* 검수 반영 */
+.qty{display:inline-flex;align-items:center;gap:2px;margin-left:auto}
+.qty button{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:16px;line-height:1}
+.qty b{min-width:22px;text-align:center;font-size:13.5px}
+.xp-sheet{display:flex;flex-direction:column}
+.xs-b{padding-bottom:18px}
+.xs-foot{position:sticky;bottom:0;margin-top:auto;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:12px 26px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-2);z-index:3}
+.xs-foot .xs-act{margin-top:0}
+.xs-go{display:flex;gap:8px;margin-top:8px;padding:0;background:none}
+.xs-go button{flex:1;padding:12px 8px;border-radius:14px;background:#F0F0F3;font-weight:700;font-size:13.5px}
+.xp.has-sheet~.cmp-pill,body:has(#tlist[style*="block"]) .cmp-pill{display:none}
+
+.xs-one{font-size:13px;font-weight:600;color:var(--sub)}
+.xs-opts[hidden]{display:none}
+details.xs-n summary{cursor:pointer;font-weight:600;color:var(--ink2);padding:6px 0}
+details.xs-n p{margin-top:6px}
+@media(min-width:761px){.xp.has-sheet .xp-stage{margin-right:440px}}
+.hx-trio img{transform:scale(1.5)}.hx-tile:hover .hx-trio img{transform:scale(1.56)}
+.hx-tile.in .hx-art img{transform:translateY(2%) scale(1.18)}.hx-tile:hover .hx-art img{transform:scale(1.22)}
+.tape{box-shadow:none}.tape.show{box-shadow:0 -14px 44px rgba(21,32,48,.3)}
+.hx-tile,#promo,#quote,#start,#contact{scroll-margin-top:72px}
+.pname{min-height:2.8em}.pprice{flex-wrap:nowrap;white-space:nowrap}
+.hx-links a{padding:10px 0}.xs-chips button{padding:11px 14px}.xs-seg button{padding:12px 4px}
+@media(max-width:760px){.pprice .now{font-size:16.5px}.pprice .was{font-size:10.5px}.pprice{gap:4px}.xs-foot{padding-inline:18px}}
 </style>
 </head>
 <body>
@@ -780,7 +805,7 @@ body:has(.tape.show) .cmp-pill{bottom:calc(96px + env(safe-area-inset-bottom,0px
     <div class="hx-links"><a href="#bidet" data-xp="bidet">제품 펼쳐보기</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%B9%84%EB%8D%B0%EA%B5%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EB%B9%84%EB%8D%B0%EA%B5%B0">월 렌탈료 보기</a></div>
     <div class="hx-art" data-code="Z21069"><img alt="청호나이스 비데 B600 PLUS" decoding="async" hidden><svg viewBox="0 0 400 400" role="img" aria-label="청호나이스 비데 B600 PLUS"><use href="#prod-bidet" width="400" height="400"/></svg></div>
   </article>
-  <article class="hx-tile cool wide rv" id="office">
+  <article class="hx-tile cool rv" id="office">
     <div class="hx-k">사무실 · 매장</div><h2>인원이 많을수록<br>선택이 중요합니다.</h2>
     <div class="hx-links"><a href="#office" data-xp="office">제품 펼쳐보기</a><a href="https://www.niceeng-rental.co.kr/?c=%EA%B0%9C%EC%9D%B8&s=S&m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&o=60&g=%EB%83%89%EC%98%A8%EC%A0%95%EC%88%98%EA%B8%B0#quote" data-qp="c=%EA%B0%9C%EC%9D%B8&amp;s=S&amp;m=%EB%B0%A9%EB%AC%B8%EA%B4%80%EB%A6%AC&amp;o=60&amp;g=%EB%83%89%EC%98%A8%EC%A0%95%EC%88%98%EA%B8%B0">월 렌탈료 보기</a></div>
     <div class="hx-trio" data-codes="Z13629,Z10648,Z10605"></div>
@@ -1085,7 +1110,7 @@ function renderHero(){
       S.cust='개인'; S.sit='H'; S.care=isSelf(r)?'자가관리':'방문관리';
       S.ob=String(r.ob); S.grp=DATA.g[DATA.p[pi][3]];
       S.cart.set(key(pi,r),1);
-      render(); const q=el('quote'); if(q&&q.scrollIntoView) q.scrollIntoView({behavior:'smooth'});
+      render(); goQuote();
     };
   });
 }
@@ -1192,8 +1217,9 @@ function renderResults(){
   if(!items.length) h+=`<div class="empty"><b>조건에 맞는 제품이 없습니다</b>의무 사용기간이나 관리 방식을 바꿔 보세요.</div>`;
   items.forEach(({pi,p,c})=>{
     const cur=c.find(r=>S.cart.has(key(pi,r)))||c[0];
+    const cartElse=[...S.cart.keys()].some(k=>+k.split('|')[0]===pi);
     const base=baseFee(pi,cur.ob), save=base?(base-cur.f[0])*1000:0;
-    const inCart=c.some(r=>S.cart.has(key(pi,r)));
+    const inCart=cartElse;
     const tags=[`<span class="tag t-grp">${DATA.g[p[3]]}</span>`];
     if(isSelf(cur)) tags.push('<span class="tag t-self">자가관리</span>');
     if(/^H/.test(cur.rule)) tags.push('<span class="tag t-h">*당월행사 제품</span>');
@@ -1240,23 +1266,26 @@ function totalOver(r,months){let l=months,s=0,y=0;
   while(l>0){const fee=r.f[Math.min(y,r.f.length-1)]*1000,m=Math.min(12,l);s+=fee*m;l-=m;y++;}
   return s;}
 function selected(){
-  return [...S.cart.keys()].map(k=>({k,r:findRate(k),p:DATA.p[+k.split('|')[0]]})).filter(x=>x.r);
+  return [...S.cart.keys()].map(k=>({k,q:S.cart.get(k)||1,r:findRate(k),p:DATA.p[+k.split('|')[0]]})).filter(x=>x.r);
 }
 function quoteText(){
   const sel=selected(); if(!sel.length) return '';
-  const mon=sel.reduce((a,x)=>a+x.r.f[0]*1000,0);
-  const tot=sel.reduce((a,x)=>a+totalOver(x.r,x.r.ob),0);
+  const mon=sel.reduce((a,x)=>a+x.r.f[0]*1000*x.q,0);
+  const tot=sel.reduce((a,x)=>a+totalOver(x.r,x.r.ob)*x.q,0);
+  const cnt=sel.reduce((a,x)=>a+x.q,0);
   return sel.map(x=>`· ${x.p[2]} [${x.p[0]}] / ${SIT[sitOf(x.r)].name}`
-      +`${isSelf(x.r)?' 자가관리':' 방문관리'} / 의무 ${x.r.ob}개월 / 월 ${won(x.r.f[0]*1000)}`).join('\n')
-    + `\n─────────────\n합계 ${sel.length}대 · 월 ${won(mon)} · 의무기간 총액 ${won(tot)} · 등록비 0원`;
+      +`${isSelf(x.r)?' 자가관리':' 방문관리'} / 의무 ${x.r.ob}개월 / 월 ${won(x.r.f[0]*1000)}${x.q>1?' × '+x.q+'대':''}`).join('\n')
+    + `\n─────────────\n합계 ${cnt}대 · 월 ${won(mon)} · 의무기간 총액 ${won(tot)} · 등록비 0원`;
 }
 function renderTape(){
   const sel=selected();
-  const mon=sel.reduce((a,x)=>a+x.r.f[0]*1000,0);
-  const tot=sel.reduce((a,x)=>a+totalOver(x.r,x.r.ob),0);
-  const sav=sel.reduce((a,x)=>{const b=baseFee(x.r.pi,x.r.ob);return a+(b?(b-x.r.f[0])*1000*x.r.ob:0);},0);
+  const cnt=sel.reduce((a,x)=>a+x.q,0);
+  const mon=sel.reduce((a,x)=>a+x.r.f[0]*1000*x.q,0);
+  const tot=sel.reduce((a,x)=>a+totalOver(x.r,x.r.ob)*x.q,0);
+  const sav=sel.reduce((a,x)=>{const b=baseFee(x.r.pi,x.r.ob);return a+(b?(b-x.r.f[0])*1000*x.r.ob*x.q:0);},0);
+  try{sessionStorage.setItem('cart',JSON.stringify([...S.cart]));}catch(_){}
   el('tape').classList.toggle('show',sel.length>0);
-  el('sCnt').textContent=sel.length+'대';
+  el('sCnt').textContent=cnt+'대';
   el('sMon').textContent=won(mon);
   el('sTot').textContent=won(tot);
   el('sSave').textContent=sav>0?'−'+won(sav):'—';
@@ -1264,7 +1293,9 @@ function renderTape(){
   el('sTotSub').textContent=sel.length?(obs.length===1?obs[0]+'개월 기준':'의무기간 혼합'):'—';
 
   const msgs=[];
-  if(sel.length>=2&&!sel.some(x=>/^P/.test(x.r.rule))&&S.cust!=='교육기관')
+  if(cnt<2&&sel.some(x=>/^P/.test(x.r.rule)))
+    msgs.push('패키지 조건은 2대 이상 동시 계약일 때 적용됩니다. 한 대를 더 담거나 신규 조건으로 바꿔 주세요.');
+  if(cnt>=2&&!sel.some(x=>/^P/.test(x.r.rule))&&S.cust!=='교육기관')
     msgs.push('2대 이상 선택하셨습니다 — 패키지 규정으로 바꾸면 더 저렴할 수 있습니다.');
   if(sel.some(x=>/^J/.test(x.r.rule)))
     msgs.push('재렌탈 — 타사 전환은 직전 3개월 납부 증빙이 필요하며, 이체 명의가 신청자와 같아야 합니다.');
@@ -1276,12 +1307,14 @@ function renderTape(){
   el('tlist').innerHTML=sel.map(x=>`<div class="trow">
       <span class="r">${SIT[sitOf(x.r)].name}${isSelf(x.r)?' 자가관리':''}</span>
       <span class="n">${x.p[2]}<span class="cmeta num"> · 의무 ${x.r.ob}개월 · 등록비 0원</span></span>
-      <span class="p num">${won(x.r.f[0]*1000)}</span>
+      <span class="qty"><button data-q="-1" data-k="${x.k}" aria-label="한 대 줄이기">−</button><b class="num">${x.q}</b><button data-q="1" data-k="${x.k}" aria-label="한 대 늘리기">+</button></span>
+      <span class="p num">${won(x.r.f[0]*1000*x.q)}</span>
       <button class="x" data-k="${x.k}" aria-label="삭제">×</button></div>`).join('');
+  el('tlist').querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{const n=(S.cart.get(b.dataset.k)||1)+(+b.dataset.q); if(n<1) S.cart.delete(b.dataset.k); else S.cart.set(b.dataset.k,Math.min(n,20)); render();});
   el('tlist').querySelectorAll('.x').forEach(b=>b.onclick=()=>{S.cart.delete(b.dataset.k);render();});
 
   el('qsum').innerHTML = sel.length
-    ? `<b>${sel.length}대 선택 · 월 ${won(mon)}</b><br>${sel.map(x=>x.p[2]).join(' · ')}`
+    ? `<b>${cnt}대 선택 · 월 ${won(mon)}</b><br>${sel.map(x=>x.p[2]+(x.q>1?' × '+x.q+'대':'')).join(' · ')}`
     : '아직 담긴 제품이 없습니다. 위에서 제품을 먼저 골라주세요.';
 }
 
@@ -1334,6 +1367,7 @@ el('sendBtn').onclick=async()=>{
         memo=el('fMemo').value.trim(), agree=el('fAgree').checked;
   if(!selected().length) return alert('먼저 견적에 제품을 담아주세요.');
   if(!name||!phone)      return alert('이름과 연락처를 입력해 주세요.');
+  if(phone.replace(/\D/g,'').length<9) return alert('연락받으실 전화번호를 숫자로 정확히 입력해 주세요.');
   if(!agree)             return alert('개인정보 수집·이용에 동의해 주세요.');
   const adEl=el('fAdAgree');
   const payload={이름:name,연락처:phone,메모:memo,고객유형:S.cust||'',
@@ -1459,7 +1493,10 @@ const variantName=n=>{
   return [size,par].filter(Boolean).join(' · ')||'기본';
 };
 const xpRows=(pi,sit)=>rows(pi,{cust:'개인',sit,care:null,ob:null});
-const xpMin=pi=>{let m=null;XP_SITS.forEach(([s])=>{const r=xpRows(pi,s)[0];if(r&&(m===null||r.f[0]<m))m=r.f[0];});return m;};
+const xpMin=pi=>{const s=xpRows(pi,'S')[0]; if(s) return s.f[0]; let m=null;XP_SITS.forEach(([x])=>{const r=xpRows(pi,x)[0];if(r&&(m===null||r.f[0]<m))m=r.f[0];});return m;};
+/* 정가 비교는 같은 의무기간·같은 관리 방식의 일반(A) 요금끼리만 한다 */
+const xpBase=(pi,r)=>{const a=IDX.byProd[pi].filter(x=>/^A/.test(x.rule)&&!x.edu&&x.ob===r.ob&&isSelf(x)===isSelf(r)&&x.ins===r.ins);return a.length?Math.min(...a.map(x=>x.f[0])):null;};
+const careLabel=r=>isSelf(r)?'자가관리':'방문관리'+(r.ins?' '+r.ins+'개월 주기':'');
 function xpFams(g){
   const m=new Map();
   IDX.list.forEach(pi=>{
@@ -1480,16 +1517,18 @@ function xpOpen(root){
   const subs=XP_MAP[root].subs.filter(g=>xpFams(g).length);
   if(subs.length===1) XP.sub=subs[0];
   $xp('xp').hidden=false; document.documentElement.classList.add('xp-lock');
+  try{ if(!(history.state&&history.state.xp)) history.pushState({xp:1},''); }catch(_){}
   requestAnimationFrame(()=>{$xp('xp').classList.add('on'); xpDraw();});
   $xp('xpClose').focus();
 }
-function xpClose(){
+function xpClose(fromPop){
+  if(fromPop!==true){ try{ if(history.state&&history.state.xp){ history.back(); return; } }catch(_){} }
   $xp('xp').classList.remove('on'); document.documentElement.classList.remove('xp-lock');
   setTimeout(()=>{$xp('xp').hidden=true;},260);
 }
 function xpBack(){
   const subs=XP_MAP[XP.root].subs.filter(g=>xpFams(g).length);
-  if(XP.fam){XP.fam=null; xpDraw();}
+  if(XP.fam){XP.fam=null; $xp('xp').classList.remove('has-sheet'); xpDraw();}
   else if(XP.sub&&subs.length>1){XP.sub=null; xpDraw();}
   else xpClose();
 }
@@ -1502,7 +1541,7 @@ function xpDraw(){
     nodes=subs.map(g=>{const f=xpFams(g);return {t:'sub',id:g,label:gLabel(g),cap:f.length+'개 모델',img:(f.find(x=>x.img)||{}).img};});
   }else{
     center=gLabel(XP.sub);
-    const f=xpFams(XP.sub), max=narrow?7:9;
+    const f=xpFams(XP.sub), max=narrow?6:8;
     nodes=f.slice(0,f.length>max+1?max:f.length).map((x,i)=>({t:'fam',id:i,label:x.name,cap:'월 '+won(x.min*1000)+'부터',img:x.img}));
     if(f.length>max+1) nodes.push({t:'more',label:'전체 '+f.length+'개',cap:'계산기에서 보기'});
     XP._fams=f;
@@ -1526,17 +1565,17 @@ function xpDraw(){
 }
 function xpDetail(f){
   XP.fam=f; XP.pi=f.pis.find(pi=>IMG[DATA.p[pi][0]])??f.pis[0];
-  XP.sit=null; XP.k=null; xpSheet();
+  XP.sit=null; XP.k=null; $xp('xp').classList.add('has-sheet'); xpDraw();
 }
 function xpSheet(){
   const sh=$xp('xpSheet'); $xp('xp').classList.toggle('has-sheet',!!XP.fam);
   if(!XP.fam){sh.hidden=true; sh.innerHTML=''; return;}
   const f=XP.fam, pi=XP.pi, p=DATA.p[pi];
   const sits=XP_SITS.filter(([s])=>xpRows(pi,s).length);
-  if(!XP.sit||!sits.some(([s])=>s===XP.sit)) XP.sit=(sits.find(([s])=>s==='H')||sits[0])[0];
+  if(!XP.sit||!sits.some(([s])=>s===XP.sit)) XP.sit=(sits.find(([s])=>s==='S')||sits[0])[0];
   const rs=xpRows(pi,XP.sit);
   let cur=rs.find(r=>key(pi,r)===XP.k)||rs[0]; XP.k=key(pi,cur);
-  const base=baseFee(pi,cur.ob), inCart=S.cart.has(XP.k), inCmp=S.cmp.has(pi);
+  const base=xpBase(pi,cur), inCart=S.cart.has(XP.k), inCmp=S.cmp.has(pi);
   const src=IMG[p[0]]||f.img;
   sh.hidden=false;
   sh.innerHTML=`<button class="xs-x" id="xsX" aria-label="상세 닫기">×</button>
@@ -1545,27 +1584,30 @@ function xpSheet(){
     <p class="xs-k">${gLabel(f.grp)} · <span class="num">${p[1]||p[0]}</span></p>
     <h3>${f.name}</h3>
     ${f.pis.length>1?`<div class="xs-chips" id="xsVar">${f.pis.map(v=>`<button class="${v===pi?'on':''}" data-pi="${v}">${variantName(DATA.p[v][2])}</button>`).join('')}</div>`:''}
-    <div class="xs-seg" id="xsSit" role="tablist">${sits.map(([s,l])=>`<button role="tab" aria-selected="${s===XP.sit}" class="${s===XP.sit?'on':''}" data-s="${s}">${l}</button>`).join('')}</div>
+    ${sits.length>1?`<div class="xs-seg" id="xsSit" role="tablist">${sits.map(([s,l])=>`<button role="tab" aria-selected="${s===XP.sit}" class="${s===XP.sit?'on':''}" data-s="${s}">${l}</button>`).join('')}</div>`:`<p class="xs-one">${sits[0][1]} 조건</p>`}
     <div class="xs-price"><span class="u">월</span><b class="num">${won(cur.f[0]*1000)}</b>${base&&base>cur.f[0]?`<s class="num">${won(base*1000)}</s>`:''}</div>
-    <p class="xs-sub num">의무 ${cur.ob}개월 · ${isSelf(cur)?'자가관리':'방문관리'} · 의무기간 총액 ${won(totalOver(cur,cur.ob))} · 부가세 포함</p>
-    <div class="xs-opts" id="xsOpt">${rs.slice(0,6).map(r=>`<button class="${key(pi,r)===XP.k?'on':''}" data-k="${key(pi,r)}"><span class="num">의무 ${r.ob}개월 · ${isSelf(r)?'자가관리':'방문관리'}</span><b class="num">${won(r.f[0]*1000)}</b></button>`).join('')}</div>
-    <div class="xs-act"><button class="p" id="xsAdd">${inCart?'담김 · 빼기':'견적에 담기'}</button><button class="s" id="xsCmp">${inCmp?'비교에서 빼기':'비교에 담기'}</button></div>
-    ${S.cart.size?`<button class="xs-go" id="xsGo">견적 ${S.cart.size}대 담김 · 상담 신청으로 이동 ›</button>`:''}
-    <p class="xs-n">${XP.sit==='J'?'재렌탈은 직전 3개월 납부 증빙이 필요합니다. ':''}${XP.sit==='P'?'패키지는 2대 이상 동시 계약 조건입니다. ':''}등록비는 할인 적용 시 0원이며 사용 중 반환 시 발생합니다. 의무사용기간 내 해지 시 위약금이 발생할 수 있고, 최종 금액과 조건은 계약서 기준으로 확정됩니다.</p>
+    <p class="xs-sub num">${rs.length>1?'':`의무 ${cur.ob}개월 · ${careLabel(cur)} · `}의무기간 총액 ${won(totalOver(cur,cur.ob))} · 부가세 포함</p>
+    <div class="xs-opts" id="xsOpt"${rs.length>1?'':' hidden'}>${rs.slice(0,6).map(r=>`<button class="${key(pi,r)===XP.k?'on':''}" data-k="${key(pi,r)}"><span class="num">의무 ${r.ob}개월 · ${careLabel(r)}</span><b class="num">${won(r.f[0]*1000)}</b></button>`).join('')}</div>
+    <details class="xs-n"><summary>의무사용기간·위약금 등 유의사항</summary><p>${XP.sit==='J'?'재렌탈은 직전 3개월 납부 증빙이 필요합니다. ':''}${XP.sit==='P'?'패키지는 2대 이상 동시 계약 조건입니다. ':''}등록비는 할인 적용 시 0원이며 사용 중 반환 시 발생합니다. 의무사용기간 내 해지 시 위약금이 발생할 수 있고, 최종 금액과 조건은 계약서 기준으로 확정됩니다.</p></details>
+   </div>
+   <div class="xs-foot">
+    <div class="xs-act"><button class="p" id="xsAdd">${inCart?'담김 · 빼기':'견적에 담기'}</button><button class="s" id="xsCmp">${inCmp?'비교에서 빼기':(S.cmp.size>=3?'비교는 3개까지':'비교에 담기')}</button></div>
+    ${S.cart.size||S.cmp.size?`<div class="xs-go">${S.cart.size?`<button id="xsGo">견적 ${selected().reduce((a,x)=>a+x.q,0)}대 · 상담 신청 ›</button>`:''}${S.cmp.size?`<button id="xsCmpOpen">비교 보기 ${S.cmp.size}</button>`:''}</div>`:''}
    </div>`;
-  $xp('xsX').onclick=()=>{XP.fam=null; xpSheet();};
+  $xp('xsX').onclick=()=>{XP.fam=null; $xp('xp').classList.remove('has-sheet'); xpDraw();};
   sh.querySelectorAll('#xsVar button').forEach(b=>b.onclick=()=>{XP.pi=+b.dataset.pi; XP.k=null; xpSheet();});
   sh.querySelectorAll('#xsSit button').forEach(b=>b.onclick=()=>{XP.sit=b.dataset.s; XP.k=null; xpSheet();});
   sh.querySelectorAll('#xsOpt button').forEach(b=>b.onclick=()=>{XP.k=b.dataset.k; xpSheet();});
   $xp('xsAdd').onclick=()=>{ if(S.cart.has(XP.k)){S.cart.delete(XP.k);render();} else toggle(XP.k,true); xpSheet(); };
   $xp('xsCmp').onclick=()=>{ cmpToggle(pi); xpSheet(); };
-  const go=$xp('xsGo'); if(go) go.onclick=()=>{ xpClose(); const c=el('contact'); if(c) c.scrollIntoView({behavior:'smooth'}); };
+  const go=$xp('xsGo'); if(go) go.onclick=()=>{ xpClose(); setTimeout(()=>{const c=el('contact'); if(c) c.scrollIntoView({behavior:'smooth'});},320); };
+  const co=$xp('xsCmpOpen'); if(co) co.onclick=()=>{ $xp('cmp').hidden=false; cmpDraw(); };
 }
 
 /* ── 비교 ── */
 function cmpToggle(pi){
   if(S.cmp.has(pi)) S.cmp.delete(pi);
-  else{ if(S.cmp.size>=3){ const first=S.cmp.values().next().value; S.cmp.delete(first); } S.cmp.add(pi); }
+  else if(S.cmp.size<3) S.cmp.add(pi);
   renderCmp();
 }
 function renderCmp(){
@@ -1577,26 +1619,27 @@ function renderCmp(){
 function cmpDraw(){
   const ids=[...S.cmp];
   const col=pi=>{const p=DATA.p[pi], s=xpRows(pi,'S')[0], h=xpRows(pi,'H')[0], all=XP_SITS.flatMap(([x])=>xpRows(pi,x));
-    const best=[s,h].filter(Boolean).sort((a,b)=>a.f[0]-b.f[0])[0]||all[0];
+    const best=s||h||all[0];
     return {pi,p,s,h,best,obs:[...new Set(all.map(r=>r.ob))].sort((a,b)=>a-b),care:[...new Set(all.map(r=>isSelf(r)?'자가관리':'방문관리'))]};};
   const cs=ids.map(col);
   const row=(label,fn)=>`<tr><th scope="row">${label}</th>${cs.map(c=>`<td class="num">${fn(c)}</td>`).join('')}</tr>`;
   $xp('cmpBody').innerHTML=!cs.length?'<p class="cmp-empty">비교할 제품을 담아 주세요. 제품 상세나 견적 결과에서 <b>비교에 담기</b>를 누르면 최대 3개까지 나란히 볼 수 있습니다.</p>'
    :`<div class="cmp-scroll"><table><thead><tr><td></td>${cs.map(c=>`<th scope="col"><div class="cmp-ph">${photo(IMG[c.p[0]],c.p[2])}</div><b>${shortName(c.p[2])}</b><small>${gLabel(DATA.g[c.p[3]])} · ${variantName(c.p[2])}</small></th>`).join('')}</tr></thead><tbody>
-     ${row('신규 월 렌탈료',c=>c.s?`<b>${won(c.s.f[0]*1000)}</b><small>의무 ${c.s.ob}개월 · ${isSelf(c.s)?'자가':'방문'}</small>`:'—')}
-     ${row('이달 행사',c=>c.h?`<b class="hl">${won(c.h.f[0]*1000)}</b><small>의무 ${c.h.ob}개월 · ${isSelf(c.h)?'자가':'방문'}</small>`:'—')}
-     ${row('의무기간 총액',c=>c.best?`${won(totalOver(c.best,c.best.ob))}<small>최저 조건 ${c.best.ob}개월 기준</small>`:'—')}
+     ${row('신규 월 렌탈료',c=>c.s?`<b>${won(c.s.f[0]*1000)}</b><small>의무 ${c.s.ob}개월 · ${careLabel(c.s)}</small>`:'—')}
+     ${row('이달 행사',c=>c.h?`<b class="hl">${won(c.h.f[0]*1000)}</b><small>의무 ${c.h.ob}개월 · ${careLabel(c.h)}</small>`:'—')}
+     ${row('의무기간 총액',c=>c.best?`${won(totalOver(c.best,c.best.ob))}<small>${SIT[sitOf(c.best)].name} ${c.best.ob}개월 기준</small>`:'—')}
      ${row('의무 사용기간',c=>c.obs.map(o=>o+'개월').join(' · '))}
      ${row('관리 방식',c=>c.care.join(' · '))}
-     <tr><th scope="row"></th>${cs.map(c=>`<td><button class="cmp-add" data-k="${c.best?key(c.pi,c.best):''}">${c.best&&S.cart.has(key(c.pi,c.best))?'담김':'견적에 담기'}</button><button class="cmp-rm" data-pi="${c.pi}">빼기</button></td>`).join('')}</tr>
-   </tbody></table></div><p class="cmp-note">부가세 포함 월 렌탈료이며, 최저 조건 기준입니다. 고객 유형과 조건에 따라 달라질 수 있고 최종 금액은 계약서 기준으로 확정됩니다.</p>`;
-  $xp('cmpBody').querySelectorAll('.cmp-add').forEach(b=>b.onclick=()=>{ if(b.dataset.k){toggle(b.dataset.k,true); cmpDraw();} });
+     <tr><th scope="row"></th>${cs.map(c=>`<td><button class="cmp-add" data-k="${c.best?key(c.pi,c.best):''}">${c.best&&S.cart.has(key(c.pi,c.best))?'담김 · 빼기':'이 조건 담기'}</button><button class="cmp-rm" data-pi="${c.pi}">빼기</button></td>`).join('')}</tr>
+   </tbody></table></div><p class="cmp-note">부가세 포함 월 렌탈료이며, 표에 적힌 조건(의무기간·관리 방식) 기준입니다. 담기 버튼은 그 조건 그대로 견적에 넣습니다. 고객 유형과 조건에 따라 달라질 수 있고 최종 금액은 계약서 기준으로 확정됩니다.</p>`;
+  $xp('cmpBody').querySelectorAll('.cmp-add').forEach(b=>b.onclick=()=>{ if(!b.dataset.k) return; if(S.cart.has(b.dataset.k)){S.cart.delete(b.dataset.k);render();} else toggle(b.dataset.k,true); cmpDraw(); });
   $xp('cmpBody').querySelectorAll('.cmp-rm').forEach(b=>b.onclick=()=>cmpToggle(+b.dataset.pi));
 }
 function initXP(){
   document.querySelectorAll('[data-xp]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); e.stopPropagation(); xpOpen(a.dataset.xp);}));
   document.querySelectorAll('.hx-tile').forEach(t=>t.addEventListener('click',e=>{ if(!e.target.closest('a,button')&&XP_MAP[t.id]) xpOpen(t.id); }));
-  $xp('xpClose').onclick=xpClose; $xp('xpBack').onclick=xpBack;
+  $xp('xpClose').onclick=()=>xpClose(); $xp('xpBack').onclick=xpBack;
+  addEventListener('popstate',()=>{ if(!$xp('cmp').hidden) $xp('cmp').hidden=true; if(!$xp('xp').hidden) xpClose(true); });
   $xp('cmpPill').onclick=()=>{ $xp('cmp').hidden=false; cmpDraw(); };
   $xp('cmpClose').onclick=()=>{ $xp('cmp').hidden=true; };
   $xp('cmp').addEventListener('click',e=>{ if(e.target===$xp('cmp')) $xp('cmp').hidden=true; });
@@ -1610,7 +1653,9 @@ function initXP(){
   renderCmp();
 }
 
-reindex(); applyDeepLink(); renderHero(); render(); bindQuickPick(); initXP();
+reindex();
+try{ JSON.parse(sessionStorage.getItem('cart')||'[]').forEach(([k,q])=>{ try{ if(findRate(k)) S.cart.set(k,q||1); }catch(_){} }); }catch(_){}
+applyDeepLink(); renderHero(); render(); bindQuickPick(); initXP();
 if(S.cust) goQuote();
 
 }
