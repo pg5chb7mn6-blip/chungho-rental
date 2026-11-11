@@ -30,7 +30,9 @@ tools/                  빌드·검수 스크립트
 
 ## 규칙
 
-- 메인(`index.html`)은 애플 스타일 히어로 + 기존 견적 계산기 구조입니다. 계산기가 쓰는 id(`heroStart`, `hsProd`, `hsPromo`, `hsOff`, `heroMonth`, `flow`, `quote`)와 `data-qp` 빠른 견적 링크를 지우지 마십시오. 스킨은 `<style>` 맨 끝의 "리뉴얼 스킨" 블록입니다.
+- 메인(`index.html`)은 애플 스타일 히어로 + 기존 견적 계산기 구조입니다. 계산기가 쓰는 id(`heroStart`, `hsPromo`, `hsOff`, `heroMonth`, `flow`, `quote`)와 `data-qp` 빠른 견적 링크를 지우지 마십시오. 스킨은 `<style>` 맨 끝의 "리뉴얼 스킨" 블록입니다.
+- 제품 탐색(마인드맵)·상세 시트·비교는 `index.html` 스크립트의 `XP_MAP`, `xpOpen`, `xpSheet`, `cmpDraw` 입니다. 금액은 전부 `data.js` 에서 계산하며 화면에 숫자를 하드코딩하지 않습니다. 대표 타일의 모델을 바꾸려면 타일의 `data-code`(사무실 타일은 `data-codes`)만 바꾸면 됩니다.
+- 화면을 바꾼 뒤에는 `design-director`, 견적 동선을 바꾼 뒤에는 `sales-auditor` 에이전트로 검수합니다.
 - 제품 이미지는 제품 코드(`data.js` 의 `p[0]`)로 연결됩니다. `images.js` → `assets/products/` → 일러스트 순서입니다.
 
 - `blog/`, `sitemap.xml`, `rss.xml` 은 **생성물**입니다. 직접 수정하지 말고 `ops/posts/*.md` 를 고친 뒤 `python3 tools/build_blog.py` 를 실행합니다.
