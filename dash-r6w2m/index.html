@@ -70,6 +70,18 @@ small{font-size:11.5px;color:#4A5A78;font-weight:500;display:block}
 .wr small{display:inline;margin-left:3px}.wr>div:nth-child(2) small{display:block;margin:0}.wc{display:flex}
 .mdl .mh,.mdl .mr2{display:grid;grid-template-columns:110px 1fr 60px 190px;gap:10px;padding:8px 4px;border-bottom:1px solid #EEF2F9;align-items:center}.mdl .mh{font-weight:700;color:#4A5A78;font-size:12.5px}.mdl .mr2 span{color:#26365A}.mdl .mr2 .sbar{display:inline-block;width:70px;vertical-align:middle;margin-left:6px}
 .art{word-break:keep-all;overflow-wrap:break-word}.rs li,.si span,.nt2,.foot li{text-wrap:pretty}.rs li{margin:5px 0}
+/*mv-start*/
+.msw{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;padding:10px 32px;background:#F3F6FB;border-bottom:1px solid #DCE5F2}
+.msw .ml{font-weight:700;font-size:13px;color:#4A5A78;margin-right:4px}
+.msw .mn{margin-left:auto;font-size:12px;color:#4A5A78}
+.mb{font:inherit;font-size:13.5px;font-weight:600;border:1px solid #B3C6E6;background:#fff;color:#0F1E3C;border-radius:999px;padding:6px 16px;cursor:pointer}
+.mb.on{background:#1F4FA8;border-color:#1F4FA8;color:#fff}
+.seg{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.mv{display:none}.art.alt .mv{display:flex;flex-direction:column;gap:26px}.art.alt .s11,.art.alt .foot{display:none}
+.vr{display:grid;grid-template-columns:130px 1.5fr .8fr .9fr .9fr 1fr 1.3fr;gap:8px;padding:9px 6px;border-bottom:1px solid #E6EDF7;align-items:center;text-align:left}
+.vr.h{font-weight:700;color:#4A5A78;font-size:12.5px}.vr.tot{background:#F3F6FB;font-weight:700}
+.vr .bars{margin-bottom:2px}.vr small{display:block;margin:0}.vr .dl{display:inline;font-size:11.5px}
+/*mv-end*/
 </style></head><body><div class="art" id="art">
 <div class="hd"><div class="ch"><div class="hash">#</div><div><h1>잔디방 인입·응대 현황</h1><p class="sub">서부 · 동부 · 영남 · 호남 센터 · 본사 · 유베이스 접수 → 나이스엔지니어링 응대</p></div></div>
 <div class="asof"><div class="lab"><span class="dot"></span>최종 반영 기준</div><div class="big mono">2026-11-20(금) 마감</div><div class="nt">직전 조사 2026-11-13(금) 마감 이후 1주일분 반영 · 11월은 11/2~11/20(15영업일) 집계</div></div></div>
@@ -107,4 +119,156 @@ small{font-size:11.5px;color:#4A5A78;font-weight:500;display:block}
 <div class="c2"><h3>답변 퀄리티 점수 산식 (참고 지표)</h3><ul><li>조치·방법 25 + 일정·시점 25 + 진행 상태 15 + 원인·사유 15 + 고객 접점 10 + 분량 10 = 100점</li><li>60점 이상 충실, 35~59점 보통, 35점 미만 단순 답변. 인사·감사만 있는 글은 제외했습니다.</li><li>글의 내용만으로 계산해 실제 만족도와 다를 수 있습니다. 단순 전달 건의 짧은 답변은 낮게 나옵니다.</li></ul></div></div>
 </div>
 <script>(function(){var a=document.getElementById('art');function f(){var w=document.documentElement.clientWidth;a.style.zoom=Math.max(.6,Math.min(1,w/1280))}f();addEventListener('resize',f)})();</script>
+<script>(function(){
+var art=document.getElementById('art');if(!art)return;
+var MN=['8월','9월','10월','11월'],CN=['서부','동부','영남','호남'];
+/* 월별 값: [인입, 일평균, 재인입률%, 응답확인율%, 첫응답 중앙값(분)] */
+var D={
+'합계':[[301,15.1,15,85,8],[411,20.6,26,82,10],[299,14.9,31,83,8],[125,8.3,18,95,8]],
+'서부':[[80,4.0,19,91,27],[106,5.3,23,87,94],[75,3.8,23,89,68],[37,2.5,19,95,11]],
+'동부':[[88,4.4,10,78,8],[121,6.0,27,82,6],[75,3.8,29,84,5],[25,1.7,4,100,8]],
+'영남':[[72,3.6,22,88,6],[110,5.5,30,76,5],[115,5.8,35,78,4],[46,3.1,28,100,3]],
+'호남':[[61,3.0,7,82,10],[74,3.7,24,81,14],[34,1.7,38,85,13],[17,1.1,6,76,13]],
+'본사방':[[100,5.3,6,65,11],[108,5.4,12,75,11],[112,5.6,14,82,9],[78,5.2,14,83,9]]};
+/* 월평균 답변 퀄리티 점수 (월별 평균 점수 추이 그래프 값) */
+var SC={'서부':[41.5,43.9,48.8,55.9],'동부':[30.3,35.9,30.4,42.9],'영남':[37.4,42.4,42.7,47.7],'호남':[38.1,33.8,31.4,31.9],'본사방':[40.1,40.8,42.0,36.0]};
+/* 전체 기간(7/29~11/20): [평균 점수, 답변 건수, 모범답 대비 %] */
+var OV={'서부':[46.5,389,95],'동부':[33.5,428,69],'영남':[42.0,508,86],'호남':[34.8,268,72],'본사방':[40.0,798,83]};
+var ROWS=CN.concat(['합계','본사방']);
+function f1(x){return (Math.round(x*10)/10).toFixed(1)}
+function f0(x){return String(Math.round(x))}
+function dl(cur,prev,unit,good,dig){
+ if(prev==null)return '';var d=cur-prev;if(Math.abs(d)<0.05)return '';
+ var t=(d>0?'▲ ':'▼ ')+(dig?f1(Math.abs(d)):f0(Math.abs(d)))+unit;
+ if(!good)return ' <span class="dl" style="color:#4A5A78">'+t+'</span>';
+ return ' <span class="dl '+((d>0)==(good>0)?'up':'dn')+'">'+t+'</span>';}
+/* m: 0..3 월, 4 종합 */
+function get(name,m){
+ var a=D[name];
+ if(m<4){var c=a[m],p=m>0?a[m-1]:null;return {n:c[0],per:c[1],re:c[2],resp:c[3],med:c[4],pn:p&&p[0],pper:p&&p[1],pre:p&&p[2],presp:p&&p[3],pmed:p&&p[4]};}
+ var n=0,dy=0,re=0,rp=0,md=0;a.forEach(function(r){n+=r[0];dy+=Math.round(r[0]/r[1]);re+=r[0]*r[2];rp+=r[0]*r[3];md+=r[0]*r[4]});
+ return {n:n,per:n/dy,re:re/n,resp:rp/n,med:md/n};}
+function kc(l,v,p){return '<div class="kc"><div class="l"><span>'+l+'</span></div><div class="v">'+v+'</div><div class="p">'+p+'</div></div>'}
+function kpis(m){
+ var g=get('합계',m),h=get('본사방',m),all=m==4;
+ var s='<div class="kgrid" style="grid-template-columns:repeat(5,1fr)">';
+ s+=kc('인입 (센터 4곳)',f0(g.n)+'건','일평균 '+f1(g.per)+'건'+(all?' · 영업일 기준':dl(g.per,g.pper,'건',0,1)+(g.pper!=null?' <small style="display:inline">전월 '+f1(g.pper)+'건</small>':'')));
+ s+=kc('응답확인율',(all?f1(g.resp):f0(g.resp))+'%',all?'4개월 건수 가중평균':'전월 '+(g.presp!=null?g.presp+'%':'비교 없음')+dl(g.resp,g.presp,'%p',1,0));
+ s+=kc('첫 응답 중앙값',(all?f1(g.med):f0(g.med))+'분',all?'월별 중앙값의 건수 가중평균(참고)':'전월 '+(g.pmed!=null?g.pmed+'분':'비교 없음')+dl(g.med,g.pmed,'분',-1,0));
+ s+=kc('재인입률',(all?f1(g.re):f0(g.re))+'%',all?'4개월 건수 가중평균':'전월 '+(g.pre!=null?g.pre+'%':'비교 없음')+dl(g.re,g.pre,'%p',-1,0));
+ s+=kc('본사방 인입',f0(h.n)+'건','센터와 별도 · 응답확인율 '+f0(h.resp)+'% · 중앙값 '+f0(h.med)+'분');
+ return s+'</div>';}
+function tbl(m){
+ var all=m==4,mx=0;CN.forEach(function(c){mx=Math.max(mx,get(c,m).n)});
+ var s='<div class="pn"><h3 class="sech">센터별 현황<small>'+(all?'8월~11월(11/20까지) 합산 · 11월은 일부 기간':MN[m]+(m==3?' (11/2~11/20)':''))+'</small></h3><div class="vt">';
+ s+='<div class="vr h"><div>구분</div><div>인입</div><div>일평균</div><div>재인입률</div><div>응답확인율</div><div>첫 응답 중앙값</div><div>'+(all?'답변 점수(7/29~11/20)':'답변 점수(월평균)')+'</div></div>';
+ ROWS.forEach(function(nm){
+  var r=get(nm,m),isT=nm=='합계',sc=SC[nm];
+  var inb=isT?'<b>'+f0(r.n)+'건</b>':'<div class="bars"><div class="bar"><i class="n" style="width:'+Math.round(r.n/mx*100)+'%"></i></div></div><b>'+f0(r.n)+'건</b>'+(all?'':dl(r.n,r.pn,'건',0,0));
+  var scc;
+  if(isT)scc='<span style="color:#4A5A78">센터별로 확인</span>';
+  else if(all)scc='<b>'+f1(OV[nm][0])+'점</b><small>답변 '+OV[nm][1]+'건 · 모범답 대비 '+OV[nm][2]+'%</small>';
+  else scc='<b>'+f1(sc[m])+'점</b>'+dl(sc[m],m>0?sc[m-1]:null,'점',1,1);
+  s+='<div class="vr'+(isT?' tot':'')+'"><div class="wn">'+(isT?'센터 4곳 합계':nm=='본사방'?'본사방<small>센터와 별도</small>':nm+'센터')+'</div><div>'+inb+'</div>'
+   +'<div>'+f1(r.per)+'건'+(all?'':dl(r.per,r.pper,'건',0,1))+'</div>'
+   +'<div>'+(all?f1(r.re):f0(r.re))+'%'+(all?'':dl(r.re,r.pre,'%p',-1,0))+'</div>'
+   +'<div>'+(all?f1(r.resp):f0(r.resp))+'%'+(all?'':dl(r.resp,r.presp,'%p',1,0))+'</div>'
+   +'<div>'+(all?f1(r.med):f0(r.med))+'분'+(all?'':dl(r.med,r.pmed,'분',-1,0))+'</div><div>'+scc+'</div></div>';});
+ return s+'</div><p class="nt2">'+(all?'일평균은 월별 영업일(20·20·20·15일)로 나눈 값, 재인입률·응답확인율·첫 응답은 월별 값을 건수로 가중평균한 값입니다. 원자료가 아닌 월별 표시값 기준이라 소수점 차이가 있을 수 있습니다.':'▲▼는 전월 대비입니다. 파란색은 좋아진 쪽, 빨간색은 나빠진 쪽이고, 인입·일평균은 좋고 나쁨을 가르지 않아 회색입니다.')+'</p></div>';}
+/* 월 흐름 표 (종합) */
+var FL={'인입':function(n,i){return D[n][i][0]+'건'},'일평균':function(n,i){return f1(D[n][i][1])+'건'},'재인입률':function(n,i){return D[n][i][2]+'%'},'응답확인율':function(n,i){return D[n][i][3]+'%'},'첫 응답(분)':function(n,i){return D[n][i][4]+'분'},'답변 점수':function(n,i){return n=='합계'?'–':f1(SC[n][i])+'점'}};
+function flow(k){
+ var s='<div class="vr fl h" style="grid-template-columns:120px repeat(4,1fr)"><div>구분</div>'+MN.map(function(x,i){return '<div>'+x+(i==3?'*':'')+'</div>'}).join('')+'</div>';
+ ROWS.forEach(function(nm){var isT=nm=='합계';s+='<div class="vr fl'+(isT?' tot':'')+'" style="grid-template-columns:120px repeat(4,1fr)"><div class="wn">'+(isT?'센터 4곳 합계':nm=='본사방'?'본사방':nm+'센터')+'</div>'+[0,1,2,3].map(function(i){return '<div>'+FL[k](nm,i)+'</div>'}).join('')+'</div>'});
+ return s;}
+function rank(m,fn,desc){var a=CN.map(function(c){return {c:c,v:fn(c)}});a.sort(function(x,y){return desc?y.v-x.v:x.v-y.v});return a}
+function summary(m){
+ var g=get('합계',m),it=[],all=m==4;
+ var byN=rank(m,function(c){return get(c,m).n},1),byR=rank(m,function(c){return get(c,m).resp},0),byM=rank(m,function(c){return get(c,m).med},1),byRe=rank(m,function(c){return get(c,m).re},1);
+ if(!all){
+  var sc=rank(m,function(c){return SC[c][m]},1);
+  it.push(['인입','센터 4곳 인입은 '+g.n+'건(일평균 '+f1(g.per)+'건)입니다.'+(g.pper!=null?' 전월 일평균 '+f1(g.pper)+'건보다 '+(g.per>g.pper?'늘었습니다.':'줄었습니다.'):'')+' 가장 많은 센터는 '+byN[0].c+' '+get(byN[0].c,m).n+'건, 가장 적은 센터는 '+byN[3].c+' '+get(byN[3].c,m).n+'건입니다.']);
+  it.push(['응답','응답확인율은 '+g.resp+'%, 첫 응답 중앙값은 '+g.med+'분입니다.'+(g.presp!=null?' 응답확인율은 전월 '+g.presp+'%에서 '+(g.resp>g.presp?'올랐고':g.resp<g.presp?'내려갔고':'같고')+', 첫 응답은 전월 '+g.pmed+'분입니다.':'')+' 응답확인율이 가장 낮은 센터는 '+byR[0].c+'('+get(byR[0].c,m).resp+'%), 첫 응답이 가장 늦은 센터는 '+byM[0].c+'('+get(byM[0].c,m).med+'분)입니다.']);
+  it.push(['재인입','재인입률은 '+g.re+'%'+(g.pre!=null?'(전월 '+g.pre+'%)':'')+'입니다. 가장 높은 센터는 '+byRe[0].c+'('+get(byRe[0].c,m).re+'%)입니다.']);
+  it.push(['답변 퀄리티','월평균 점수는 '+sc.map(function(x){return x.c+' '+f1(x.v)}).join(' · ')+'점 순입니다.'+(m>0?' 전월보다 오른 센터는 '+(CN.filter(function(c){return SC[c][m]>SC[c][m-1]}).join('·')||'없음')+', 내려간 센터는 '+(CN.filter(function(c){return SC[c][m]<SC[c][m-1]}).join('·')||'없음')+'입니다.':'')]);
+ }else{
+  var a=D['합계'];
+  it.push(['인입','4개월(8월~11월 20일) 센터 4곳 인입은 '+g.n+'건, 일평균 '+f1(g.per)+'건입니다. 월별로는 '+a.map(function(r){return r[0]}).join(' → ')+'건이며, 일평균은 '+a.map(function(r){return f1(r[1])}).join(' → ')+'건입니다(11월은 15영업일).']);
+  it.push(['응답','응답확인율은 '+a.map(function(r){return r[3]}).join('% → ')+'%로 11월에 가장 높습니다. 첫 응답 중앙값은 '+a.map(function(r){return r[4]}).join(' → ')+'분입니다.']);
+  it.push(['재인입','재인입률은 '+a.map(function(r){return r[2]}).join('% → ')+'%로 10월에 가장 높았고 11월에 내려왔습니다.']);
+  var so=CN.slice().sort(function(x,y){return OV[y][0]-OV[x][0]});
+  it.push(['답변 퀄리티','전체 기간 평균 점수는 '+so.map(function(c){return c+' '+f1(OV[c][0])}).join(' · ')+'점 순입니다. 8월→11월 변화는 '+CN.map(function(c){var d=SC[c][3]-SC[c][0];return c+' '+(d>=0?'+':'')+f1(d)}).join(' · ')+'점입니다.']);
+ }
+ return '<div class="summ">'+it.map(function(x){return '<div class="si"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('')+'</div>';}
+function bl(a,e){return a.length?a:[e]}
+function review(nm,m){
+ var G=[],B=[],N=[],isH=nm=='본사방',all=m==4,a=D[nm],sc=SC[nm];
+ if(!all){
+  var r=get(nm,m),s=sc[m],ps=m>0?sc[m-1]:null;
+  if(ps!=null&&s-ps>=1)G.push('답변 점수가 '+f1(ps)+'점에서 '+f1(s)+'점으로 '+f1(s-ps)+'점 올랐습니다.');
+  if(ps!=null&&s-ps<=-1)B.push('답변 점수가 '+f1(ps)+'점에서 '+f1(s)+'점으로 '+f1(ps-s)+'점 내려갔습니다.');
+  if(!isH){var rk=rank(m,function(c){return SC[c][m]},1);if(rk[0].c==nm)G.push('센터 4곳 중 답변 점수가 가장 높습니다('+f1(s)+'점).');if(rk[3].c==nm)B.push('센터 4곳 중 답변 점수가 가장 낮습니다('+f1(s)+'점).');}
+  if(r.resp>=90)G.push('응답확인율 '+r.resp+'%로 90% 이상입니다.');else if(r.presp!=null&&r.resp-r.presp>=5)G.push('응답확인율이 '+r.presp+'%에서 '+r.resp+'%로 올랐습니다.');
+  if(r.resp<80)B.push('응답확인율이 '+r.resp+'%로 80% 아래입니다.');else if(r.presp!=null&&r.presp-r.resp>=5)B.push('응답확인율이 '+r.presp+'%에서 '+r.resp+'%로 내려갔습니다.');
+  if(r.med<=10)G.push('첫 응답 중앙값 '+r.med+'분으로 빠릅니다.');else if(r.pmed!=null&&r.pmed-r.med>=20)G.push('첫 응답이 '+r.pmed+'분에서 '+r.med+'분으로 빨라졌습니다.');
+  if(r.med>30)B.push('첫 응답 중앙값이 '+r.med+'분으로 깁니다.');else if(r.pmed!=null&&r.med-r.pmed>=20)B.push('첫 응답이 '+r.pmed+'분에서 '+r.med+'분으로 느려졌습니다.');
+  if(r.pre!=null&&r.pre-r.re>=5)G.push('재인입률이 '+r.pre+'%에서 '+r.re+'%로 내려갔습니다.');
+  if(r.re>=30)B.push('재인입률이 '+r.re+'%로 높은 편입니다(30% 이상).');else if(r.pre!=null&&r.re-r.pre>=5)B.push('재인입률이 '+r.pre+'%에서 '+r.re+'%로 올랐습니다.');
+  N.push('인입 '+r.n+'건(일평균 '+f1(r.per)+'건)'+(r.pper!=null?', 전월 일평균 '+f1(r.pper)+'건 대비 '+(r.per>=r.pper?'+':'-')+Math.round(Math.abs(r.per-r.pper)/r.pper*100)+'%':'')+'입니다.');
+  if(m==0)N.push('8월은 비교할 전월이 없어 절대 수치로만 봤습니다.');
+ }else{
+  var ov=OV[nm],d=sc[3]-sc[0],pk=function(i){var best=0;a.forEach(function(r,k){if(r[i]>a[best][i])best=k});return best};
+  if(d>=3)G.push('답변 점수가 8월 '+f1(sc[0])+'점에서 11월 '+f1(sc[3])+'점으로 '+f1(d)+'점 올랐습니다.');
+  if(d<=-3)B.push('답변 점수가 8월 '+f1(sc[0])+'점에서 11월 '+f1(sc[3])+'점으로 '+f1(-d)+'점 내려갔습니다.');
+  for(var i=1;i<4;i++){if(sc[i]-sc[i-1]<=-3)B.push(MN[i]+' 점수가 전월보다 '+f1(sc[i-1]-sc[i])+'점 내려갔습니다('+f1(sc[i-1])+'→'+f1(sc[i])+'점).')}
+  if(!isH){var o=CN.slice().sort(function(x,y){return OV[y][0]-OV[x][0]});if(o[0]==nm)G.push('전체 기간 답변 점수 '+f1(ov[0])+'점으로 센터 4곳 중 가장 높습니다(모범답 대비 '+ov[2]+'%).');if(o[3]==nm)B.push('전체 기간 답변 점수 '+f1(ov[0])+'점으로 센터 4곳 중 가장 낮습니다(모범답 대비 '+ov[2]+'%).');}
+  var rpk=pk(2),mpk=pk(4),avgResp=get(nm,4).resp;
+  if(a[3][2]<=20&&a[rpk][2]>=30)G.push('재인입률이 '+MN[rpk]+' '+a[rpk][2]+'%까지 올랐다가 11월 '+a[3][2]+'%로 내려왔습니다.');
+  if(a[rpk][2]>=30)B.push('재인입률이 '+MN[rpk]+'에 '+a[rpk][2]+'%로 가장 높았습니다.');
+  if(a[3][4]<=15&&a[mpk][4]>=30)G.push('첫 응답 중앙값이 '+MN[mpk]+' '+a[mpk][4]+'분까지 늘었다가 11월 '+a[3][4]+'분으로 줄었습니다.');
+  if(a[mpk][4]>=60)B.push('첫 응답 중앙값이 '+MN[mpk]+'에 '+a[mpk][4]+'분까지 길어졌습니다.');
+  if(a[3][3]>=90)G.push('11월 응답확인율 '+a[3][3]+'%입니다.');
+  if(avgResp<80)B.push('4개월 응답확인율이 평균 '+f1(avgResp)+'%로 낮은 편입니다.');else if(a[3][3]<80)B.push('11월 응답확인율이 '+a[3][3]+'%로 80% 아래입니다.');
+  N.push('4개월 인입 '+get(nm,4).n+'건(월별 '+a.map(function(r){return r[0]}).join(' → ')+'건, 11월은 11/20까지)입니다.');
+  N.push('월평균 점수 흐름은 '+sc.map(f1).join(' → ')+'점입니다.');
+ }
+ var ul=function(x){return '<ul>'+x.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>'};
+ return '<div class="rv"><div class="rvh"><b>'+(isH?'본사방':nm+'센터')+'</b><span>'+(all?'8월~11월 종합':MN[m])+(isH?' · 센터와 별도':'')+'</span></div><div class="rvg"><div class="rs"><h4>좋은 점</h4>'+ul(bl(G,'눈에 띄는 개선 지표는 없습니다.'))+'</div><div class="rs b"><h4>개선이 필요한 점</h4>'+ul(bl(B,'기준을 벗어난 지표는 없습니다.'))+'</div><div class="rs n"><h4>'+(all?'4개월 흐름':'이달 인입')+'</h4>'+ul(N)+'</div></div></div>';}
+function reviews(m){
+ return '<h2 class="sech" style="margin-top:6px">센터별 리뷰<small>'+(m==4?'8월~11월 종합':MN[m])+' · 좋은 점 / 개선 / '+(m==4?'흐름':'인입')+'</small></h2>'
+ +'<p class="nt2" style="margin:0 0 10px">8~10월은 문의 유형·담당자·‘왜/언제/어떻게’ 항목을 볼 원자료가 없어, 월별 지표(인입·재인입·응답·점수)의 증감으로만 정리했습니다. 문의 유형과 담당자까지 본 상세 리뷰는 11월 화면에 있습니다.</p>'
+ +CN.concat(['본사방']).map(function(n){return review(n,m)}).join('');}
+var staff=null;
+(function(){var h=Array.prototype.slice.call(document.querySelectorAll('h3.sech')).filter(function(x){return x.textContent.indexOf('담당자별 답변 기여도')==0})[0];if(h&&h.parentNode)staff=h.parentNode.cloneNode(true)})();
+var mv=document.createElement('section');mv.id='mview';mv.className='mv';
+var main=art.querySelector('.main');
+Array.prototype.forEach.call(main.children,function(c){if(c.tagName=='SECTION')c.classList.add('s11')});
+main.appendChild(mv);
+var fk='인입';
+function draw(k){
+ var m=k=='all'?4:(+k-8);
+ art.classList.toggle('alt',k!='11');
+ Array.prototype.forEach.call(document.querySelectorAll('#msw .mb'),function(b){b.className='mb'+(b.getAttribute('data-k')==k?' on':'')});
+ if(k=='11'){mv.innerHTML='';return}
+ var h='<section><h2 class="sech">한눈에 보기<small>센터 4곳 · '+(m==4?'8월~11월(11/20까지) 종합':MN[m]+' 한 달')+'</small></h2>'+kpis(m)+summary(m)+'</section>';
+ h+='<section>'+tbl(m)+'</section>';
+ if(m==4){
+  h+='<section><div class="pn"><h3 class="sech">월별 흐름<small>11월*은 11/20까지</small></h3><div class="seg" id="seg">'+Object.keys(FL).map(function(x){return '<button type="button" class="mb'+(x==fk?' on':'')+'" data-f="'+x+'">'+x+'</button>'}).join('')+'</div><div class="vt" id="flow">'+flow(fk)+'</div></div></section>';
+ }
+ h+='<section>'+reviews(m)+'</section>';
+ if(m==4&&staff)h+='<section id="staffslot"></section>';
+ h+='<div class="foot" style="margin:0;display:block"><h3>집계 기준</h3><ul><li>인입·재인입·응답확인율·첫 응답 중앙값은 월별로 집계한 값이고, 11월은 11/2~11/20(15영업일)입니다.</li><li>답변 점수는 월별 평균(월별 평균 점수 추이 그래프와 같은 값)이며, 종합 점수는 전체 기간(7/29~11/20) 평균입니다.</li><li>산식과 점수 구간은 11월 화면 하단의 ‘답변 퀄리티 점수 산식’과 같습니다.</li></ul></div>';
+ mv.innerHTML=h;
+ if(m==4&&staff){var sl=document.getElementById('staffslot');if(sl)sl.appendChild(staff.cloneNode(true))}
+ var sg=document.getElementById('seg');
+ if(sg)sg.onclick=function(e){var t=e.target;if(t.getAttribute&&t.getAttribute('data-f')){fk=t.getAttribute('data-f');Array.prototype.forEach.call(sg.children,function(b){b.className='mb'+(b===t?' on':'')});document.getElementById('flow').innerHTML=flow(fk)}};
+}
+var bar=document.createElement('div');bar.className='msw';bar.id='msw';
+bar.innerHTML='<span class="ml">조회 기간</span>'+[['8','8월'],['9','9월'],['10','10월'],['11','11월'],['all','종합']].map(function(x){return '<button type="button" class="mb" data-k="'+x[0]+'">'+x[1]+(x[0]=='all'?'<small style="display:inline;color:inherit;opacity:.8"> 8~11월</small>':'')+'</button>'}).join('')+'<span class="mn">11월은 상세 화면, 8~10월·종합은 지표 중심 화면입니다</span>';
+art.insertBefore(bar,main);
+bar.onclick=function(e){var t=e.target;while(t&&t!==bar&&!(t.getAttribute&&t.getAttribute('data-k')))t=t.parentNode;if(!t||t===bar)return;var k=t.getAttribute('data-k');try{history.replaceState(null,'','#m='+k)}catch(x){}draw(k);try{window.scrollTo(0,0)}catch(x){}};
+var q=(location.hash.match(/m=(8|9|10|11|all)/)||[])[1]||'11';
+draw(q);
+})();
+</script>
 </body></html>
