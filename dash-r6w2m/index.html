@@ -81,6 +81,32 @@ small{font-size:11.5px;color:#4A5A78;font-weight:500;display:block}
 .vr{display:grid;grid-template-columns:130px 1.5fr .8fr .9fr .9fr 1fr 1.3fr;gap:8px;padding:9px 6px;border-bottom:1px solid #E6EDF7;align-items:center;text-align:left}
 .vr.h{font-weight:700;color:#4A5A78;font-size:12.5px}.vr.tot{background:#F3F6FB;font-weight:700}
 .vr .bars{margin-bottom:2px}.vr small{display:block;margin:0}.vr .dl{display:inline;font-size:11.5px}
+@media (max-width:820px){
+.art{width:100%}
+.hd{height:auto;padding:16px;flex-direction:column;align-items:flex-start;gap:12px}
+.hd h1{font-size:20px}.hd .sub{font-size:12px}.hd .hash{width:38px;height:38px;font-size:20px}
+.asof{max-width:100%;width:100%}.asof .big{font-size:18px;white-space:normal}
+.msw{padding:8px 16px;overflow-x:auto;white-space:nowrap;gap:6px}.msw .mn,.msw .ml{display:none}.mb{flex:none;padding:7px 14px}
+.main{padding:16px 16px 0;gap:22px}
+.sech{flex-wrap:wrap}
+.kgrid,.kgrid[style]{grid-template-columns:1fr 1fr!important}.kgrid .kc:last-child:nth-child(odd){grid-column:1/-1}
+.kc{min-height:0;padding:10px 12px}.kc .v{font-size:25px}
+.si{grid-template-columns:1fr;gap:2px}
+.row2,.rvg,.foot{grid-template-columns:1fr}
+.foot{margin:20px 16px 0}
+.qgrid{grid-template-columns:1fr 1fr}.qgrid .qc:last-child{grid-column:1/-1}
+.pn{overflow-x:auto;padding:14px}
+.wr{min-width:700px}.mr{min-width:520px}.ir{min-width:640px}.sr{min-width:660px}.mdl .mh,.mdl .mr2{min-width:520px}
+.catr{grid-template-columns:1fr}.bo{grid-template-columns:60px 1fr 60px}
+.rv{padding:14px}.rvh{flex-wrap:wrap;gap:4px 12px}
+.vr:not(.fl){grid-template-columns:1fr 1fr;gap:6px 12px;padding:12px 4px;min-width:0}
+.vr.h:not(.fl){display:none}
+.vr:not(.fl)>div:first-child{grid-column:1/-1;font-size:15px}
+.vr:not(.fl)>div[data-l]::before{content:attr(data-l);display:block;font-size:11px;font-weight:600;color:#4A5A78}
+.vr.fl{grid-template-columns:78px repeat(4,1fr)!important;gap:4px;padding:8px 2px;font-size:12.5px}
+.vr.fl .wn{font-size:12.5px}
+}
+.sh{font-size:11.5px;color:#1F4FA8;font-weight:600;margin:0 0 8px;position:sticky;left:0}
 /*mv-end*/
 </style></head><body><div class="art" id="art">
 <div class="hd"><div class="ch"><div class="hash">#</div><div><h1>잔디방 인입·응대 현황</h1><p class="sub">서부 · 동부 · 영남 · 호남 센터 · 본사 · 유베이스 접수 → 나이스엔지니어링 응대</p></div></div>
@@ -118,7 +144,7 @@ small{font-size:11.5px;color:#4A5A78;font-weight:500;display:block}
 <div class="foot"><div class="c1"><h3>집계 기준</h3><ul><li>잔디 5개 방(서부·동부·영남·호남·본사) 대화를 2026-11-20(금) 마감 기준으로 반영했습니다. 직전 조사(2026-11-13(금) 마감) 이후 데이터를 이어 붙였습니다.</li><li>응답확인율: 접수글에 나이스엔지니어링 댓글이 있거나 체크(✅) 반응이 있는 비율. 첫 응답은 근무시간(09~18시) 기준 분입니다.</li><li>11월은 11/2~11/20(15영업일)까지이며, 10월 한 달과 비교할 때는 일평균을 보세요.</li></ul></div>
 <div class="c2"><h3>답변 퀄리티 점수 산식 (참고 지표)</h3><ul><li>조치·방법 25 + 일정·시점 25 + 진행 상태 15 + 원인·사유 15 + 고객 접점 10 + 분량 10 = 100점</li><li>60점 이상 충실, 35~59점 보통, 35점 미만 단순 답변. 인사·감사만 있는 글은 제외했습니다.</li><li>글의 내용만으로 계산해 실제 만족도와 다를 수 있습니다. 단순 전달 건의 짧은 답변은 낮게 나옵니다.</li></ul></div></div>
 </div>
-<script>(function(){var a=document.getElementById('art');function f(){var w=document.documentElement.clientWidth;a.style.zoom=Math.max(.6,Math.min(1,w/1280))}f();addEventListener('resize',f)})();</script>
+<script>(function(){var a=document.getElementById('art');function f(){var w=document.documentElement.clientWidth;a.style.zoom=w<=820?1:Math.max(.6,Math.min(1,w/1280))}f();addEventListener('resize',f)})();</script>
 <script>(function(){
 var art=document.getElementById('art');if(!art)return;
 var MN=['8월','9월','10월','11월'],CN=['서부','동부','영남','호남'];
@@ -169,11 +195,11 @@ function tbl(m){
   if(isT)scc='<span style="color:#4A5A78">센터별로 확인</span>';
   else if(all)scc='<b>'+f1(OV[nm][0])+'점</b><small>답변 '+OV[nm][1]+'건 · 모범답 대비 '+OV[nm][2]+'%</small>';
   else scc='<b>'+f1(sc[m])+'점</b>'+dl(sc[m],m>0?sc[m-1]:null,'점',1,1);
-  s+='<div class="vr'+(isT?' tot':'')+'"><div class="wn">'+(isT?'센터 4곳 합계':nm=='본사방'?'본사방<small>센터와 별도</small>':nm+'센터')+'</div><div>'+inb+'</div>'
-   +'<div>'+f1(r.per)+'건'+(all?'':dl(r.per,r.pper,'건',0,1))+'</div>'
-   +'<div>'+(all?f1(r.re):f0(r.re))+'%'+(all?'':dl(r.re,r.pre,'%p',-1,0))+'</div>'
-   +'<div>'+(all?f1(r.resp):f0(r.resp))+'%'+(all?'':dl(r.resp,r.presp,'%p',1,0))+'</div>'
-   +'<div>'+(all?f1(r.med):f0(r.med))+'분'+(all?'':dl(r.med,r.pmed,'분',-1,0))+'</div><div>'+scc+'</div></div>';});
+  s+='<div class="vr'+(isT?' tot':'')+'"><div class="wn">'+(isT?'센터 4곳 합계':nm=='본사방'?'본사방<small>센터와 별도</small>':nm+'센터')+'</div><div data-l="인입">'+inb+'</div>'
+   +'<div data-l="일평균">'+f1(r.per)+'건'+(all?'':dl(r.per,r.pper,'건',0,1))+'</div>'
+   +'<div data-l="재인입률">'+(all?f1(r.re):f0(r.re))+'%'+(all?'':dl(r.re,r.pre,'%p',-1,0))+'</div>'
+   +'<div data-l="응답확인율">'+(all?f1(r.resp):f0(r.resp))+'%'+(all?'':dl(r.resp,r.presp,'%p',1,0))+'</div>'
+   +'<div data-l="첫 응답 중앙값">'+(all?f1(r.med):f0(r.med))+'분'+(all?'':dl(r.med,r.pmed,'분',-1,0))+'</div><div data-l="답변 점수">'+scc+'</div></div>';});
  return s+'</div><p class="nt2">'+(all?'일평균은 월별 영업일(20·20·20·15일)로 나눈 값, 재인입률·응답확인율·첫 응답은 월별 값을 건수로 가중평균한 값입니다. 원자료가 아닌 월별 표시값 기준이라 소수점 차이가 있을 수 있습니다.':'▲▼는 전월 대비입니다. 파란색은 좋아진 쪽, 빨간색은 나빠진 쪽이고, 인입·일평균은 좋고 나쁨을 가르지 않아 회색입니다.')+'</p></div>';}
 /* 월 흐름 표 (종합) */
 var FL={'인입':function(n,i){return D[n][i][0]+'건'},'일평균':function(n,i){return f1(D[n][i][1])+'건'},'재인입률':function(n,i){return D[n][i][2]+'%'},'응답확인율':function(n,i){return D[n][i][3]+'%'},'첫 응답(분)':function(n,i){return D[n][i][4]+'분'},'답변 점수':function(n,i){return n=='합계'?'–':f1(SC[n][i])+'점'}};
@@ -270,5 +296,6 @@ bar.onclick=function(e){var t=e.target;while(t&&t!==bar&&!(t.getAttribute&&t.get
 var q=(location.hash.match(/m=(8|9|10|11|all)/)||[])[1]||'11';
 draw(q);
 })();
-</script>
+
+(function(){function hint(){document.querySelectorAll('.pn').forEach(function(p){var h=p.querySelector(':scope>.sh');var o=p.scrollWidth>p.clientWidth+4;if(o&&!h){h=document.createElement('div');h.className='sh';h.textContent='좌우로 밀어서 볼 수 있어요';p.insertBefore(h,p.firstChild)}else if(!o&&h)h.remove()})}hint();addEventListener('resize',hint);addEventListener('load',hint);var b=document.getElementById('msw');if(b)b.addEventListener('click',function(){setTimeout(hint,50)})})();</script>
 </body></html>
